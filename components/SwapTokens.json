@@ -1,0 +1,362 @@
+
+  [
+    {
+      "name": "Wrapped Matic",
+      "tokenSimbol":"WMATIC",
+      "lpSymbol": "COFFEE-ORIGEN LP",
+      "suppply":1000000000,
+      "address":"0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889",
+      "url":"https://polygonscan.com/token/0x3E87675044594D033896B885D2BdAe9a38e3d536",
+      "lpAddresses": {
+          "97": "",
+          "56": ""
+        },
+      "icon":"",
+      "bsccan-link":"",
+      "apr": 0.5,
+      "deposit_fee": 0
+
+  },
+        {
+            "name": "Coffee Beans",
+            "tokenSimbol":"",
+            "lpSymbol": "COFFEE-ORIGEN LP",
+            "suppply":1000000000,
+            "address":"0x86009d87856cB313bB7DE0786872583700FDfDaB",
+            "url":"https://polygonscan.com/token/0x3E87675044594D033896B885D2BdAe9a38e3d536",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "XatruchCoin",
+            "tokenSimbol":"XTC",
+            "lpSymbol": "XTC-ORIGEN LP",
+            "suppply":21000000,
+            "address":"0xea59bb3484f63e4470bf3718d873a8349a1b7f08",
+            "url":"https://polygonscan.com/token/0xea59bb3484f63e4470bf3718d873a8349a1b7f08",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "Academy",
+            "tokenSimbol":"ACADEMY",
+            "lpSymbol": "ACADEMY-ORIGEN LP",
+            "suppply":100000000,
+            "address":"0xec1030d6d416538a9af51e21d1623c569dac3c3e",
+            "url":"https://polygonscan.com/token/0xec1030d6d416538a9af51e21d1623c569dac3c3e",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },        
+        {
+            "name": "Sharpie Token",
+            "tokenSimbol":"SHARPIE",
+            "lpSymbol": "SHARPIE-ORIGEN LP",
+            "suppply":21000000,
+            "address":"0x08366b81d1E5D6776cD4C23770212108B59375EC",
+            "url":"https://polygonscan.com/token/0x08366b81d1E5D6776cD4C23770212108B59375EChttps://polygonscan.com/token/0x08366b81d1E5D6776cD4C23770212108B59375EC",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "KundaliniCoin",
+            "tokenSimbol":"KLICK-ECO",
+            "lpSymbol": "KLICK-ECO-ORIGEN LP",
+            "suppply":33000000,
+            "address":"0x359C8fB2f5Fab811742E4F039C6200626D702f50",
+            "url":"https://polygonscan.com/token/0x359c8fb2f5fab811742e4f039c6200626d702f50",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "Coffee Lab",
+            "tokenSimbol":"",
+            "lpSymbol": "COFFEE-LAB-ORIGEN LP",
+            "suppply":50000000,
+            "address":"0x6E136f09c44127095832e65783B061dD2DB09cEB",
+            "url":"https://polygonscan.com/token/0x6E136f09c44127095832e65783B061dD2DB09cEB",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "Black Panther",
+            "tokenSimbol":"BPANTHER",
+            "lpSymbol": "BPANTHER-ORIGEN LP",
+            "suppply":21000000,
+            "address":"0xf21E69B0AcaEfD11eC59ffe54ba9Be31C0ae32DF",
+            "url":"https://polygonscan.com/token/0xf21E69B0AcaEfD11eC59ffe54ba9Be31C0ae32DF",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "E-Sport",
+            "tokenSimbol":"",
+            "lpSymbol": "ESPORTS-ORIGEN LP",
+            "suppply":21000000,
+            "address":"0xB41995cdb70C95241bD1535e5Fd583C403a9fF0a",
+            "url":"https://polygonscan.com/token/0xB41995cdb70C95241bD1535e5Fd583C403a9fF0a",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "Bread",
+            "tokenSimbol":"BREAD",
+            "lpSymbol": "BREAD-ORIGEN LP",
+            "suppply":21000000,
+            "address":"0xB41995cdb70C95241bD1535e5Fd583C403a9fF0a",
+            "url":"https://polygonscan.com/token/0xB41995cdb70C95241bD1535e5Fd583C403a9fF0a",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "FoodTech",
+            "tokenSimbol":"FOODTECH",
+            "lpSymbol": "FOODTECH-ORIGEN LP",
+            "suppply":40000000,
+            "address":"0xe372BBaC86142ECd1Df19BfCFCc5d09d4c2b4161",
+            "url":"https://polygonscan.com/token/0xe372BBaC86142ECd1Df19BfCFCc5d09d4c2b4161",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "Motor Token",
+            "tokenSimbol":"MOTOR",
+            "lpSymbol": "MOTOR-ORIGEN LP",
+            "suppply":25000000,
+            "address":"0x637D7502Fc155Cd645bcbbB5212990c5633b4e3f",
+            "url":"https://polygonscan.com/token/0x637D7502Fc155Cd645bcbbB5212990c5633b4e3f",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "Love Gift",
+            "tokenSimbol":"LOVE GIFT",
+            "lpSymbol": "LOVE GIFT-ORIGEN LP",
+            "suppply":1000000000,
+            "address":"0x84DFCC40122343d5474362fe7Ac871F0F9DB6640",
+            "url":"https://polygonscan.com/token/0x84DFCC40122343d5474362fe7Ac871F0F9DB6640",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "Banana",
+            "tokenSimbol":"BANANA",
+            "lpSymbol": "BANANA-ORIGEN LP",
+            "suppply":20000000,
+            "address":"0x1B272C9922923180f47A3fCB04520B4cF54892d4",
+            "url":"https://polygonscan.com/token/0x1B272C9922923180f47A3fCB04520B4cF54892d4",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "Travel",
+            "tokenSimbol":"TRAVEL",
+            "lpSymbol": "TRAVEL-ORIGEN LP",
+            "suppply":1000000000,
+            "address":"0x3E87675044594D033896B885D2BdAe9a38e3d536",
+            "url":"https://polygonscan.com/token/0x3E87675044594D033896B885D2BdAe9a38e3d536",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "Smart City",
+            "tokenSimbol":"SMART CITY",
+            "lpSymbol": "COFFEE-ORIGEN LP",
+            "suppply":200000000,
+            "address":"0xa4AC4bA07EC6402A0f862A1BDb5B6Ed43A31FDaC",
+            "url":"https://polygonscan.com/token/0xa4AC4bA07EC6402A0f862A1BDb5B6Ed43A31FDaC",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "Avocado",
+            "tokenSimbol":"",
+            "lpSymbol": "AVOCADO-ORIGEN LP",
+            "suppply":21000000,
+            "address":"0xd71D5c5acaa77180c196fFc4A32c2b3E88cF1885",
+            "url":"https://polygonscan.com/token/0xd71D5c5acaa77180c196fFc4A32c2b3E88cF1885",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "Palm Beach",
+            "tokenSimbol":"PALM BEACH",
+            "lpSymbol": "PALM BEACH-ORIGEN LP",
+            "suppply":30000000,
+            "address":"0xD847001DE8c99b0e5DEDb86F479EfFBF9Ce6A5De",
+            "url":"https://polygonscan.com/token/0x99838b99F81962e28ce25285a573A0eED5cbF256",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "Pineapple Cool",
+            "tokenSimbol":"",
+            "lpSymbol": "PINEAPPLE-ORIGEN LP",
+            "suppply":21000000,
+            "address":"0xb811F9CfAccaE0A99D0C11C1324a40a181202E01",
+            "url":"https://polygonscan.com/token/0xb811F9CfAccaE0A99D0C11C1324a40a181202E01",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        },
+        {
+            "name": "F1 Team",
+            "tokenSimbol":"F1 TEAM",
+            "lpSymbol": "F1 TEAM-ORIGEN LP",
+            "suppply":20000000,
+            "address":"0xF4889475143cE9395020B31c853Ff6082c0b229c",
+            "url":"https://polygonscan.com/token/0xF4889475143cE9395020B31c853Ff6082c0b229c",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        }
+        ,
+        {
+            "name": "Lollipop",
+            "tokenSimbol":"LOLLIPOP",
+            "lpSymbol": "LOLLIPOP-ORIGEN LP",
+            "suppply":21000000,
+            "address":"0xF4889475143cE9395020B31c853Ff6082c0b229c",
+            "url":"https://polygonscan.com/token/0xF4889475143cE9395020B31c853Ff6082c0b229c",
+            "lpAddresses": {
+                "97": "",
+                "56": ""
+              },
+            "icon":"",
+            "bsccan-link":"",
+            "apr": 0.5,
+            "deposit_fee": 0
+
+        }
+       
+    ]
