@@ -16,7 +16,7 @@ const Home = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dolorem rerum aspernatur dignissimos, molestias dicta rem.
               </p>
               <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                <Link href="/staking" className="inline-flex bg-zinc-500 justify-center hover:bg-zinc-700 text-white font-bold py-3 px-5 rounded items-center text-center">
+                <Link href="/mint" className="inline-flex bg-zinc-500 justify-center hover:bg-zinc-700 text-white font-bold py-3 px-5 rounded items-center text-center">
                   Mint NFT
                   <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -26,12 +26,12 @@ const Home = () => {
                     ></path>
                   </svg>
                 </Link>
-                <a
-                  href="#"
+                <Link
+                  href="staking"
                   className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-Zinc-900 rounded-lg border border-gray-300 hover:bg-gray-800 focus:ring-4 focus:ring-yellow-700 dark:text-black dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
                 >
                   Stake your NFT
-                </a>
+                </Link>
               </div>
               <div className="inline-flex justify-center items-center">
                 <img src="https://i.pinimg.com/originals/ac/3c/5a/ac3c5ae3d80f8a7449a252dd72d551a5.gif" alt="" />
