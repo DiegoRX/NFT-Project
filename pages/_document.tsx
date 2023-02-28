@@ -7,7 +7,7 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="shortcut icon"
-            href="https://coffee-beans-swap.vercel.app/CoffeeBeans-logo.png"
+            href="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
           />
           <script
             type="text/javascript"

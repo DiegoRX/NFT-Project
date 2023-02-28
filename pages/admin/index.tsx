@@ -6,7 +6,7 @@ import { useAuth } from 'hooks/useAuth';
 const PRODUCT_LIMIT = 60;
 const PRODUCT_OFFSET = 60;
 
-export default function Dashboard() {
+export default function Staking() {
     const auth = useAuth();
     console.log(auth)
   const products = useFetch(endPoints.products.getProducts(PRODUCT_LIMIT, PRODUCT_OFFSET));
@@ -29,10 +29,13 @@ export default function Dashboard() {
 
   return (
     <>
-    {(auth.user)?<>user: {auth.user.email} logged</>:<></>}
-    <div>Your benefits</div>
-    <div>NFT</div>
-    <div>Announcements</div>
+Listado de usuarios
+usuarios que han stakeado
+listado de beneficios
+
+      
+
+ 
       {/* <Chart className="mb-8 mt-2" chartData={data} />
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

@@ -1,7 +1,7 @@
 import '../styles/global.css';
 import Layout from '@components/Layout/Layout';
 import 'semantic-ui-css/semantic.min.css';
-import { AppWrapper } from '../context/state';
+
 import { Web3ReactProvider } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
 import { MetamaskProvider } from 'hooks/useMetamask';
@@ -21,15 +21,15 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Coffee Beans Swap</title>
+        <title>NFT Project</title>
       </Head>
       <ProviderAuth>
         <MetamaskProvider>
-          <AppWrapper>
+     
             <Layout>
               <Component {...pageProps} />
             </Layout>
-          </AppWrapper>
+
         </MetamaskProvider>
       </ProviderAuth >
     </>
