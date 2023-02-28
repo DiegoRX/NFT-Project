@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Segment, Container } from 'semantic-ui-react';
 
-import TwitterCard from '@components/TwitterCard';
+
 import Image from 'next/image';
 import Link from 'next/link';
 

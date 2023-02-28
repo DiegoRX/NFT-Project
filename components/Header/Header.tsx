@@ -4,6 +4,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import getBlockchain from 'context/ethereum';
+import AuthData from 'common/interfaces/AuthData.interface';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', current: true },
@@ -20,7 +21,8 @@ function classNames(...classes) {
 
 
 export default function Header() {
-  const auth = useAuth();
+  const auth= useAuth();
+
 const [accounts, setAccounts] = useState([])
 const connectWallet = async () => {
   const {
@@ -31,11 +33,14 @@ const connectWallet = async () => {
     addresses,)
   setAccounts(accounts)
 }
-  const userData = {
-    name: auth?.user?.name,
-    email: auth?.user?.email,
-    imageUrl: `https://ui-avatars.com/api/?name=${auth?.user?.email}`,
+
+    const userData = {
+    name: (auth as any)?.user?.name,
+    email: (auth as any)?.user?.email,
+    imageUrl: `https://ui-avatars.com/api/?name=${(auth as any)?.user?.email}`,
   };
+
+
 
   return (
     <>
@@ -106,7 +111,7 @@ const connectWallet = async () => {
                           <Link href="/profile">
                             <button className="block px-4 py-2 text-sm text-gray-700">Profile</button>
                           </Link>
-                          <button onClick={() => auth.logout()} className="block px-4 py-2 text-sm text-gray-700">
+                          <button onClick={() => (auth as any).logout()} className="block px-4 py-2 text-sm text-gray-700">
                             Logout
                           </button>
                         </Menu.Items>
@@ -161,7 +166,7 @@ const connectWallet = async () => {
                       {item.name}
                     </Disclosure.Button>
                   ))}
-                    <button onClick={() => auth.logout()} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
+                    <button onClick={() => (auth as any).logout()} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
                             Logout
                           </button>
                 </div>

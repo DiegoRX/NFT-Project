@@ -1,19 +1,19 @@
 import React from "react";
-import Link from "next/link";
-import { useAppContext } from "context/state";
-import Image from "next/image";
+// import Link from "next/link";
+// import { useAppContext } from "context/state";
+// import Image from "next/image";
 
 const StatusButton = ({}) => {
-  let { status, setStatus } = useAppContext();
+  // let { status, setStatus } = useAppContext();
 
-  if (status == "Success.") {
-    setTimeout(() => {
-      setStatus("no-tx");
-    }, 3000);
-  }
+  // if (status == "Success.") {
+  //   setTimeout(() => {
+  //     setStatus("no-tx");
+  //   }, 3000);
+  // }
   return (
     <>
-      {status === "no-tx" ? (
+      {/* {status === "no-tx" ? (
         <></>
       ) : (
         <button
@@ -24,7 +24,7 @@ const StatusButton = ({}) => {
         >
           {status}
         </button>
-      )}
+      )} */}
     </>
   );
 };

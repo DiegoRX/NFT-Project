@@ -2,8 +2,9 @@ import React, { useState, useContext, createContext } from 'react';
 import Cookie from 'js-cookie';
 import axios from 'axios';
 import endPoints from 'services/api/';
+import AuthData from 'common/interfaces/AuthData.interface';
 
-const AuthContext = createContext();
+const AuthContext: React.Context<any>  = createContext('light');
 
 export function ProviderAuth({ children }) {
   const auth = useProvideAuth();
@@ -25,7 +26,8 @@ function useProvideAuth() {
       },
     };
     const { data } = await axios.post(endPoints.auth.login, { email, password });
-    setUser(data.user);
+    const userData : AuthData = data.user
+    setUser(userData);
     if (data) {
       const token = data.access_token;
       Cookie.set('token', token, { expires: 5 });
