@@ -1,4 +1,5 @@
 import detectEthereumProvider from '@metamask/detect-provider';
+import { useRouter } from 'next/router';
 
 const getBlockchain = () =>
    
@@ -14,7 +15,6 @@ const getBlockchain = () =>
             console.log('Ethereum successfully detected!')
 
             const addresses = await web3Provider.eth.getAccounts()
-
 
             resolve({
                 accounts,

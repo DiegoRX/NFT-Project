@@ -12,7 +12,7 @@ export default function MainLayout({ children }) {
     <>
       <div className="min-h-full">
         {!route || route === 'login' || route === 'login/register' || route === 'staking' || route === 'mint' ? <></> : <Header />}
-        {!route || route === 'login' || route === 'login/register' || route === 'staking' || route === 'mint' ? <></> : <Nav />}
+        {/* {!route || route === 'login' || route === 'login/register' || route === 'staking' || route === 'mint' ? <></> : <Nav />} */}
         {!route || route === 'login' || route === 'login/register' || route === 'staking' || route === 'mint' ? <PublicHeader /> : <></>}
         <main>
           <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">{children}</div>

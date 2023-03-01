@@ -40,7 +40,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "context/CalculateABY.js"  ],
+, "context/CalculateABY.js", "context/ethereum.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -49,14 +49,12 @@ export default function Mint() {
                     ></path>
                   </svg>
                 </Link>
-                
               </div>
               <div className="inline-flex justify-center items-center">
                 <img src="https://i.pinimg.com/originals/ac/3c/5a/ac3c5ae3d80f8a7449a252dd72d551a5.gif" alt="" />
               </div>
             </div>
           </div>
-          
         </div>
       </section>
     </>

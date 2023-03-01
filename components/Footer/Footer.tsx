@@ -1,16 +1,16 @@
-import React from "react";
-import Link from "next/link";
-import { Segment, Container, Grid, List, Header } from "semantic-ui-react";
+import React from 'react';
+import Link from 'next/link';
+import { Segment, Container, Grid, List, Header } from 'semantic-ui-react';
 
 const Footer = () => (
   <Segment
     vertical
     as="footer"
     style={{
-      padding: "4em 0em",
-      borderTop: "1px solid #f2f2f2",
-      backgroundColor: "",
-      marginTop: "180px",
+      padding: '4em 0em',
+      borderTop: '1px solid #f2f2f2',
+      backgroundColor: '',
+      marginTop: '180px',
     }}
   >
     <Container text>
@@ -39,20 +39,12 @@ const Footer = () => (
       </Grid>
       <div className="colophon">
         <p className="colophon-entry">
-          Made by{" "}
-          <a
-            target="_blank"
-            href="https://sharktechnology.dev/"
-            title="Freepik"
-          >
+          Made by{' '}
+          <a target="_blank" href="https://sharktechnology.dev/" title="Freepik">
             Shark Technology
           </a>
-          {" from "}
-          <a
-            target="_blank"
-            href="https://sharktechnology.dev/"
-            title="Flaticon"
-          >
+          {' from '}
+          <a target="_blank" href="https://sharktechnology.dev/" title="Flaticon">
             https://sharktechnology.dev/
           </a>
         </p>

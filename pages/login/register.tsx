@@ -1,28 +1,51 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import { LockClosedIcon } from '@heroicons/react/solid';
 import { useAuth } from 'hooks/useAuth';
 import { useRouter } from 'next/router';
+import getBlockchain from '@context/ethereum';
 
 const Login = () => {
   const emailRef = useRef(null);
+  const nameRef = useRef(null);
+  const phoneNumberRef = useRef(null);
+  const addressRef = useRef(null);
+  const cityRef = useRef(null);
+  const countryRef = useRef(null);
   const passwordRef = useRef(null);
   const auth = useAuth();
-  const router = useRouter()
+  const router = useRouter();
 
-  const submitHanlder = async (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
+    const walletAddress = auth.accounts[0];
     const email = emailRef.current.value;
+    const name = nameRef.current.value;
+    const phone = phoneNumberRef.current.value;
+    const address = addressRef.current.value;
+    const city = cityRef.current.value;
+    const country = countryRef.current.value;
     const password = passwordRef.current.value;
     auth
-      .signIn(email, password)
-      .then(() => {
-        router.push('/dashboard')
+      .register({
+        walletAddress,
+        email,
+        password,
+        name,
+        role: 'customer',
+        address,
+        phone,
+        city,
+        country,
       })
-      .catch(() => {
-        new Error('Login error');
-      });
-
+      .then(
+        auth
+        .signIn(email, password)
+        .then(() => {
+          router.push('/dashboard');
+        })
+ 
+      );
   };
 
   return (
@@ -31,14 +54,29 @@ const Login = () => {
         <div className="max-w-md w-full space-y-8">
           <div>
             <img className="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow" />
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Register with a new account</h2>
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Regístrate con una nueva cuenta</h2>
           </div>
-          <form className="mt-8 space-y-6" onSubmit={submitHanlder}>
+          <form className="mt-8 space-y-6" onSubmit={submitHandler}>
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
+                <label htmlFor="wallet-address" className="sr-only">
+                  Wallet Address
+                </label>
+                <input
+                  id="wallet-address"
+                  name="wallet-address"
+                  type="string"
+                  autoComplete="string"
+                  value={auth.accounts[0]}
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Wallet Address"
+                  ref={emailRef}
+                />
+              </div>
+              <div>
                 <label htmlFor="email-address" className="sr-only">
-                  Email address
+                  Email
                 </label>
                 <input
                   id="email-address"
@@ -47,8 +85,38 @@ const Login = () => {
                   autoComplete="email"
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Email address"
+                  placeholder="Email"
                   ref={emailRef}
+                />
+              </div>
+              <div>
+                <label htmlFor="name" className="sr-only">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="string"
+                  autoComplete="string"
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Name"
+                  ref={nameRef}
+                />
+              </div>
+              <div>
+                <label htmlFor="phone-number" className="sr-only">
+                  Número Telefónico
+                </label>
+                <input
+                  id="phone-number"
+                  name="phone-number"
+                  type="number"
+                  autoComplete="number"
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Phone Number"
+                  ref={phoneNumberRef}
                 />
               </div>
               <div>
@@ -66,20 +134,48 @@ const Login = () => {
                   ref={passwordRef}
                 />
               </div>
-            </div>
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                  Remember me
-                </label>
+              <div>
+                <input
+                  id="address"
+                  name="address"
+                  type="string"
+                  autoComplete="string"
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Address"
+                  ref={addressRef}
+                />
               </div>
-
-              <div className="text-sm">
-                <a href="/reset" className="font-medium text-indigo-600 hover:text-indigo-500">
-                  Forgot your password?
-                </a>
+              <div>
+                <label htmlFor="city" className="sr-only">
+                  City
+                </label>
+                <input
+                  id="city"
+                  name="city"
+                  type="string"
+                  autoComplete="string"
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="City"
+                  ref={cityRef}
+                />
+              </div>
+              <div>
+                <label htmlFor="country" className="sr-only">
+                  Country
+                </label>
+                <input
+                  id="country"
+                  name="country"
+                  type="string"
+                  autoComplete="string"
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Country"
+                  ref={countryRef}
+                />
               </div>
             </div>
 
@@ -91,7 +187,7 @@ const Login = () => {
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                   <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
                 </span>
-                Sign in
+                Regístrate
               </button>
             </div>
           </form>

@@ -5,7 +5,7 @@ import 'semantic-ui-css/semantic.min.css';
 import { Web3ReactProvider } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
 import { MetamaskProvider } from 'hooks/useMetamask';
-import { SessionProvider as AuthProvider} from "next-auth/react"
+import { SessionProvider as AuthProvider } from 'next-auth/react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Head from 'next/head';
 import '../styles/tailwind.css';
@@ -25,13 +25,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ProviderAuth>
         <MetamaskProvider>
-     
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </MetamaskProvider>
-      </ProviderAuth >
+      </ProviderAuth>
     </>
   );
 }

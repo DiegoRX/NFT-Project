@@ -12,6 +12,7 @@ const endPoints = {
   users:{
     getUsers: `${API}/users`,
     postUsers: `${API}/users`,
+    getUserByWalletAddress: `${API}/users/address/`,
   },  
   auth: {
     login: `${API}/auth/login`,

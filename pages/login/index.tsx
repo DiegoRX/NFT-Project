@@ -8,21 +8,20 @@ const Login = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const auth = useAuth();
-  const router = useRouter()
+  const router = useRouter();
 
   const submitHanlder = async (event) => {
     event.preventDefault();
-    const email = emailRef.current.value;
+    const email = auth.user.email;
     const password = passwordRef.current.value;
     auth
       .signIn(email, password)
       .then(() => {
-        router.push('/dashboard')
+        router.push('/dashboard');
       })
       .catch(() => {
         new Error('Login error');
       });
-
   };
 
   return (
@@ -45,6 +44,7 @@ const Login = () => {
                   name="email"
                   type="email"
                   autoComplete="email"
+                  value={auth.user.email}
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"

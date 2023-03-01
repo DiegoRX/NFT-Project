@@ -17,7 +17,31 @@ export const useAuth = () => {
 
 function useProvideAuth() {
   const [user, setUser] = useState(null);
+  const [accounts, setAccounts] = useState([]);
+  const getUser = async (address) => {
+    const options = {
+      headers: {
+        accept: '*/*',
+        'Content-Type': 'application/json',
+      },
+    };
+    const { data } = await axios.get(endPoints.users.getUserByWalletAddress+address);
+if(data){
+  setUser(data)
+  return data
+}
+  };
 
+  const register = async (payload) => {
+    const options = {
+      headers: {
+        accept: '*/*',
+        'Content-Type': 'application/json',
+      },
+    };
+    const { data } = await axios.post(endPoints.users.postUsers, payload);
+console.log(data)
+  };
   const signIn = async (email, password) => {
     const options = {
       headers: {
@@ -35,17 +59,21 @@ function useProvideAuth() {
       console.log(user);
     }
   };
-
   const logout = () => {
-      window.location.href = '/login';
+      window.location.href = '/';
     Cookie.remove('token');
     setUser(null);
+    setAccounts([])
     delete axios.defaults.headers.Authorization;
   };
 
   return {
     user,
     signIn,
+    register,
     logout,
+    accounts,
+    setAccounts,
+    getUser
   };
 }
