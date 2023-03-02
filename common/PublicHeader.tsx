@@ -13,8 +13,11 @@ export default function PublicHeader() {
     const { accounts, addresses } = await getBlockchain();
     console.log(accounts, addresses);
     auth.setAccounts(accounts);
-    const user = await auth.getUser(accounts[0]);
-    if (user) {
+
+   const {data:user} = await auth.getUser(accounts[0]);
+   auth.setUser(user)
+   console.log(user)
+    if (user.email) {
       router.push('/login');
     } else {
       router.push('/login/register');

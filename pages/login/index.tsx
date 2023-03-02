@@ -14,6 +14,7 @@ const Login = () => {
     event.preventDefault();
     const email = auth.user.email;
     const password = passwordRef.current.value;
+    console.log(email)
     auth
       .signIn(email, password)
       .then(() => {

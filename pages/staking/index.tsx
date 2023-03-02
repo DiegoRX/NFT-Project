@@ -1,32 +1,26 @@
-import endPoints from 'services/api';
-import useFetch from 'hooks/useFetch';
-import { Chart } from 'common/Chart';
 import { useAuth } from 'hooks/useAuth';
-import Link from 'next/link';
+import getBlockchain from '@context/ethereum';
+import router from 'next/router';
 
-const PRODUCT_LIMIT = 60;
-const PRODUCT_OFFSET = 60;
 
 export default function Staking() {
   const auth = useAuth();
-  console.log(auth);
-  const products = useFetch(endPoints.products.getProducts(PRODUCT_LIMIT, PRODUCT_OFFSET));
 
-  const categoryNames = products?.map((product) => product.category);
-  const categoryCount = categoryNames?.map((category) => category.name);
+  const connectWallet = async () => {
+    const { accounts, addresses } = await getBlockchain();
+    console.log(accounts, addresses);
+    auth.setAccounts(accounts);
 
-  const countOccurrences = (arr) => arr.reduce((prev, curr) => ((prev[curr] = ++prev[curr] || 1), prev), {});
-
-  const data = {
-    datasets: [
-      {
-        label: 'Categories',
-        data: countOccurrences(categoryCount),
-        borderWidth: 2,
-        backgroundColor: ['#ffbb11', '#c0c0c0', '#50AF95', 'f3ba2f', '#2a71d0'],
-      },
-    ],
+   const {data:user} = await auth.getUser(accounts[0]);
+   auth.setUser(user)
+   console.log(user)
+   if (user === undefined) {
+    router.push('/login/register');
+  } else if (user.email) {
+    router.push('/login');
+  }
   };
+
 
   return (
     <>
@@ -39,7 +33,7 @@ export default function Staking() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dolorem rerum aspernatur dignissimos, molestias dicta rem.
               </p>
               <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                <Link href="/login" className="inline-flex bg-zinc-500 justify-center hover:bg-zinc-700 text-white font-bold py-3 px-5 rounded items-center text-center">
+                <button onClick={connectWallet} className="inline-flex bg-zinc-500 justify-center hover:bg-zinc-700 text-white font-bold py-3 px-5 rounded items-center text-center">
                   Stake
                   <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -48,7 +42,7 @@ export default function Staking() {
                       clip-rule="evenodd"
                     ></path>
                   </svg>
-                </Link>
+                </button>
               </div>
               <div className="inline-flex justify-center items-center">
                 <img src="https://i.pinimg.com/originals/ac/3c/5a/ac3c5ae3d80f8a7449a252dd72d551a5.gif" alt="" />
