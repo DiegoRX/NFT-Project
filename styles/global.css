@@ -9,11 +9,12 @@ body {
 a {
     text-decoration: none !important;
 }
-a:hover {
-    color: #A9D7EE !important
-}
+
 .cream{
  background-color: #FFFFFF !important 
+}
+.hover-black-text:hover{
+  color: #000000 !important;
 }
 .general-container{
     margin: 0 auto;

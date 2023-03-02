@@ -7,30 +7,34 @@ import Link from 'next/link';
 const Home = () => {
   return (
     <div>
-      <section className="bg-white dark:bg-gray-900">
+      <section className="bg-gray-900">
         <div className="py-14 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <div className="sm:columns-1 md:columns-2 ">
             <div>
-              <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">Crypto Staking NFT</h1>
+              <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl dark:text-black">TOVA</h1>
               <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dolorem rerum aspernatur dignissimos, molestias dicta rem.
               </p>
               <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                <Link href="/mint" className="inline-flex bg-zinc-500 justify-center hover:bg-zinc-700 text-white font-bold py-3 px-5 rounded items-center text-center">
+                <Link href="/mint" className="inline-flex  bg-yellow justify-center hover:bg-amber-700 hover:text-white white-text font-bold py-3 px-5 rounded items-center text-center">
                   Mint NFT
                   <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     ></path>
                   </svg>
                 </Link>
-                <Link
-                  href="staking"
-                  className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-Zinc-900 rounded-lg border border-gray-300 hover:bg-gray-800 focus:ring-4 focus:ring-yellow-700 dark:text-black dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
-                >
+                <Link href="staking" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white  bg-amber-700 rounded-lg  hover:bg-yellow ">
                   Stake your NFT
+                  <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fillRule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
                 </Link>
               </div>
               <div className="inline-flex justify-center items-center">

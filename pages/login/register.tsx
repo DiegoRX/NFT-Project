@@ -4,6 +4,7 @@ import { LockClosedIcon } from '@heroicons/react/solid';
 import { useAuth } from 'hooks/useAuth';
 import { useRouter } from 'next/router';
 import getBlockchain from '@context/ethereum';
+import AuthData from 'common/interfaces/AuthData.interface';
 
 const Login = () => {
   const emailRef = useRef(null);
@@ -13,12 +14,12 @@ const Login = () => {
   const cityRef = useRef(null);
   const countryRef = useRef(null);
   const passwordRef = useRef(null);
-  const auth = useAuth();
+  const auth: AuthData = useAuth();
   const router = useRouter();
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    const walletAddress = auth.accounts[0];
+    const walletAddress = auth?.accounts[0];
     const email = emailRef.current.value;
     const name = nameRef.current.value;
     const phone = phoneNumberRef.current.value;
@@ -68,7 +69,7 @@ const Login = () => {
                   name="wallet-address"
                   type="string"
                   autoComplete="string"
-                  value={auth.accounts[0]}
+                  value={auth?.accounts[0]}
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Wallet Address"
                   ref={emailRef}

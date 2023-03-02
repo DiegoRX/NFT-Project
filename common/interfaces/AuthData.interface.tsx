@@ -1,6 +1,20 @@
 export default interface AuthData {
     user: {
-      name: string;
-      email: string;
-    }
+      walletAddress,
+      email,
+      password,
+      name,
+      role,
+      address,
+      phone,
+      city,
+      country,
+    },
+    signIn,
+    register,
+    logout,
+    accounts: Array<string>,
+    setAccounts,
+    getUser,
+    setUser
   }

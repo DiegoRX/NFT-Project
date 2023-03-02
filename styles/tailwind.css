@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.bg-yellow{
+    background-color: #EFB239;
+}
+.bg-orange{
+    background-color: #B36618;
+}
+.bg-bob{
+    background-color: #B36618;
+}
+.hover-black-text :hover{
+    color: #000000 !important;
+  }

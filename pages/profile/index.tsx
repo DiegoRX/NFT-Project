@@ -2,12 +2,13 @@ import endPoints from 'services/api';
 import useFetch from 'hooks/useFetch';
 import { Chart } from 'common/Chart';
 import { useAuth } from 'hooks/useAuth';
+import AuthData from 'common/interfaces/AuthData.interface';
 
 const PRODUCT_LIMIT = 60;
 const PRODUCT_OFFSET = 60;
 
 export default function profile() {
-  const auth = useAuth();
+  const auth: AuthData = useAuth();
 
   const products = useFetch(endPoints.products.getProducts(PRODUCT_LIMIT, PRODUCT_OFFSET));
 
@@ -34,31 +35,31 @@ export default function profile() {
   <dl className="divide-y divide-gray-200">
     <div className="py-4">
       <dt className="font-medium text-gray-500">Name</dt>
-      <dd className="mt-1 text-gray-900">{auth.user.name}</dd>
+      <dd className="mt-1 text-gray-900">{  auth?.user?.name}</dd>
     </div>
     <div className="py-4">
       <dt className="font-medium text-gray-500">Email</dt>
-      <dd className="mt-1 text-gray-900">{auth.user.email}</dd>
+      <dd className="mt-1 text-gray-900">{  auth?.user?.email}</dd>
     </div>
     <div className="py-4">
       <dt className="font-medium text-gray-500">Wallet Address</dt>
-      <dd className="mt-1 text-gray-900">{auth.user.walletAddress}</dd>
+      <dd className="mt-1 text-gray-900">{  auth?.user?.walletAddress}</dd>
     </div>
     <div className="py-4">
       <dt className="font-medium text-gray-500">Phone</dt>
-      <dd className="mt-1 text-gray-900">{auth.user.phone}</dd>
+      <dd className="mt-1 text-gray-900">{  auth?.user?.phone}</dd>
     </div>
     <div className="py-4">
       <dt className="font-medium text-gray-500">Address</dt>
-      <dd className="mt-1 text-gray-900">{auth.user.address}</dd>
+      <dd className="mt-1 text-gray-900">{  auth?.user?.address}</dd>
     </div>
     <div className="py-4">
       <dt className="font-medium text-gray-500">City</dt>
-      <dd className="mt-1 text-gray-900">{auth.user.city}</dd>
+      <dd className="mt-1 text-gray-900">{  auth?.user?.city}</dd>
     </div>
     <div className="py-4">
       <dt className="font-medium text-gray-500">Country</dt>
-      <dd className="mt-1 text-gray-900">{auth.user.country}</dd>
+      <dd className="mt-1 text-gray-900">{  auth?.user?.country}</dd>
     </div>
   </dl>
 </div>

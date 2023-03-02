@@ -2,10 +2,11 @@
 import { useAuth } from 'hooks/useAuth';
 import getBlockchain from '@context/ethereum';
 import router from 'next/router';
+import AuthData from 'common/interfaces/AuthData.interface';
 
 
 export default function Mint() {
-  const auth = useAuth();
+  const auth: AuthData = useAuth();
 
   const connectWallet = async () => {
     const { accounts, addresses } = await getBlockchain();
@@ -17,7 +18,7 @@ export default function Mint() {
    console.log(user)
     if (user === undefined) {
       router.push('/login/register');
-    } else if (user.email) {
+    } else if (user?.email) {
       router.push('/login');
     }
   };
@@ -38,9 +39,9 @@ export default function Mint() {
                   Mint NFT
                   <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     ></path>
                   </svg>
                 </button>

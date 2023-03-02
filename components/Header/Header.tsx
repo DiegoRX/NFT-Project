@@ -15,12 +15,12 @@ function classNames(...classes) {
 }
 
 export default function Header() {
-  const auth = useAuth();
+  const auth: AuthData = useAuth();
 
   const userData = {
-    name: (auth as any)?.user?.name,
-    email: (auth as any)?.user?.email,
-    imageUrl: `https://ui-avatars.com/api/?name=${(auth as any)?.user?.name}`,
+    name:   auth?.user?.name,
+    email:   auth?.user?.email,
+    imageUrl: `https://ui-avatars.com/api/?name=${  auth?.user?.name}`,
   };
 
   return (
@@ -46,24 +46,27 @@ export default function Header() {
                           {item.name}
                         </Link>
                       ))}
-                        {(auth.user.role != 'admin')?(<Link
+                      {/* {(  auth.user.role != 'admin')?(<Link
   
                           href='/dashboard/admin'
                           className={classNames(false ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
                           aria-current={undefined}
                         >
                           Admin
-                        </Link>):<></>}
+                        </Link>):<></>} */}
                     </div>
                   </div>
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-4 flex items-center md:ml-6">
-               
+                    {auth?.accounts ? (
                       <button className="text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:bg-indigo-600 font-medium rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-800">
-                        {auth.accounts[0].slice(0, 6)}...{auth.accounts[0].slice(-4)}
+                        {auth?.accounts[0]?.slice(0, 6)}...{auth?.accounts[0]?.slice(-4)}
                       </button>
-                  
+                    ) : (
+                      <div></div>
+                    )}
+
                     <button
                       type="button"
                       className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
@@ -93,7 +96,7 @@ export default function Header() {
                           <Link href="/profile">
                             <button className="block px-4 py-2 text-sm text-gray-700">Profile</button>
                           </Link>
-                          <button onClick={() => (auth as any).logout()} className="block px-4 py-2 text-sm text-gray-700">
+                          <button onClick={() =>   auth.logout()} className="block px-4 py-2 text-sm text-gray-700">
                             Logout
                           </button>
                         </Menu.Items>
@@ -133,7 +136,14 @@ export default function Header() {
                   <div className="ml-3">
                     <div className="text-base font-medium leading-none text-white">{userData.name}</div>
                     <div className="text-sm font-medium leading-none text-gray-400">{userData.email}</div>
-                    <div className="text-sm font-medium leading-none text-gray-400"> {auth.accounts[0].slice(0, 6)}...{auth.accounts[0].slice(-4)}</div> 
+                    {auth?.accounts ? (
+                      <div className="text-sm font-medium leading-none text-gray-400">
+                        {' '}
+                        {auth?.accounts[0]?.slice(0, 6)}...{auth?.accounts[0]?.slice(-4)}
+                      </div>
+                    ) : (
+                      <div></div>
+                    )}
                   </div>
                   <button
                     type="button"
@@ -144,13 +154,12 @@ export default function Header() {
                   </button>
                 </div>
                 <div className="mt-3 px-2 space-y-1">
-
                   {userNavigation.map((item) => (
                     <Disclosure.Button key={item.name} as="a" href={item.href} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
                       {item.name}
                     </Disclosure.Button>
                   ))}
-                  <button onClick={() => (auth as any).logout()} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
+                  <button onClick={() =>   auth.logout()} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
                     Logout
                   </button>
                 </div>

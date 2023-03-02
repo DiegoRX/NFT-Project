@@ -1,24 +1,12 @@
 import endPoints from 'services/api';
 import useFetch from 'hooks/useFetch';
-import { Chart } from 'common/Chart';
 import { useAuth } from 'hooks/useAuth';
-import { useEffect, useState } from 'react';
+import AuthData from 'common/interfaces/AuthData.interface';
 
-const PRODUCT_LIMIT = 60;
-const PRODUCT_OFFSET = 60;
 
 export default function Staking() {
-  const auth = useAuth();
-  // const [users, setUsers] = useState([])
+  const auth: AuthData = useAuth();
   const users = useFetch(endPoints.users.getUsers);
-  // useEffect(() => {
-
-  //   setUsers(users);
-  // });
-
-  const countOccurrences = (arr) => arr.reduce((prev, curr) => ((prev[curr] = ++prev[curr] || 1), prev), {});
-
-  console.log(users);
 
   return (
     <>
@@ -38,7 +26,7 @@ export default function Staking() {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {  users.map((user) => (
             <tr>
               <td className="border border-slate-700 ...">{user.name}</td>
               <td className="border border-slate-700 ...">{user.email}</td>
@@ -47,7 +35,7 @@ export default function Staking() {
               <td className="border border-slate-700 ...">{user.city}</td>
               <td className="border border-slate-700 ...">{user.country}</td>
               <td className="border border-slate-700 ...">{user.walletAddress}</td>
-              <td className="border border-slate-700 ...">{user.role}</td>
+              <td className="border border-slate-700 ...">{  user.role}</td>
 
             </tr>
           ))}

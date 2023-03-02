@@ -42,8 +42,14 @@ function useProvideAuth() {
       },
     };
 
-    const { data } = await axios.post(endPoints.users.postUsers, payload);
-    console.log(data);
+    try {
+      const resp = await axios.post(endPoints.users.postUsers, payload)
+console.log('Register successfull ',resp)
+      return switchCase(resp);
+    } catch (error) {
+      console.error('Register error ',error)
+      return switchCase(error.request);
+    }
   };
   const signIn = async (email, password) => {
     const options = {
