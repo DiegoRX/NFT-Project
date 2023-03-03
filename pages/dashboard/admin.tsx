@@ -10,7 +10,7 @@ export default function Staking() {
 
   return (
     <>
-      <h2 className="text-2xl font-bold text-gray-900 capitalize">Users Info</h2>
+      <h2 className="text-2xl font-bold text-zinc-900 capitalize">Users Info</h2>
       <table className="border-collapse border border-slate-500 ...">
         <thead>
           <tr>

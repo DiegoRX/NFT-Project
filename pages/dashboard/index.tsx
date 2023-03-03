@@ -4,7 +4,7 @@ export default function Dashboard() {
     <>
       <div className="sm:columns-1 md:columns-2 lg:columns-3 h-full">
         <div className="">
-          <h2 className="text-2xl font-bold text-gray-900 capitalize">Mint your NFT</h2>
+          <h2 className="text-2xl font-bold text-zinc-900 capitalize">Mint your NFT</h2>
           <div className=" items-center">
             <img className=" h-auto" src="https://i.pinimg.com/originals/ac/3c/5a/ac3c5ae3d80f8a7449a252dd72d551a5.gif" alt="" />
             <h3>In your Account: 0</h3>
@@ -12,7 +12,7 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="">
-          <h2 className="text-2xl font-bold text-gray-900 capitalize">Stake your NFT</h2>
+          <h2 className="text-2xl font-bold text-zinc-900 capitalize">Stake your NFT</h2>
           <div className=" items-center">
             <img className=" h-auto" src="https://i.pinimg.com/originals/ac/3c/5a/ac3c5ae3d80f8a7449a252dd72d551a5.gif" alt="" />
             <h3>In your Account: 0</h3>
@@ -20,7 +20,7 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="">
-          <h2 className="text-2xl font-bold text-gray-900 capitalize">Mint your NFT</h2>
+          <h2 className="text-2xl font-bold text-zinc-900 capitalize">Mint your NFT</h2>
           <div className=" items-center">
             <img className=" h-auto" src="https://i.pinimg.com/originals/ac/3c/5a/ac3c5ae3d80f8a7449a252dd72d551a5.gif" alt="" />
             <h3>In your Account: 0</h3>

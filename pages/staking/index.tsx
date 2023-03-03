@@ -25,16 +25,16 @@ export default function Staking() {
 
   return (
     <>
-      <section className="bg-white dark:bg-gray-900">
+  <section className="bg-grey-900 dark:bg-zinc-900 h-screen">
         <div className="py-14 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <div className="sm:columns-1 md:columns-2 ">
             <div>
-              <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">Stake your NFTs</h1>
+              <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl ">Stake your NFTs</h1>
               <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dolorem rerum aspernatur dignissimos, molestias dicta rem.
               </p>
               <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                <button onClick={connectWallet} className="inline-flex bg-zinc-500 justify-center hover:bg-zinc-700 text-white font-bold py-3 px-5 rounded items-center text-center">
+              <button onClick={connectWallet} className="inline-flex bg-amber-700 justify-center hover:bg-amber-600 text-white font-bold py-3 px-5 rounded items-center text-center">
                   Stake
                   <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path

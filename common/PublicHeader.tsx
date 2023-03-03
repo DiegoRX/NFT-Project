@@ -27,10 +27,10 @@ export default function PublicHeader() {
 
   console.log(auth?.accounts);
   return (
-    <nav className="bg-gray-900 px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0">
+    <nav className="bg-zinc-900 px-2 sm:px-4 py-2.5 dark:bg-zinc-900 fixed w-full z-20 top-0 left-0">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link href="/">
-          <img className="h-12 " src="https://tailwindui.com/img/logos/workflow-mark-yellow.svg" alt="Workflow" />
+          <img className="h-12 " src="https://sharktech-nft.vercel.app/TOVA.png" alt="Workflow" />
         </Link>
         <div className="flex md:order-2 ml-10 flex items-baseline space-x-4">
           <Link className="text-white hover:bg-gray-700 hover:text-grey px-3 py-2 rounded-md text-sm font-medium" href="/mint">
@@ -61,13 +61,13 @@ export default function PublicHeader() {
           {auth?.accounts && auth?.accounts.length > 0 ? (
             <Link
               href="/dashboard"
-              className="text-black bg-yellow hover:bg-amber-700 hover:text-white font-medium rounded-lg text-sm px-5 py-2 text-center mr-3"
+              className="text-black bg-yellow hover:bg-amber-600 hover:text-white font-medium rounded-lg text-sm px-3 py-2 text-center mr-3"
             >
               {auth?.accounts[0]?.slice(0, 6)}...{auth?.accounts[0]?.slice(-4)}
             </Link>
           ) : (
             <button
-              className="text-black bg-yellow  hover:bg-amber-700 hover:text-white font-medium rounded-lg text-sm px-5 py-2 text-center mr-3 "
+              className="text-black bg-yellow  hover:bg-amber-600 hover:text-white font-medium rounded-lg text-sm px-3 py-2 text-center mr-3 "
               onClick={connectWallet}
             >
               Connect Wallet

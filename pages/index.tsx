@@ -7,7 +7,7 @@ import Link from 'next/link';
 const Home = () => {
   return (
     <div>
-      <section className="bg-gray-900">
+      <section className="bg-zinc-900">
         <div className="py-14 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <div className="sm:columns-1 md:columns-2 ">
             <div>
@@ -16,7 +16,7 @@ const Home = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dolorem rerum aspernatur dignissimos, molestias dicta rem.
               </p>
               <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                <Link href="/mint" className="inline-flex  bg-yellow justify-center hover:bg-amber-700 hover:text-white white-text font-bold py-3 px-5 rounded items-center text-center">
+                <Link href="/mint" className="inline-flex  bg-yellow justify-center hover:bg-amber-600 hover:text-white white-text font-bold py-3 px-5 rounded items-center text-center">
                   Mint NFT
                   <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -26,7 +26,7 @@ const Home = () => {
                     ></path>
                   </svg>
                 </Link>
-                <Link href="staking" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white  bg-amber-700 rounded-lg  hover:bg-yellow ">
+                <Link href="staking" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white  bg-amber-700 rounded-lg  hover:bg-amber-600 ">
                   Stake your NFT
                   <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -122,7 +122,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <footer className="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+      <footer className="p-4 bg-zinc-900 rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © 2023{' '}
           <a href="https://sharktechnology.dev/" className="hover:underline">

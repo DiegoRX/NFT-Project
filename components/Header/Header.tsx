@@ -40,7 +40,7 @@ export default function Header() {
                         <Link
                           key={item.name}
                           href={item.href}
-                          className={classNames(item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
+                          className={classNames(item.current ? 'bg-zinc-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
                           aria-current={item.current ? 'page' : undefined}
                         >
                           {item.name}
@@ -49,7 +49,7 @@ export default function Header() {
                       {/* {(  auth.user.role != 'admin')?(<Link
   
                           href='/dashboard/admin'
-                          className={classNames(false ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
+                          className={classNames(false ? 'bg-zinc-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
                           aria-current={undefined}
                         >
                           Admin
@@ -121,7 +121,7 @@ export default function Header() {
                     key={item.name}
                     as="a"
                     href={item.href}
-                    className={classNames(item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium')}
+                    className={classNames(item.current ? 'bg-zinc-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium')}
                     aria-current={item.current ? 'page' : undefined}
                   >
                     {item.name}
