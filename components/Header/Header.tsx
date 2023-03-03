@@ -25,14 +25,14 @@ export default function Header() {
 
   return (
     <>
-      <Disclosure as="nav" className="bg-gray-800">
+      <Disclosure as="nav" className="bg-zinc-800">
         {({ open }) => (
           <>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between h-16">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
-                    <img className="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow" />
+                    <img className="h-8 w-8" src="https://sharktech-nft.vercel.app/TOVA.png" alt="Workflow" />
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-10 flex items-baseline space-x-4">
@@ -46,21 +46,21 @@ export default function Header() {
                           {item.name}
                         </Link>
                       ))}
-                      {/* {(  auth.user.role != 'admin')?(<Link
+                      {(  auth?.user?.role != 'admin')?(<Link
   
                           href='/dashboard/admin'
                           className={classNames(false ? 'bg-zinc-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
                           aria-current={undefined}
                         >
                           Admin
-                        </Link>):<></>} */}
+                        </Link>):<></>}
                     </div>
                   </div>
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-4 flex items-center md:ml-6">
                     {auth?.accounts ? (
-                      <button className="text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:bg-indigo-600 font-medium rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-800">
+                      <button className="text-black bg-yellow  hover:text-white focus:ring-4 focus:outline-none focus:bg-yellow font-medium rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 ">
                         {auth?.accounts[0]?.slice(0, 6)}...{auth?.accounts[0]?.slice(-4)}
                       </button>
                     ) : (

@@ -9,9 +9,9 @@ export default function Staking() {
   const users = useFetch(endPoints.users.getUsers);
 
   return (
-    <>
-      <h2 className="text-2xl font-bold text-zinc-900 capitalize">Users Info</h2>
-      <table className="border-collapse border border-slate-500 ...">
+    <div className='h-screen max-w-lg'>
+      <h2 className="text-white text-2xl font-bold text-zinc-900 capitalize">Users Info</h2>
+      <table className="text-white border-collapse border border-slate-500 max-w-lg">
         <thead>
           <tr>
             <th className="border border-slate-600 ...">Name</th>
@@ -41,6 +41,6 @@ export default function Staking() {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }

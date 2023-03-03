@@ -2,7 +2,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <div className="sm:columns-1 md:columns-2 lg:columns-3 h-full">
+      <div className="three-columns h-full">
         <div className="">
           <h2 className="text-2xl font-bold text-zinc-900 capitalize">Mint your NFT</h2>
           <div className=" items-center">

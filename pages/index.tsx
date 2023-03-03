@@ -122,7 +122,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <footer className="p-4 bg-zinc-900 rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+      <footer className="p-4 bg-zinc-900 rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-zinc-900">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © 2023{' '}
           <a href="https://sharktechnology.dev/" className="hover:underline">

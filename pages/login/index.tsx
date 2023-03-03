@@ -14,10 +14,11 @@ const Login = () => {
     event.preventDefault();
     const email = auth.user.email;
     const password = passwordRef.current.value;
-    console.log(email);
+    console.log(email,password);
     auth
       .signIn(email, password)
-      .then(() => {
+      .then((res) => {
+        console.log(email)
         router.push('/dashboard');
       })
       .catch(() => {
@@ -72,7 +73,7 @@ const Login = () => {
               </form>
               <div>
                 <button
-                  type="submit"
+                  onClick={submitHandler}
                   className="group relative w-full flex justify-center py-2 px-4  border-transparent text-lg font-medium rounded-md text-black bg-yellow hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Log In

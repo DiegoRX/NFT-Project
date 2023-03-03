@@ -29,46 +29,40 @@ export default function profile() {
   };
 
   return (
-    <>
-      <div className="bg-white rounded-lg shadow-lg p-6">
+    <div className='h-full '>
+      <div className="bg-zinc-800 rounded-lg shadow-lg mt-24 mb-44 p-6">
   <h2 className="text-lg font-medium mb-4">Profile</h2>
   <dl className="divide-y divide-gray-200">
     <div className="py-4">
-      <dt className="font-medium text-gray-500">Name</dt>
+      <dt className="font-medium text-white">Name</dt>
       <dd className="mt-1 text-zinc-900">{  auth?.user?.name}</dd>
     </div>
     <div className="py-4">
-      <dt className="font-medium text-gray-500">Email</dt>
+      <dt className="font-medium text-white">Email</dt>
       <dd className="mt-1 text-zinc-900">{  auth?.user?.email}</dd>
     </div>
     <div className="py-4">
-      <dt className="font-medium text-gray-500">Wallet Address</dt>
+      <dt className="font-medium text-white">Wallet Address</dt>
       <dd className="mt-1 text-zinc-900">{  auth?.user?.walletAddress}</dd>
     </div>
     <div className="py-4">
-      <dt className="font-medium text-gray-500">Phone</dt>
+      <dt className="font-medium text-white">Phone</dt>
       <dd className="mt-1 text-zinc-900">{  auth?.user?.phone}</dd>
     </div>
     <div className="py-4">
-      <dt className="font-medium text-gray-500">Address</dt>
+      <dt className="font-medium text-white">Address</dt>
       <dd className="mt-1 text-zinc-900">{  auth?.user?.address}</dd>
     </div>
     <div className="py-4">
-      <dt className="font-medium text-gray-500">City</dt>
+      <dt className="font-medium text-white">City</dt>
       <dd className="mt-1 text-zinc-900">{  auth?.user?.city}</dd>
     </div>
     <div className="py-4">
-      <dt className="font-medium text-gray-500">Country</dt>
+      <dt className="font-medium text-white">Country</dt>
       <dd className="mt-1 text-zinc-900">{  auth?.user?.country}</dd>
     </div>
   </dl>
 </div>
-
-
-
-
-
-
-    </>
+    </div>
   );
 }
