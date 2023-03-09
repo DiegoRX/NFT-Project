@@ -18,11 +18,12 @@ const endPoints = {
     login: `${API}/auth/login`,
     profile: `${API}/auth/profile`
   },
-  categories:{
-    getCategories: `${API}/categories`,
-    postCategories: `${API}/categories`,
-    getCategoriesProduct: (id) => `${API}/categories/${id}/products`,
-    putCategories: (id) => `${API}/categories/${id}`,
+  NFTS:{
+    getNFTS: `${API}/nft`,
+    getNFTSUsers: `${API}/nft/users`,
+    postNFTS: `${API}/nft`,
+    getNFTSProduct: (id) => `${API}/nft/${id}/user`,
+    putNFTS: (id) => `${API}/nft/${id}`,
   },
   files:{
     postFiles: `${API}/files/upload`,

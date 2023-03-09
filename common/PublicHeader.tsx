@@ -15,14 +15,14 @@ export default function PublicHeader() {
     console.log(accounts, addresses);
     auth.setAccounts(accounts);
 
-   const {data:user} = await auth.getUser(accounts[0]);
-   auth.setUser(user)
-   console.log(user)
-   if (user === undefined) {
-    router.push('/login/register');
-  } else if (user?.email) {
-    router.push('/login');
-  }
+    const { data: user } = await auth.getUser(accounts[0]);
+    auth.setUser(user);
+    console.log(user);
+     if (user === undefined) {
+      router.push('/login/register');
+    } else if (user?.email) {
+      router.push('/login');
+    }
   };
 
   console.log(auth?.accounts);
@@ -59,17 +59,11 @@ export default function PublicHeader() {
             </Link>
           )} */}
           {auth?.accounts && auth?.accounts.length > 0 ? (
-            <Link
-              href="/dashboard"
-              className="text-black bg-yellow hover:bg-amber-600 hover:text-white font-medium rounded-lg text-sm px-3 py-2 text-center mr-3"
-            >
+            <Link href="/dashboard" className="text-black bg-yellow hover:bg-amber-600 hover:text-white font-medium rounded-lg text-sm px-3 py-2 text-center mr-3">
               {auth?.accounts[0]?.slice(0, 6)}...{auth?.accounts[0]?.slice(-4)}
             </Link>
           ) : (
-            <button
-              className="text-black bg-yellow  hover:bg-amber-600 hover:text-white font-medium rounded-lg text-sm px-3 py-2 text-center mr-3 "
-              onClick={connectWallet}
-            >
+            <button className="text-black bg-yellow  hover:bg-amber-600 hover:text-white font-medium rounded-lg text-sm px-3 py-2 text-center mr-3 " onClick={connectWallet}>
               Connect Wallet
             </button>
           )}

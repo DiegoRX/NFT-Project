@@ -22,7 +22,7 @@ export default function Header() {
     email:   auth?.user?.email,
     imageUrl: `https://ui-avatars.com/api/?name=${  auth?.user?.name}`,
   };
-
+console.log()
   return (
     <>
       <Disclosure as="nav" className="bg-zinc-800">
@@ -46,7 +46,7 @@ export default function Header() {
                           {item.name}
                         </Link>
                       ))}
-                      {(  auth?.user?.role != 'admin')?(<Link
+                      {(  auth?.user?.role === "admin")?(<Link
   
                           href='/dashboard/admin'
                           className={classNames(false ? 'bg-zinc-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
