@@ -11,11 +11,11 @@ export default function Staking() {
   const users = useFetch(endPoints.users.getUsers);
   const nfts = useFetch(endPoints.NFTS.getNFTS);
   // console.log(nfts
-const {openNFTModal, openUserModal, openNewUserModal} = AdminModal()
+  const { openNFTModal, openUserModal, openNewUserModal } = AdminModal();
   return (
     <div className="h-screen max-w-lg">
       <h2 className="text-white text-2xl font-bold text-zinc-900 capitalize">Token list</h2>
- 
+
       <table className="text-white border-collapse border border-slate-500 max-w-lg">
         <thead>
           <tr>
@@ -46,7 +46,7 @@ const {openNFTModal, openUserModal, openNewUserModal} = AdminModal()
               <th className="border border-slate-600 ...">{nft.available.toString()}</th>
               <th className="border border-slate-600 ...">{nft.nfts.length}</th>
               <th className="border border-slate-600 ...">
-                <button onClick={() => openNFTModal(nft,usePut)}>
+                <button onClick={() => openNFTModal(nft, usePut)}>
                   <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fillRule="evenodd"
@@ -58,7 +58,7 @@ const {openNFTModal, openUserModal, openNewUserModal} = AdminModal()
               </th>
             </tr>
           ))}
-        </tbody> 
+        </tbody>
       </table>
       <h2 className="text-white text-2xl font-bold text-zinc-900 capitalize">Users Info</h2>
       <button className="text-black rounded-lg bg-mainDark" onClick={() => openNewUserModal()}>
@@ -80,7 +80,7 @@ const {openNFTModal, openUserModal, openNewUserModal} = AdminModal()
           </tr>
         </thead>
         <tbody>
-          {users.map((user,i) => (
+          {users.map((user, i) => (
             <tr key={i}>
               <td className="border border-slate-700 ...">{user.name}</td>
               <td className="border border-slate-700 ...">{user.email}</td>
@@ -114,4 +114,3 @@ const {openNFTModal, openUserModal, openNewUserModal} = AdminModal()
     </div>
   );
 }
-

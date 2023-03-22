@@ -18,7 +18,6 @@ const Login = () => {
     auth
       .signIn(email, password)
       .then(() => {
-
         router.push('/dashboard');
       })
       .catch(() => {

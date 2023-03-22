@@ -15,7 +15,7 @@ export default function MainLayout({ children }) {
         {!route || route === 'login' || route === 'login/register' || route === 'staking' || route === 'mint' ? <></> : <Header />}
         {/* {!route || route === 'login' || route === 'login/register' || route === 'staking' || route === 'mint' ? <></> : <Nav />} */}
         {!route || route === 'login' || route === 'login/register' || route === 'staking' || route === 'mint' ? <PublicHeader /> : <></>}
-        <main className='h-auto bg-mainDark'>
+        <main className="h-auto bg-mainDark">
           <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 bg-mainDark">{children}</div>
         </main>
       </div>

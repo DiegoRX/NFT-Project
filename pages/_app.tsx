@@ -1,7 +1,7 @@
 import '../styles/global.css';
 import Layout from '@components/Layout/Layout';
 import 'semantic-ui-css/semantic.min.css';
-import "antd";
+import 'antd';
 
 import { Web3ReactProvider } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
@@ -12,8 +12,8 @@ import Head from 'next/head';
 import '../styles/tailwind.css';
 import { AppProps } from 'next/app';
 import { ProviderAuth } from 'hooks/useAuth';
-import { Modal } from "../utils/model_utils";
-import { ModalWrapper } from "@components/molecules";
+import { Modal } from '../utils/model_utils';
+import { ModalWrapper } from '@components/molecules';
 import { useEffect } from 'react';
 
 function getLibrary(provider, connector) {

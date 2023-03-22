@@ -3,7 +3,6 @@ import getBlockchain from '@context/ethereum';
 import router from 'next/router';
 import AuthData from '@components/common/interfaces/AuthData.interface';
 
-
 export default function Staking() {
   const auth: AuthData = useAuth();
 
@@ -12,20 +11,19 @@ export default function Staking() {
     console.log(accounts, addresses);
     auth.setAccounts(accounts);
 
-   const {data:user} = await auth.getUser(accounts[0]);
-   auth.setUser(user)
-   console.log(user)
-   if (user === undefined) {
-    router.push('/login/register');
-  } else if (user?.email) {
-    router.push('/login');
-  }
+    const { data: user } = await auth.getUser(accounts[0]);
+    auth.setUser(user);
+    console.log(user);
+    if (user === undefined) {
+      router.push('/login/register');
+    } else if (user?.email) {
+      router.push('/login');
+    }
   };
-
 
   return (
     <>
-  <section className="bg-grey-900 dark:bg-mainDark h-screen">
+      <section className="bg-grey-900 dark:bg-mainDark h-screen">
         <div className="py-14 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <div className="sm:columns-1 md:columns-2 ">
             <div>
@@ -34,7 +32,7 @@ export default function Staking() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dolorem rerum aspernatur dignissimos, molestias dicta rem.
               </p>
               <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-              <button onClick={connectWallet} className="inline-flex bg-amber-700 justify-center hover:bg-amber-600 text-white font-bold py-3 px-5 rounded items-center text-center">
+                <button onClick={connectWallet} className="inline-flex bg-amber-700 justify-center hover:bg-amber-600 text-white font-bold py-3 px-5 rounded items-center text-center">
                   Stake
                   <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path

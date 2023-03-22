@@ -16,6 +16,9 @@ const Home = () => {
                 La primera colección nacional de NFTs estará basada en la tokenización de activos deportivos tangibles e intangibles, incluyendo bienes inmuebles y el metaverso. Estos activos se
                 mostrarán en los futuros estadios Arena Rojo que están planeados para ser construidos en varias ciudades alrededor del mundo.
               </p>
+              <p className="mb-8 text-lg font-bold text-rojo1 lg:text-xl sm:px-16 xl:px-48 ">
+                Elige la cantidad correcta de NFTs y consigue tus UTILITY, ROYALTY NFTs en unos pocos clics. ¡Vamos a traer la victoria juntos!
+              </p>
               <h2 className="text-gray-100">COMPRA NFT ROJO FOUNDER</h2>
               <Link href="staking" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-black  bg-white rounded-full  hover:bg-amber-600 ">
                 ¡COMPRAR AHORA!

@@ -19,7 +19,7 @@ const AdminModal = () => {
           //closes the modal
           Modal.close();
         },
-        data:  payload,
+        data: payload,
         usePut: usePut,
         update: () => {
           //update the current modal props any where from the application using
@@ -257,34 +257,33 @@ const AdminModal = () => {
       </>
     );
   };
-  const NFTModal = ({ callback, data,update, enableBottomSheet = false }: any) => {
+  const NFTModal = ({ callback, data, update, enableBottomSheet = false }: any) => {
     const nft = data;
     const [cookie, setCookie] = useState(null);
     const [enabled, setEnabled] = useState(nft.available);
-  async function getCookie() {
-    const token = await Cookie.get();
+    async function getCookie() {
+      const token = await Cookie.get();
 
-    setCookie(token.token);
-  }
-  const headers = {
-    Authorization: `Bearer ${cookie}`,
-  };
-  
-    async function putData(endpoint,payload) {
-      const response = await axios.put(endpoint,payload, { headers });
-      console.log(response.data.available)
-      setEnabled(response.data.available)
-      update()
+      setCookie(token.token);
     }
-    
+    const headers = {
+      Authorization: `Bearer ${cookie}`,
+    };
+
+    async function putData(endpoint, payload) {
+      const response = await axios.put(endpoint, payload, { headers });
+      console.log(response.data.available);
+      setEnabled(response.data.available);
+      update();
+    }
+
     const setAvailable = () => {
-    
       const endPoint = endPoints.NFTS.putNFT(nft.id);
-     const payload = {
+      const payload = {
         available: !enabled,
-      }
+      };
       putData(endPoint, payload);
-       console.log(endPoint, payload);
+      console.log(endPoint, payload);
     };
     console.log(nft);
     useEffect(() => {

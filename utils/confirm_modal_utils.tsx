@@ -1,5 +1,5 @@
 import { Button } from "antd";
-import { ConfirmationModalProps } from "../types/modal_props";
+import { ConfirmationModalProps } from "@components/molecules/modal.props";
 import { Modal } from "./model_utils";
 
 /**

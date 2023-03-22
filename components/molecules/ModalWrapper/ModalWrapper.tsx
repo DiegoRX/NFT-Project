@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { ModalProps } from "../modal.props";
+import React, { Component } from 'react';
+import { ModalProps } from '../modal.props';
 
-import { CustomBottomSheet } from "../Bottomsheet/Bottomsheet";
-import { ModalComponent } from "../Modal/Modal";
+import { CustomBottomSheet } from '../Bottomsheet/Bottomsheet';
+import { ModalComponent } from '../Modal/Modal';
 
 export interface ModalOpenParams extends ModalProps {
   component?: React.FC<any>;
@@ -51,10 +51,7 @@ export class ModalWrapper extends Component<{}, { modals: ModalOpenParams[] }> {
     }
   };
 
-  updateProps = (
-    { ...props }: { [key: string]: any },
-    index: number = this.state.modals.length - 1
-  ) => {
+  updateProps = ({ ...props }: { [key: string]: any }, index: number = this.state.modals.length - 1) => {
     const { modals } = this.state;
     modals[index].props = { ...modals[index].props, ...props };
     this.setState({ modals });
@@ -65,21 +62,8 @@ export class ModalWrapper extends Component<{}, { modals: ModalOpenParams[] }> {
 
     return modals.map((modal: ModalOpenParams, index: number) => {
       if (modal.enableBottomSheet) {
-        return (
-          <CustomBottomSheet
-            key={modal.id + "" + index}
-            closeModal={this.close}
-            {...modal}
-          />
-        );
-      } else
-        return (
-          <ModalComponent
-            key={modal.id + "" + index}
-            closeModal={this.close}
-            {...modal}
-          />
-        );
+        return <CustomBottomSheet key={modal.id + '' + index} closeModal={this.close} {...modal} />;
+      } else return <ModalComponent key={modal.id + '' + index} closeModal={this.close} {...modal} />;
     });
   }
 }

@@ -1,9 +1,7 @@
-
 import { useAuth } from 'hooks/useAuth';
 import getBlockchain from '@context/ethereum';
 import router from 'next/router';
 import AuthData from '@components/common/interfaces/AuthData.interface';
-
 
 export default function Mint() {
   const auth: AuthData = useAuth();
@@ -13,16 +11,15 @@ export default function Mint() {
     console.log(accounts, addresses);
     auth.setAccounts(accounts);
 
-   const {data:user} = await auth.getUser(accounts[0]);
-   auth.setUser(user)
-   console.log(user)
+    const { data: user } = await auth.getUser(accounts[0]);
+    auth.setUser(user);
+    console.log(user);
     if (user === undefined) {
       router.push('/login/register');
     } else if (user?.email) {
       router.push('/login');
     }
   };
-
 
   return (
     <>

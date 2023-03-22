@@ -18,7 +18,7 @@ export default function PublicHeader() {
     const { data: user } = await auth.getUser(accounts[0]);
     auth.setUser(user);
     console.log(user);
-     if (user === undefined) {
+    if (user === undefined) {
       router.push('/login/register');
     } else if (user?.email) {
       router.push('/login');

@@ -18,11 +18,11 @@ export default function Header() {
   const auth: AuthData = useAuth();
 
   const userData = {
-    name:   auth?.user?.name,
-    email:   auth?.user?.email,
-    imageUrl: `https://ui-avatars.com/api/?name=${  auth?.user?.name}`,
+    name: auth?.user?.name,
+    email: auth?.user?.email,
+    imageUrl: `https://ui-avatars.com/api/?name=${auth?.user?.name}`,
   };
-console.log()
+  console.log();
   return (
     <>
       <Disclosure as="nav" className="bg-header">
@@ -46,14 +46,17 @@ console.log()
                           {item.name}
                         </Link>
                       ))}
-                      {(  auth?.user?.role === "admin")?(<Link
-  
-                          href='/dashboard/admin'
+                      {auth?.user?.role === 'admin' ? (
+                        <Link
+                          href="/dashboard/admin"
                           className={classNames(false ? 'bg-mainDark text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
                           aria-current={undefined}
                         >
                           Admin
-                        </Link>):<></>}
+                        </Link>
+                      ) : (
+                        <></>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -96,7 +99,7 @@ console.log()
                           <Link href="/profile">
                             <button className="block px-4 py-2 text-sm text-gray-700">Profile</button>
                           </Link>
-                          <button onClick={() =>   auth.logout()} className="block px-4 py-2 text-sm text-gray-700">
+                          <button onClick={() => auth.logout()} className="block px-4 py-2 text-sm text-gray-700">
                             Logout
                           </button>
                         </Menu.Items>
@@ -159,7 +162,7 @@ console.log()
                       {item.name}
                     </Disclosure.Button>
                   ))}
-                  <button onClick={() =>   auth.logout()} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
+                  <button onClick={() => auth.logout()} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
                     Logout
                   </button>
                 </div>
