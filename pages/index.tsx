@@ -7,17 +7,22 @@ import Link from 'next/link';
 const Home = () => {
   return (
     <div>
-      <section className="bg-zinc-900">
+      <section className="bg-mainDark">
         <div className="py-14 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <div className="sm:columns-1 md:columns-2 ">
             <div>
-              <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl dark:text-black">TOVA</h1>
-              <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dolorem rerum aspernatur dignissimos, molestias dicta rem.
+              <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl dark:text-black">ROJO FOUNDER</h1>
+              <p className="mb-8 text-lg font-normal text-gray-100 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-100">
+                La primera colección nacional de NFTs estará basada en la tokenización de activos deportivos tangibles e intangibles, incluyendo bienes inmuebles y el metaverso. Estos activos se
+                mostrarán en los futuros estadios Arena Rojo que están planeados para ser construidos en varias ciudades alrededor del mundo.
               </p>
+              <h2 className="text-gray-100">COMPRA NFT ROJO FOUNDER</h2>
+              <Link href="staking" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-black  bg-white rounded-full  hover:bg-amber-600 ">
+                ¡COMPRAR AHORA!
+              </Link>
               <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                <Link href="/mint" className="inline-flex  bg-yellow justify-center hover:bg-amber-600 hover:text-white white-text font-bold py-3 px-5 rounded items-center text-center">
-                  Mint NFT
+                <button className="inline-flex  bg-mainDark justify-center hover:bg-transparent hover:text-white text-white font-bold py-3 px-5 rounded items-center text-center">
+                  METAMASK
                   <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fillRule="evenodd"
@@ -25,9 +30,9 @@ const Home = () => {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                </Link>
-                <Link href="staking" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white  bg-amber-700 rounded-lg  hover:bg-amber-600 ">
-                  Stake your NFT
+                </button>
+                <button className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white  bg-transparent rounded-lg  hover:bg-amber-600 ">
+                  WALLET CONNECT
                   <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fillRule="evenodd"
@@ -35,7 +40,7 @@ const Home = () => {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                </Link>
+                </button>
               </div>
               <div className="inline-flex justify-center items-center">
                 <img src="https://i.pinimg.com/originals/ac/3c/5a/ac3c5ae3d80f8a7449a252dd72d551a5.gif" alt="" />
@@ -122,7 +127,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <footer className="p-4 bg-zinc-900 rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-zinc-900">
+      <footer className="p-4 bg-mainDark rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-mainDark">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © 2023{' '}
           <a href="https://sharktechnology.dev/" className="hover:underline">

@@ -2,7 +2,7 @@ import React, { useState, useContext, createContext } from 'react';
 import Cookie from 'js-cookie';
 import axios from 'axios';
 import endPoints from 'services/api/';
-import AuthData from 'common/interfaces/AuthData.interface';
+import AuthData from '@components/common/interfaces/AuthData.interface';
 
 const AuthContext: React.Context<any> = createContext('light');
 
@@ -47,7 +47,7 @@ function useProvideAuth() {
 console.log('Register successfull ',resp)
       return switchCase(resp);
     } catch (error) {
-      console.error('Register error ',error)
+      console.log('Register error ',error)
       return switchCase(error.request);
     }
   };

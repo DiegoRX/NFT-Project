@@ -29,7 +29,7 @@ const Login = () => {
   return (
     <>
       <div className="h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className=" two-columns w-lg h-1/2 p-6  border border-gray rounded-lg shadow bg-zinc-800 dark:border-gray-700 ">
+        <div className=" two-columns w-lg h-1/2 p-6  border border-gray rounded-lg shadow bg-mainDark dark:border-gray-700 ">
           <div className="h-full flex items-center">
             <div className="flex flex-col h-56 justify-around">
               <div>
@@ -74,7 +74,7 @@ const Login = () => {
               <div>
                 <button
                   onClick={submitHandler}
-                  className="group relative w-full flex justify-center py-2 px-4  border-transparent text-lg font-medium rounded-md text-black bg-yellow hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="group relative w-full flex justify-center py-2 px-4  border-transparent text-lg font-medium rounded-md text-black bg-mainDark hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Log In
                 </button>

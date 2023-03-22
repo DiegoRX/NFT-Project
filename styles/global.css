@@ -6,6 +6,20 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.modal-container{
+  background-color: #1f2937;
+}
+.ant-modal-content {
+  height: 100%;
+  background-color: #1f2937 !important;
+}
+.ant-modal-body{
+  height: 100%;
+  background-color: #1f2937;
+}
+.ant-modal-close-x{
+  color:white
+}
 a {
     text-decoration: none !important;
 }
@@ -15,4 +29,7 @@ a {
 }
 .hover-black-text:hover{
   color: #000000 !important;
+}
+.bg-header{
+  background-image: linear-gradient(#B61E17, #0B0B0B)
 }

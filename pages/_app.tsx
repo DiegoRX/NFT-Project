@@ -1,6 +1,7 @@
 import '../styles/global.css';
 import Layout from '@components/Layout/Layout';
 import 'semantic-ui-css/semantic.min.css';
+import "antd";
 
 import { Web3ReactProvider } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
@@ -11,12 +12,19 @@ import Head from 'next/head';
 import '../styles/tailwind.css';
 import { AppProps } from 'next/app';
 import { ProviderAuth } from 'hooks/useAuth';
+import { Modal } from "../utils/model_utils";
+import { ModalWrapper } from "@components/molecules";
+import { useEffect } from 'react';
 
 function getLibrary(provider, connector) {
   return new Web3Provider(provider);
 }
+let globalModalRef: any;
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    Modal.registerModal(globalModalRef);
+  }, []);
   return (
     <>
       <Head>
@@ -27,6 +35,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <MetamaskProvider>
           <Layout>
             <Component {...pageProps} />
+            <ModalWrapper ref={(ref) => (globalModalRef = ref)} />
           </Layout>
         </MetamaskProvider>
       </ProviderAuth>

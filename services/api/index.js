@@ -20,10 +20,10 @@ const endPoints = {
   },
   NFTS:{
     getNFTS: `${API}/nft`,
-    getNFTSUsers: `${API}/nft/users`,
+    getNFTSUsers: `${API}/unique-nft`,
     postNFTS: `${API}/nft`,
     getNFTSProduct: (id) => `${API}/nft/${id}/user`,
-    putNFTS: (id) => `${API}/nft/${id}`,
+    putNFT: (id) => `${API}/nft/${id}`,
   },
   files:{
     postFiles: `${API}/files/upload`,

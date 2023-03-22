@@ -27,7 +27,7 @@ export default function PublicHeader() {
 
   console.log(auth?.accounts);
   return (
-    <nav className="bg-mainDark px-2 sm:px-4 py-2.5 dark:bg-mainDark fixed w-full z-20 top-0 left-0">
+    <nav className="bg-header px-2 sm:px-4 py-2.5 dark:bg-mainDark fixed w-full z-20 top-0 left-0">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link href="/">
           <img className="h-12 " src="https://sharktech-nft.vercel.app/TOVA.png" alt="Workflow" />
@@ -59,11 +59,11 @@ export default function PublicHeader() {
             </Link>
           )} */}
           {auth?.accounts && auth?.accounts.length > 0 ? (
-            <Link href="/dashboard" className="text-black bg-mainDark hover:bg-amber-600 hover:text-white font-medium rounded-lg text-sm px-3 py-2 text-center mr-3">
+            <Link href="/dashboard" className="text-black bg-rojo1 hover:bg-amber-600 hover:text-white font-medium rounded-lg text-sm px-3 py-2 text-center mr-3">
               {auth?.accounts[0]?.slice(0, 6)}...{auth?.accounts[0]?.slice(-4)}
             </Link>
           ) : (
-            <button className="text-black bg-mainDark  hover:bg-amber-600 hover:text-white font-medium rounded-lg text-sm px-3 py-2 text-center mr-3 " onClick={connectWallet}>
+            <button className="text-white bg-rojo1  hover:bg-amber-600 hover:text-white font-medium rounded-lg text-sm px-3 py-2 text-center mr-3 " onClick={connectWallet}>
               Connect Wallet
             </button>
           )}

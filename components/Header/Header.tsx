@@ -4,7 +4,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import getBlockchain from 'context/ethereum';
-import AuthData from 'common/interfaces/AuthData.interface';
+import AuthData from '@components/common/interfaces/AuthData.interface';
 import { useRouter } from 'next/router';
 
 const navigation = [{ name: 'Dashboard', href: '/dashboard', current: true }];
@@ -25,7 +25,7 @@ export default function Header() {
 console.log()
   return (
     <>
-      <Disclosure as="nav" className="bg-zinc-800">
+      <Disclosure as="nav" className="bg-header">
         {({ open }) => (
           <>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,7 +40,7 @@ console.log()
                         <Link
                           key={item.name}
                           href={item.href}
-                          className={classNames(item.current ? 'bg-zinc-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
+                          className={classNames(item.current ? 'bg-mainDark text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
                           aria-current={item.current ? 'page' : undefined}
                         >
                           {item.name}
@@ -49,7 +49,7 @@ console.log()
                       {(  auth?.user?.role === "admin")?(<Link
   
                           href='/dashboard/admin'
-                          className={classNames(false ? 'bg-zinc-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
+                          className={classNames(false ? 'bg-mainDark text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
                           aria-current={undefined}
                         >
                           Admin
@@ -60,7 +60,7 @@ console.log()
                 <div className="hidden md:block">
                   <div className="ml-4 flex items-center md:ml-6">
                     {auth?.accounts ? (
-                      <button className="text-black bg-yellow  hover:text-white focus:ring-4 focus:outline-none focus:bg-yellow font-medium rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 ">
+                      <button className="text-black bg-mainDark  hover:text-white focus:ring-4 focus:outline-none focus:bg-mainDark font-medium rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 ">
                         {auth?.accounts[0]?.slice(0, 6)}...{auth?.accounts[0]?.slice(-4)}
                       </button>
                     ) : (
@@ -121,7 +121,7 @@ console.log()
                     key={item.name}
                     as="a"
                     href={item.href}
-                    className={classNames(item.current ? 'bg-zinc-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium')}
+                    className={classNames(item.current ? 'bg-mainDark text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium')}
                     aria-current={item.current ? 'page' : undefined}
                   >
                     {item.name}

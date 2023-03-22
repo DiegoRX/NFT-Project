@@ -18,15 +18,10 @@ const getBlockchain = () =>
 
             resolve({
                 accounts,
-                addresses,
-          
-
             });
 
             return ({
                 accounts,
-                addresses,
-        
             });
         } else if (!provider) {
             alert('Install Metamask');

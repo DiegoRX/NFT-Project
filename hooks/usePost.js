@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookie from 'js-cookie';
 
-const useFetch = (endpoint) => {
+const usePost = (endpoint) => {
   const [data, setData] = useState([]);
   const [cookie, setCookie] = useState(null);
   async function getCookie() {
@@ -15,15 +15,15 @@ const useFetch = (endpoint) => {
   };
   
   
-  async function fetchData() {
-    const response = await axios.get(endpoint, { headers });
+  async function postData() {
+    const response = await axios.post(endpoint, { headers });
     setData(response.data);
   }
   
   useEffect(() => {
     getCookie();
     try {
-      fetchData();
+        postData();
     } catch (error) {
       console.log(error);
     }
@@ -32,4 +32,4 @@ const useFetch = (endpoint) => {
   return data;
 };
 
-export default useFetch;
+export default usePost;

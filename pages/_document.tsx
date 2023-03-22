@@ -17,6 +17,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <div id="user-info"></div>
         </body>
       </Html>
     );

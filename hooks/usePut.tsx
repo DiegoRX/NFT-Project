@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookie from 'js-cookie';
 
-const useFetch = (endpoint) => {
-  const [data, setData] = useState([]);
+const usePut = (endpoint,payload) => {
+  const [data, setData] = useState();
   const [cookie, setCookie] = useState(null);
   async function getCookie() {
     const token = await Cookie.get();
@@ -15,15 +15,15 @@ const useFetch = (endpoint) => {
   };
   
   
-  async function fetchData() {
-    const response = await axios.get(endpoint, { headers });
+  async function putData() {
+    const response = await axios.put(endpoint,payload, { headers });
     setData(response.data);
   }
   
   useEffect(() => {
     getCookie();
     try {
-      fetchData();
+        putData();
     } catch (error) {
       console.log(error);
     }
@@ -32,4 +32,4 @@ const useFetch = (endpoint) => {
   return data;
 };
 
-export default useFetch;
+export default usePut;

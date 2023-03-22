@@ -2,7 +2,7 @@
 import { useAuth } from 'hooks/useAuth';
 import getBlockchain from '@context/ethereum';
 import router from 'next/router';
-import AuthData from 'common/interfaces/AuthData.interface';
+import AuthData from '@components/common/interfaces/AuthData.interface';
 
 
 export default function Mint() {
@@ -26,7 +26,7 @@ export default function Mint() {
 
   return (
     <>
-      <section className="bg-grey-900 dark:bg-zinc-900 h-screen">
+      <section className="bg-grey-900 dark:bg-mainDark h-screen">
         <div className="py-14 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <div className="sm:columns-1 md:columns-2 ">
             <div>

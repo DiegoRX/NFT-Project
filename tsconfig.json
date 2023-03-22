@@ -10,10 +10,13 @@
         "context/*"
       ],
       "@util/*": [
-        "util/*"
+        "utils/*"
       ],
       "@config/*": [
         "config/*"
+      ],
+      "@types/*": [
+        "types/*"
       ],
     },    
     "target": "es5",
@@ -34,7 +37,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "strictNullChecks": false
+    "strictNullChecks": false,
   },
   "include": [
     "next-env.d.ts",
