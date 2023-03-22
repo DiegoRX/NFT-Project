@@ -33,3 +33,12 @@ a {
 .bg-header{
   background-image: linear-gradient(#B61E17, #0B0B0B)
 }
+.banner-container{
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+@media (max-width:639px) {
+  .banner-container{
+    display: block
+    }
+}

@@ -9,10 +9,10 @@ const Home = () => {
     <div>
       <section className="bg-mainDark">
         <div className="py-14 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
-          <div className="sm:columns-1 md:columns-2 ">
+          <div className="banner-container">
             <div>
               <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl dark:text-black">ROJO FOUNDER</h1>
-              <p className="mb-8 text-lg font-normal text-gray-100 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-100">
+              <p className="mb-8 text-lg font-normal text-gray-100 lg:text-xl ">
                 La primera colección nacional de NFTs estará basada en la tokenización de activos deportivos tangibles e intangibles, incluyendo bienes inmuebles y el metaverso. Estos activos se
                 mostrarán en los futuros estadios Arena Rojo que están planeados para ser construidos en varias ciudades alrededor del mundo.
               </p>
@@ -45,10 +45,10 @@ const Home = () => {
                   </svg>
                 </button>
               </div>
-              <div className="inline-flex justify-center items-center">
-                <img src="https://i.pinimg.com/originals/ac/3c/5a/ac3c5ae3d80f8a7449a252dd72d551a5.gif" alt="" />
-              </div>
             </div>
+              <div className="inline-flex justify-center items-center">
+                <img src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
+              </div>
           </div>
           <div>
             <iframe className="w-full aspect-video" src="https://www.youtube.com/embed/5CFDCTo0bLI"></iframe>
