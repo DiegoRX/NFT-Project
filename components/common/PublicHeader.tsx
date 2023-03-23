@@ -59,11 +59,11 @@ export default function PublicHeader() {
             </Link>
           )} */}
           {auth?.accounts && auth?.accounts.length > 0 ? (
-            <Link href="/dashboard" className="text-black bg-rojo1 hover:bg-amber-600 hover:text-white font-medium rounded-lg text-sm px-3 py-2 text-center mr-3">
+            <Link href="/dashboard" className="text-white bg-rojo1  hover:bg-black hover:text-black font-medium rounded-lg text-sm px-3 py-2 text-center mr-3">
               {auth?.accounts[0]?.slice(0, 6)}...{auth?.accounts[0]?.slice(-4)}
             </Link>
           ) : (
-            <button className="text-white bg-rojo1  hover:bg-amber-600 hover:text-white font-medium rounded-lg text-sm px-3 py-2 text-center mr-3 " onClick={connectWallet}>
+            <button className="text-white bg-rojo1  hover:bg-black hover:text-black font-medium rounded-lg text-sm px-3 py-2 text-center mr-3 " onClick={connectWallet}>
               Connect Wallet
             </button>
           )}

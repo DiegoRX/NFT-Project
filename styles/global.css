@@ -37,8 +37,17 @@ a {
 display: grid;
 grid-template-columns: 1fr 1fr;
 }
+.nft-info-img{
+  width: 20%;
+}
 @media (max-width:639px) {
   .banner-container{
     display: block
+    }
+    .nft-info-img{
+      width: 33.3%;      
+    }
+    .sm-none{
+      display: none;
     }
 }
