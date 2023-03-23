@@ -73,7 +73,7 @@ const Login = () => {
               <div>
                 <button
                   onClick={submitHandler}
-                  className="group relative w-full flex justify-center py-2 px-4  border-transparent text-lg font-medium rounded-md text-black bg-mainDark hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="group relative w-full flex justify-center py-2 px-4  border-transparent text-lg font-medium rounded-md text-white bg-rojo1 hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Log In
                 </button>
@@ -81,7 +81,7 @@ const Login = () => {
             </div>
           </div>
           <div className="flex h-full items-center">
-            <img className="mx-auto h-56 w-auto items-center" src="https://sharktech-nft.vercel.app/TOVA.png" alt="Workflow" />
+            <img className="mx-auto h-56 w-auto items-center" src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
           </div>
         </div>
       </div>

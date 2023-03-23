@@ -30,15 +30,15 @@ export default function PublicHeader() {
     <nav className="bg-header px-2 sm:px-4 py-2.5 dark:bg-mainDark fixed w-full z-20 top-0 left-0">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link href="/">
-          <img className="h-12 " src="https://sharktech-nft.vercel.app/TOVA.png" alt="Workflow" />
+          <img className="h-12 " src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
         </Link>
         <div className="flex md:order-2 ml-10 flex items-baseline space-x-4">
-          <Link className="text-white hover:bg-gray-700 hover:text-grey px-3 py-2 rounded-md text-sm font-medium" href="/mint">
+          {/* <Link className="text-white hover:bg-gray-700 hover:text-grey px-3 py-2 rounded-md text-sm font-medium" href="/mint">
             Mint
           </Link>
           <Link className="text-white hover:bg-gray-700 hover:text-grey px-3 py-2 rounded-md text-sm font-medium" href="/staking">
             Staking
-          </Link>
+          </Link> */}
           {/* {route === 'login' ? (
             <Link href="login/register">
               <button

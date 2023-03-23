@@ -5,7 +5,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="shortcut icon" href="https://sharktech-nft.vercel.app/TOVA.png" />
+          <link rel="shortcut icon" href="https://sharktech-nft.vercel.app/rojo-logo.png" />
           <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.5/web3.min.js"></script>
           <link
             rel="stylesheet"

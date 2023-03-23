@@ -53,7 +53,7 @@ const register = () => {
           <div className="h-full flex items-center">
             <div className="flex flex-col h-3/4 justify-around">
               <div>
-                <h2 className="mt-6 text-center text-3xl font-extrabold text-white">Wellcome to TOVA Platform</h2>
+                <h2 className="mt-6 text-center text-3xl font-extrabold text-white">Wellcome to ROJO FUNDADOR Platform</h2>
               </div>
               <form className="h-auto items-center" onSubmit={submitHandler}>
                 <input type="hidden" name="remember" defaultValue="true" />
@@ -181,7 +181,7 @@ const register = () => {
               <div>
                 <button
                   onClick={submitHandler}
-                  className="group relative w-full flex justify-center py-2 px-4  border-transparent text-lg font-medium rounded-md text-black bg-mainDark hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="group relative w-full flex justify-center py-2 px-4  border-transparent text-lg font-medium rounded-md text-white bg-rojo1 hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Register
                 </button>
@@ -189,7 +189,7 @@ const register = () => {
             </div>
           </div>
           <div className="flex h-full items-center">
-            <img className="mx-auto h-56 w-auto items-center" src="https://sharktech-nft.vercel.app/TOVA.png" alt="Workflow" />
+            <img className="mx-auto h-56 w-auto items-center" src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
           </div>
         </div>
       </div>
