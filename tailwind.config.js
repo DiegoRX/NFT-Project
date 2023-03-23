@@ -15,6 +15,7 @@ module.exports = {
         rojo2:'#800000',
         rojo3:'#690000',
         rojo4:'#440000',
+        gris:'#CCCCCC',
         ...colors,
       },
     },

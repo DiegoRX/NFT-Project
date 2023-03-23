@@ -40,6 +40,24 @@ grid-template-columns: 1fr 1fr;
 .nft-info-img{
   width: 20%;
 }
+.landing-cart{
+  background-color: #121212;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+.club-cart__container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.square{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
 @media (max-width:639px) {
   .banner-container{
     display: block
