@@ -47,11 +47,12 @@ grid-template-columns: 1fr 1fr;
   flex-direction: column;
   justify-content: center;
   text-align: left;
+  padding: 3px;
 }
 .club-cart__container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+
 }
 .square{
   display: grid;
@@ -67,5 +68,8 @@ grid-template-columns: 1fr 1fr;
     }
     .sm-none{
       display: none;
+    }
+    .club-cart__container{
+      display: block
     }
 }
