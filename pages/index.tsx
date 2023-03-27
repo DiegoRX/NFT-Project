@@ -3,8 +3,31 @@ import { Grid, Segment, Container } from 'semantic-ui-react';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import getBlockchain from '@context/ethereum';
+import AuthData from '@components/common/interfaces/AuthData.interface';
+import { useAuth } from 'hooks/useAuth';
+import { useRouter } from 'next/router';
 
 const Home = () => {
+  const router = useRouter();
+  const route = router.pathname.substring(1);
+  const auth: AuthData = useAuth();
+
+  const connectWallet = async () => {
+    const { accounts } = await getBlockchain();
+
+    auth.setAccounts(accounts);
+
+    const { data: user } = await auth.getUser(accounts[0]);
+    auth.setUser(user);
+    console.log(user);
+    if (user === undefined) {
+      router.push('/login/register');
+    } else if (user?.email) {
+      router.push('/login');
+    }
+  };
+  
   return (
     <div>
       {/* Hero */}
@@ -17,13 +40,13 @@ const Home = () => {
                 La primera colección nacional de NFTs estará basada en la tokenización de activos deportivos tangibles e intangibles, incluyendo bienes inmuebles y el metaverso. Estos activos se
                 mostrarán en los futuros estadios Arena Rojo que están planeados para ser construidos en varias ciudades alrededor del mundo.
               </p>
-              <p style={{padding:'0px'}} className="mb-8 text-lg font-bold text-rojo1 text-justify lg:text-xl sm:px-16 xl:px-48 ">
+              <p style={{ padding: '0px' }} className="mb-8 text-lg font-bold text-rojo1 text-justify lg:text-xl sm:px-16 xl:px-48 ">
                 Elige la cantidad correcta de NFTs y consigue tus UTILITY, ROYALTY NFTs en unos pocos clics. ¡Vamos a traer la victoria juntos!
               </p>
               <h2 className="text-gray-100 p-3">COMPRA NFT ROJO FOUNDER</h2>
-              <Link href="staking" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-black  bg-white rounded-full  hover:bg-amber-600 ">
+              <button onClick={connectWallet} className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-black  bg-white rounded-full  hover:bg-amber-600 ">
                 ¡COMPRAR AHORA!
-              </Link>
+              </button>
               <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                 <button className="inline-flex  bg-mainDark justify-center hover:bg-transparent hover:text-white text-white font-bold py-3 px-5 rounded items-center text-center">METAMASK</button>
                 <button className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white  bg-transparent rounded-lg  hover:bg-amber-600 ">
@@ -57,7 +80,9 @@ const Home = () => {
                 <h3 className="text-white text-4x1 p-2">40,000,000 UAH</h3>
                 <h2 className="text-rojo1 p-2">4x naval drones for the UNITED24</h2>
                 <p className="text-gris p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium deserunt facilis reprehenderit.</p>
-                <button className="p-2 inline-flex  bg-transparent border justify-center hover:bg-transparent text-rojo1 font-bold py-3 px-5 rounded items-center text-center">More on drone fleet</button>
+                <button className="p-2 inline-flex  bg-transparent border justify-center hover:bg-transparent text-rojo1 font-bold py-3 px-5 rounded items-center text-center">
+                  More on drone fleet
+                </button>
               </div>
             </div>
           </section>
@@ -200,12 +225,12 @@ const Home = () => {
             <p className="text-gris">Multipurpose unmanned surface vehicles are a unique Ukrainian project.</p>
             <div className="banner-container">
               <div className="square">
-                <img src="https://sharktech-nft.vercel.app/stadium.jpeg" alt="palco1" style={{width:'100%',height:'100%', padding:'6px'}} />
-                <img src="https://sharktech-nft.vercel.app/palcos.jpeg" alt="palco2" style={{width:'100%',height:'100%', padding:'6px'}} />
-                <img src="https://sharktech-nft.vercel.app/palco.jpeg" alt="palco3" style={{width:'100%',height:'100%', padding:'6px'}} />
-                <img src="https://sharktech-nft.vercel.app/vip.jpeg" alt="palco4" style={{width:'100%',height:'100%', padding:'6px'}} />
+                <img src="https://sharktech-nft.vercel.app/stadium.jpeg" alt="palco1" style={{ width: '100%', height: '100%', padding: '6px' }} />
+                <img src="https://sharktech-nft.vercel.app/palcos.jpeg" alt="palco2" style={{ width: '100%', height: '100%', padding: '6px' }} />
+                <img src="https://sharktech-nft.vercel.app/palco.jpeg" alt="palco3" style={{ width: '100%', height: '100%', padding: '6px' }} />
+                <img src="https://sharktech-nft.vercel.app/vip.jpeg" alt="palco4" style={{ width: '100%', height: '100%', padding: '6px' }} />
               </div>
-              <div className='p-3'>
+              <div className="p-3">
                 <p className="text-gris text-left">
                   Fundraising platform UNITED24 has started fundraising for a fleet of naval drones.{' '}
                   <strong>
@@ -222,15 +247,15 @@ const Home = () => {
             </div>
           </section>
           <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
-          <h2 className="text-white text-4xl p-16">Partners</h2>
+            <h2 className="text-white text-4xl p-16">Partners</h2>
             <div className="club-cart__container">
               <div className="flex justify-center">
-                <a href="#"  style={{ width: '33%' }}>
+                <a href="#" style={{ width: '33%' }}>
                   <img src="https://sharktech-nft.vercel.app/MetaMask_Fox.svg.png" alt="" />
                 </a>
               </div>
               <div className="flex justify-center ">
-                <a href="#"  style={{ width: '33%' }}>
+                <a href="#" style={{ width: '33%' }}>
                   <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Binance-coin-bnb-logo.png" alt="" />
                 </a>
               </div>
@@ -245,17 +270,17 @@ const Home = () => {
       </section>
       {/* Roadmap */}
       <section>
-        <div className='flex-column flex justify-center text-center'>
-        <h2 className="text-white text-4xl p-16">Roadmap & Strategy</h2>
+        <div className="flex-column flex justify-center text-center">
+          <h2 className="text-white text-4xl p-16">Roadmap & Strategy</h2>
         </div>
-          <p className="text-gris">
-            We want to share with you the UACatsDivision roadmap that highlights our strategy and helps us to get closer to our goals. A roadmap explains the story, demonstrates the progress and the
-            big picture of the project, and helps you understand where you need to go next.
-          </p>
+        <p className="text-gris">
+          We want to share with you the UACatsDivision roadmap that highlights our strategy and helps us to get closer to our goals. A roadmap explains the story, demonstrates the progress and the big
+          picture of the project, and helps you understand where you need to go next.
+        </p>
       </section>
       {/* Contact Us */}
       <section>
-        <div className='text-center'>
+        <div className="text-center">
           <h2 className="text-white text-4xl p-16">Contact us</h2>
           <button className="inline-flex  bg-mainDark justify-center hover:bg-transparent text-rojo1 font-bold py-3 px-5 rounded items-center text-center">Action Button</button>
         </div>

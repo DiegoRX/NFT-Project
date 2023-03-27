@@ -9,29 +9,11 @@ const PRODUCT_OFFSET = 60;
 
 export default function profile() {
   const auth: AuthData = useAuth();
-
-  const products = useFetch(endPoints.products.getProducts(PRODUCT_LIMIT, PRODUCT_OFFSET));
-
-  const categoryNames = products?.map((product) => product.category);
-  const categoryCount = categoryNames?.map((category) => category.name);
-
-  const countOccurrences = (arr) => arr.reduce((prev, curr) => ((prev[curr] = ++prev[curr] || 1), prev), {});
-
-  const data = {
-    datasets: [
-      {
-        label: 'Categories',
-        data: countOccurrences(categoryCount),
-        borderWidth: 2,
-        backgroundColor: ['#ffbb11', '#c0c0c0', '#50AF95', 'f3ba2f', '#2a71d0'],
-      },
-    ],
-  };
-
+console.log(auth)
   return (
-    <div className="h-full ">
-      <div className="bg-mainDark rounded-lg shadow-lg mt-24 mb-44 p-6">
-        <h2 className="text-lg font-medium mb-4">Profile</h2>
+    <div className="h-screen ">
+      <div className="bg-mainDark rounded-lg shadow-lg mt-2  p-6 h-full m-auto" style={{maxWidth:'550px'}}>
+        <h3 className="text-4x1 text-white">Profile</h3>
         <dl className="divide-y divide-gray-200">
           <div className="py-4">
             <dt className="font-medium text-white">Name</dt>
