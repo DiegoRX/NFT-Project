@@ -7,7 +7,7 @@ import getBlockchain from 'context/ethereum';
 import AuthData from '@components/common/interfaces/AuthData.interface';
 import { useRouter } from 'next/router';
 
-const navigation = [{ name: 'Dashboard', href: '/dashboard', current: true }];
+const navigation = [{ name: 'Dashboard', href: '/dashboard', current: false }];
 const userNavigation = [{ name: 'Your Profile', href: '/profile' }];
 
 function classNames(...classes) {
@@ -47,7 +47,7 @@ export default function Header() {
                         <Link
                           key={item.name}
                           href={item.href}
-                          className={classNames(item.current ? 'bg-mainDark text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
+                          className={classNames(item.current ? 'bg-mainDark text-white' : 'text-white hover:bg-black hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
                           aria-current={item.current ? 'page' : undefined}
                         >
                           {item.name}
@@ -56,7 +56,7 @@ export default function Header() {
                       {auth?.user?.role === 'admin' ? (
                         <Link
                           href="/dashboard/admin"
-                          className={classNames(false ? 'bg-mainDark text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
+                          className={classNames(false ? 'bg-mainDark text-white' : 'text-white hover:bg-black hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
                           aria-current={undefined}
                         >
                           Admin
@@ -130,7 +130,7 @@ export default function Header() {
                   <Link
                     key={item.name}                    
                     href={item.href}
-                    className={classNames(item.current ? 'bg-mainDark text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium')}
+                    className={classNames(item.current ? 'bg-mainDark text-white' : 'text-white hover:bg-black hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium')}
                     aria-current={item.current ? 'page' : undefined}
                   >
                     {item.name}
@@ -164,11 +164,11 @@ export default function Header() {
                 </div>
                 <div className="mt-3 px-2 space-y-1">
                   {userNavigation.map((item) => (
-                    <Link key={item.name} href={item.href} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
+                    <Link key={item.name} href={item.href} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-black">
                       {item.name}
                     </Link>
                   ))}
-                  <button onClick={() => auth.logout()} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
+                  <button onClick={() => auth.logout()} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-black">
                     Logout
                   </button>
                 </div>

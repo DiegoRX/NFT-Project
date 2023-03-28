@@ -8,6 +8,7 @@ const NFT = () => {
   const { openNFTModal } = NFTModal();
   const router = useRouter();
   const [nftId, setNftId] = useState();
+
   const [NFT, setNFT] = useState({
     name: '',
     address: '0x34nkjsfdnlskm93409fdsvdsvdf',
@@ -33,21 +34,22 @@ const NFT = () => {
 
   getNFT();
 
+
   return (
     <div className="h-screen">
       <section className="nft-container  h-1/3">
         <div className="flex flex-column justify-center item1">
           <h2 className="p-2 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">{NFT.name}</h2>
-          <div className="p-2   text-2x1 md:text-3xl lg:text-4xl  text-white text-md">{NFT.description}</div>
-          <div className=" p-2  text-2x1 md:text-3xl lg:text-4xl text-white">
+          <div className="p-2   text-3x1 md:text-3xl lg:text-4xl  tracking-tight text-white text-md flex text-justify">{NFT.description}</div>
+          <div className=" p-2  text-2x1 md:text-3xl lg:text-4xl text-white flex justify-between">
             <span>id</span>
             {NFT.id}
           </div>
-          <div className="p-2  text-2x1 md:text-3xl lg:text-4xl text-white">
+          <div className="p-2  text-2x1 md:text-3xl lg:text-4xl text-white  flex justify-between">
             <span>price</span>
             {NFT.price}
           </div>
-          <div className="p-2 text-white">
+          <div className="p-2 text-white  flex justify-between">
             <span>Available</span>
             {NFT.available.toString()}
           </div>
