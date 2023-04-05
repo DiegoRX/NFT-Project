@@ -15,7 +15,14 @@ const Staking = () => {
     const nfts = await useFetch(endPoints.NFTS.getNFTS);
     setNFTs(nfts.data.data);
   };
-
+  // async function withdrawMoney() {
+  //   try {
+  //     const response = await NFTContract.withdrawMoney();
+  //     console.log('Received: ', response);
+  //   } catch (err) {
+  //     alert(err);
+  //   }
+  // }
   getNFT();
   const getUser = async () => {
     const users = await useFetch(endPoints.users.getUsers);

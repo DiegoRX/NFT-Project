@@ -15,7 +15,8 @@ import { ProviderAuth } from 'hooks/useAuth';
 import { Modal } from '../utils/model_utils';
 import { ModalWrapper } from '@components/molecules';
 import { useEffect } from 'react';
-
+import { ThirdwebProvider } from '@thirdweb-dev/react';
+import { BinanceTestnet } from '@thirdweb-dev/chains';
 function getLibrary(provider, connector) {
   return new Web3Provider(provider);
 }
@@ -31,14 +32,16 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>NFT Project</title>
       </Head>
-      <ProviderAuth>
-        <MetamaskProvider>
-          <Layout>
-            <Component {...pageProps} />
-            <ModalWrapper ref={(ref) => (globalModalRef = ref)} />
-          </Layout>
-        </MetamaskProvider>
-      </ProviderAuth>
+      <ThirdwebProvider  activeChain={BinanceTestnet}>
+        <ProviderAuth>
+          <MetamaskProvider>
+            <Layout>
+              <Component {...pageProps} />
+              <ModalWrapper ref={(ref) => (globalModalRef = ref)} />
+            </Layout>
+          </MetamaskProvider>
+        </ProviderAuth>
+      </ThirdwebProvider>
     </>
   );
 }

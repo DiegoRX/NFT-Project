@@ -22,12 +22,11 @@ function useFetch(endpoint) {
     setData(null);
     setError(null);
     getCookie();
-    console.log(endpoint, { headers })
     axios.get(endpoint, { headers })
     .then(res => {
       setLoading(false);
           setData(res)
-          console.log(data)
+
           //checking for multiple responses for more flexibility 
           //with the url we send in.
           // res.data.content && setData(res.data.content);
@@ -39,7 +38,7 @@ function useFetch(endpoint) {
       })
   }, [endpoint])
 if(data != null){
-console.log(data)
+
   return { data }
 }
 }
