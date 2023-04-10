@@ -1,8 +1,9 @@
-import React, { useState, useContext, createContext } from 'react';
+import React, { useState, useContext, createContext, useEffect } from 'react';
 import Cookie from 'js-cookie';
 import axios from 'axios';
 import endPoints from 'services/api/';
 import AuthData from '@components/common/interfaces/AuthData.interface';
+import { useRouter } from 'next/router';
 
 const AuthContext: React.Context<any> = createContext('light');
 
@@ -16,6 +17,8 @@ export const useAuth = () => {
 };
 
 function useProvideAuth() {
+  const router = useRouter();
+
   const [user, setUser] = useState(null);
   const [accounts, setAccounts] = useState([]);
   const getUser = async (address) => {
@@ -27,7 +30,8 @@ function useProvideAuth() {
     };
     try {
       const resp = await axios.get(endPoints.users.getUserByWalletAddress + address);
-      setUser(resp)
+      console.log('XXXXXXXXXXXXXXXXXXXXX',resp)
+      setUser(resp);
       return switchCase(resp);
     } catch (error) {
       return switchCase(error.request);
@@ -43,11 +47,11 @@ function useProvideAuth() {
     };
 
     try {
-      const resp = await axios.post(endPoints.users.postUsers, payload)
-console.log('Register successfull ',resp)
+      const resp = await axios.post(endPoints.users.postUsers, payload);
+      console.log('Register successfull ', resp);
       return switchCase(resp);
     } catch (error) {
-      console.log('Register error ',error)
+      console.log('Register error ', error);
       return switchCase(error.request);
     }
   };
@@ -61,20 +65,45 @@ console.log('Register successfull ',resp)
     const { data } = await axios.post(endPoints.auth.login, { email, password });
     const userData: AuthData = data.user;
     setUser(userData);
+    localStorage.setItem('user', JSON.stringify(data.user));
+
     if (data) {
       const token = data.access_token;
       Cookie.set('token', token, { expires: 5 });
       axios.defaults.headers.Authorization = `Bearer ${token}`;
       console.log(user);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('token', token);
+      }
     }
   };
+  useEffect(() => {
+    const setUserIf =  () => {
+      if (typeof window !== 'undefined') {
+        const userString = localStorage.getItem('user');
+        if (userString != null) {
+          const user = JSON.parse(userString);
+          setUser(user);
+        }
+        const accountsString = localStorage.getItem('accounts');
+        if (accountsString != null) {
+          const accounts = JSON.parse(accountsString);
+          setAccounts(accounts);
+        }
+      }
+    };
+    setUserIf();
+  }, []); 
   const logout = () => {
-    window.location.href = '/';
     Cookie.remove('token');
     setUser(null);
     setAccounts([]);
     delete axios.defaults.headers.Authorization;
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    router.push('/');
   };
+
   const switchCase = (resp) => {
     const { status } = resp;
     const respuesta = {
@@ -122,6 +151,6 @@ console.log('Register successfull ',resp)
     accounts,
     setAccounts,
     getUser,
-    setUser
+    setUser,
   };
 }

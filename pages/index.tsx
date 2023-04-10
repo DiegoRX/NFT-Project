@@ -47,7 +47,7 @@ const Home = () => {
               <button onClick={connectWallet} className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-black  bg-white rounded-full  hover:bg-amber-600 ">
                 ¡COMPRAR AHORA!
               </button>
-              <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+              {/* <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                 <button className="inline-flex  bg-mainDark justify-center hover:bg-transparent hover:text-white text-white font-bold py-3 px-5 rounded items-center text-center">METAMASK</button>
                 <button className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white  bg-transparent rounded-lg  hover:bg-amber-600 ">
                   WALLET CONNECT
@@ -59,7 +59,7 @@ const Home = () => {
                     ></path>
                   </svg>
                 </button>
-              </div>
+              </div> */}
             </div>
             <div className="inline-flex justify-center items-center">
               <img src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />

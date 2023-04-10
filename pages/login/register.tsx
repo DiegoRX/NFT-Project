@@ -49,8 +49,8 @@ const register = () => {
   return (
     <>
       <div className="h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className=" two-columns w-lg h-3/4 p-6  border border-gray rounded-lg shadow bg-mainDark dark:border-gray-700 ">
-          <div className="h-full flex items-center">
+        <div className=" nft-container w-lg h-full p-6  border border-gray rounded-lg shadow bg-mainDark dark:border-gray-700 ">
+          <div className="h-full flex items-center item1">
             <div className="flex flex-col h-3/4 justify-around">
               <div>
                 <h2 className="mt-6 text-center text-3xl font-extrabold text-white">Wellcome to ROJO FUNDADOR Platform</h2>
@@ -188,7 +188,7 @@ const register = () => {
               </div>
             </div>
           </div>
-          <div className="flex h-full items-center">
+          <div className="flex h-full items-center item2">
             <img className="mx-auto h-56 w-auto items-center" src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
           </div>
         </div>

@@ -4,9 +4,12 @@ import { useAuth } from 'hooks/useAuth';
 import { useRef, useState } from 'react';
 import { Modal } from 'utils/model_utils';
 import Cookie from 'js-cookie';
+import contractABI from '@context/contractABI.json';
 
 import endPoints from 'services/api';
 import axios from 'axios';
+import getBlockchain from '@context/ethereum';
+import detectEthereumProvider from '@metamask/detect-provider';
 //opening modal in a global scope
 const AdminModal = () => {
   const openNFTModal = (payload, usePut) => {
@@ -91,7 +94,7 @@ const AdminModal = () => {
     const cityRef = useRef(null);
     const countryRef = useRef(null);
     const passwordRef = useRef(null);
-    const auth: AuthData = useAuth();
+    const auth = useAuth();
 
     const submitHandler = async (event) => {
       event.preventDefault();
@@ -257,10 +260,14 @@ const AdminModal = () => {
       </>
     );
   };
-  const NFTModal = ({ callback, data, update, enableBottomSheet = false }: any) => {
+  const NFTModal = ({ withdraw, data, update, enableBottomSheet = false }) => {
+    
     const nft = data;
     const [cookie, setCookie] = useState(null);
     const [enabled, setEnabled] = useState(nft.available);
+    const [account, setAccount] = useState(null);
+    const [contractAddress, setContractAddress] = useState(null);
+    const [NFTContract, setNFTContract] = useState(null);
     async function getCookie() {
       const token = await Cookie.get();
 
@@ -283,9 +290,61 @@ const AdminModal = () => {
         available: !enabled,
       };
       putData(endPoint, payload);
-      console.log(endPoint, payload);
+
     };
-    console.log(nft);
+    const handleWithdraw = async () => {
+      if (account[0] != null) {
+
+        let provider = await detectEthereumProvider();
+        if (provider) {
+          const web3Provider = new Web3(window.ethereum);
+        
+          const options = {
+            from: account[0],
+            gas: web3Provider.utils.toWei('1000000', 'wei'),
+            value: '0',
+          };
+  
+          const response = await NFTContract.methods
+            .withdrawMoney()
+            .send(options)
+            .on('transactionHash', function (hash) {
+              console.log('Executing...');
+            })
+            .on('receipt', function (receipt) {
+              console.log('Success.', receipt);
+            })
+            .catch((revertReason) => {
+              console.error('ERROR! Transaction reverted: ' + revertReason.receipt.transactionHash);
+              console.log('Received: ', response);
+            });
+        }
+      } else {
+        alert('Please login');
+      }
+    };
+    useEffect(() => {
+      async function initNFTContract() {
+        const { accounts } = await getBlockchain();
+        const account = await ethereum.request({
+          method: 'eth_requestAccounts',
+        });
+        setAccount(accounts);
+        console.log(accounts);
+        let provider = await detectEthereumProvider();
+  
+        if (provider) {
+          console.log(contractAddress);
+          const web3Provider = new Web3(window.ethereum);
+          let factoryContract = new web3Provider.eth.Contract(contractABI, nft.address);
+          setNFTContract(factoryContract); 
+          // const earned = await NFTContract.methods
+          // .withdrawMoney()
+          console.log(factoryContract)
+        }
+      }
+      initNFTContract();
+    }, []);
     useEffect(() => {
       getCookie();
     }, [data, enabled]);
@@ -332,6 +391,12 @@ const AdminModal = () => {
               <div className="justify-between flex text-white">
                 <span>Holders:</span> {nft.nfts.length}
               </div>
+              <div className="justify-between flex text-white">
+                <span>BNB colected:</span> 0
+              </div>
+              <div className="justify-between flex text-white">
+                <button onClick={()=>handleWithdraw()} className="inline-flex  bg-mainDark justify-center hover:bg-transparent text-rojo1 font-bold py-3 px-5 rounded items-center text-center">Withdraw BNB</button> 
+              </div>
             </div>
             <div className="content" style={{ width: '50%' }}>
               <img src={nft.image} alt="" style={{ width: '100%' }} />
@@ -343,33 +408,33 @@ const AdminModal = () => {
           <div className="justify-between" style={{ width: '100%' }}>
             <h2 className="text-2xl font-bold text-white capitalize">Holders Info</h2>
             <div style={{ overflow: 'scroll', height: '170px' }}>
-              {nft.nfts.map((nft, i) => (
+              {nft?.nfts?.map((nft, i) => (
                 <div key={i}>
                   <div className="justify-between flex text-white">{nft.address}</div>
                   <div className="justify-between flex text-white">User #{i + 1}</div>
                   <div className="justify-between flex text-white">
-                    <span>Email:</span> {nft.user.email}
+                    <span>Email:</span> {nft?.user?.email}
                   </div>
                   <div className="justify-between flex text-white">
-                    <span>Name:</span> {nft.user.name}
+                    <span>Name:</span> {nft?.user?.name}
                   </div>
                   <div className="justify-between flex text-white">
-                    <span>walletAddress: </span> {nft.user.walletAddress}
+                    <span>walletAddress: </span> {nft?.user?.walletAddress}
                   </div>
                   <div className="justify-between flex text-white">
-                    <span>Phone:</span> {nft.user.phone}
+                    <span>Phone:</span> {nft?.user?.phone}
                   </div>
                   <div className="justify-between flex text-white">
-                    <span>Role:</span> {nft.user.role}
+                    <span>Role:</span> {nft?.user?.role}
                   </div>
                   <div className="justify-between flex text-white">
-                    <span>City:</span> {nft.user.city}
+                    <span>City:</span> {nft?.user?.city}
                   </div>
                   <div className="justify-between flex text-white">
-                    <span>Country:</span> {nft.user.country}
+                    <span>Country:</span> {nft?.user?.country}
                   </div>
                   <div className="justify-between flex text-white">
-                    <span>Address:</span> {nft.user.address}
+                    <span>Address:</span> {nft?.user?.address}
                   </div>
                   <hr style={{ width: '100%', color: 'white' }} />
                 </div>
@@ -393,7 +458,7 @@ const AdminModal = () => {
       );
     }
   };
-  const UserModal = ({ callback, data, update, enableBottomSheet = false }: any) => {
+  const UserModal = ({ callback, data, update, enableBottomSheet = false }) => {
     const user = data();
     const nfts = user.nfts;
     return (

@@ -9,12 +9,15 @@ export default function PublicHeader() {
   const router = useRouter();
   const route = router.pathname.substring(1);
   const auth: AuthData = useAuth();
+  console.log(auth)
 
   const connectWallet = async () => {
     const { accounts } = await getBlockchain();
 
     auth.setAccounts(accounts);
-
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('accounts', JSON.stringify(accounts));
+    }
     const { data: user } = await auth.getUser(accounts[0]);
     auth.setUser(user);
     console.log(user);
@@ -58,7 +61,7 @@ export default function PublicHeader() {
               </button>
             </Link>
           )} */}
-          {auth?.accounts && auth?.accounts.length > 0 ? (
+          {auth?.user && auth?.accounts.length > 0 ? (
             <Link href="/dashboard" className="text-white bg-rojo1  hover:bg-black hover:text-black font-medium rounded-lg text-sm px-3 py-2 text-center mr-3">
               {auth?.accounts[0]?.slice(0, 6)}...{auth?.accounts[0]?.slice(-4)}
             </Link>

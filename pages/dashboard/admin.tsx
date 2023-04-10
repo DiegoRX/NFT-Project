@@ -3,17 +3,17 @@ import useFetch from 'hooks/useFetch';
 import { useAuth } from 'hooks/useAuth';
 import AuthData from '@components/common/interfaces/AuthData.interface';
 // import Modal from '@components/common/modal/modal';
-import AdminModal from '@components/molecules/Modal/AdminModals';
+import AdminModal from '@components/molecules/Modal/AdminModals.js';
 import usePut from 'hooks/usePut';
 import { useState } from 'react';
 
-const Staking = () => {
+const Admin = () => {
   const auth: AuthData = useAuth();
   const [nfts, setNFTs] = useState(null);
   const [users, setUser] = useState(null);
   const getNFT = async () => {
     const nfts = await useFetch(endPoints.NFTS.getNFTS);
-    setNFTs(nfts.data.data);
+    setNFTs(nfts?.data?.data);
   };
   // async function withdrawMoney() {
   //   try {
@@ -26,9 +26,9 @@ const Staking = () => {
   getNFT();
   const getUser = async () => {
     const users = await useFetch(endPoints.users.getUsers);
-    setUser(users.data.data);
+    setUser(users?.data?.data);
   };
-
+console.log(localStorage)
   getUser();
 
   // console.log(nfts
@@ -138,4 +138,4 @@ const Staking = () => {
   }
 };
 
-export default Staking;
+export default Admin;

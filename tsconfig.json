@@ -43,7 +43,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "context/CalculateABY.js", "context/ethereum.js", "hooks/useFetch.js"  ],
+, "context/CalculateABY.js", "context/ethereum.js", "hooks/useFetch.js", "components/molecules/Modal/AdminModals.js"  ],
   "exclude": [
     "node_modules"
   ]

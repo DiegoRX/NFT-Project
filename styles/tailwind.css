@@ -2,10 +2,7 @@
     border: 0.5px solid !important;
     border-color:#5e5e5e !important
 }
-.two-columns{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
+
 
 @tailwind base;
 @tailwind components;
