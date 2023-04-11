@@ -8,6 +8,7 @@
     "dev:inspect": "npm --node-options=--inspect=0.0.0.0:9229 run dev",
     "build": "next build",
     "start": "next start",
+    "start:prod": "NODE_ENV=production node server.js",
     "format": "prettier --write \"pages/**/*.tsx\" \"components/**/*.tsx\"",
     "lint:fix": "eslint pages/ --fix"
   },

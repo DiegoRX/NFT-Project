@@ -1,0 +1,8 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/rojofundador/public_html/https://rojofundador.com/
+    - /bin/cp -rf $DEPLOYPATH/public /home/rojofundador/public_html
+    - /bin/cp -f $DEPLOYPATH/.htaccess /home/rojofundador/public_html
+    - cd $DEPLOYPATH && npm install && npm run build
+    - /bin/cp -rf $DEPLOYPATH/out/* /home/rojofundador/public_html
