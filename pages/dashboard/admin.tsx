@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import endPoints from 'services/api';
 import useFetch from 'hooks/useFetch';
 import { useAuth } from 'hooks/useAuth';
@@ -6,12 +7,13 @@ import AuthData from '@components/common/interfaces/AuthData.interface';
 import AdminModal from '@components/molecules/Modal/AdminModals.js';
 import usePut from 'hooks/usePut';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const Admin = () => {
   const auth: AuthData = useAuth();
   const [nfts, setNFTs] = useState(null);
   const [users, setUser] = useState(null);
-  const getNFT = async () => {
+  const useGetNFT = async () => {
     const nfts = await useFetch(endPoints.NFTS.getNFTS);
     setNFTs(nfts?.data?.data);
   };
@@ -23,13 +25,13 @@ const Admin = () => {
   //     alert(err);
   //   }
   // }
-  getNFT();
-  const getUser = async () => {
+  useGetNFT();
+  const useGetUser = async () => {
     const users = await useFetch(endPoints.users.getUsers);
     setUser(users?.data?.data);
   };
-console.log(localStorage)
-  getUser();
+
+  useGetUser();
 
   // console.log(nfts
   const { openNFTModal, openUserModal, openNewUserModal } = AdminModal();
@@ -57,7 +59,7 @@ console.log(localStorage)
               <tr key={i}>
                 <th className="border border-slate-600 ...">{nft.id}</th>
                 <th className="border border-slate-600 ...">
-                  <img src={nft.image} alt="" />
+                  <Image width={50} height={50} src={nft.image} alt="" />
                 </th>
                 <th className="border border-slate-600 ...">{nft.name}</th>
                 <th className="border border-slate-600 ...">{nft.description}</th>

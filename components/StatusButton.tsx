@@ -3,6 +3,7 @@ import React from 'react';
 // import { useAppContext } from "context/state";
 // import Image from "next/image";
 
+// eslint-disable-next-line no-empty-pattern
 const StatusButton = ({}) => {
   // let { status, setStatus } = useAppContext();
 

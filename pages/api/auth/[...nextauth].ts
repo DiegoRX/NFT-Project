@@ -1,12 +1,13 @@
-import NextAuth from "next-auth";
-import type { NextAuthOptions } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials"
-import GitHubProvider from "next-auth/providers/github";
-import {} from "next.config.js"
+/* eslint-disable no-unused-vars */
+import NextAuth from 'next-auth';
+import type { NextAuthOptions } from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import GitHubProvider from 'next-auth/providers/github';
+import {} from 'next.config.js';
 
 const options: NextAuthOptions = {
   theme: {
-    colorScheme: "dark",
+    colorScheme: 'dark',
   },
   debug: true,
   session: {},
@@ -16,26 +17,24 @@ const options: NextAuthOptions = {
     CredentialsProvider({
       name: 'Credentials',
 
-      credentials: {        email: {  label: "Email", type: "email" },
-        password: {  label: "Password", type: "password" }
-      },
+      credentials: { email: { label: 'Email', type: 'email' }, password: { label: 'Password', type: 'password' } },
       async authorize(credentials, req) {
-        const res = await fetch(`${process.env.NEXTAUTH_URL}/auth/login`,{
+        const res = await fetch(`${process.env.NEXTAUTH_URL}/auth/login`, {
           method: 'POST',
           body: JSON.stringify(credentials),
-          headers: { "Content-type": "application/json" }
-        })
+          headers: { 'Content-type': 'application/json' },
+        });
 
-        const user = await res.json()
+        const user = await res.json();
 
-        if(res.ok && user){
-          return user
+        if (res.ok && user) {
+          return user;
         }
 
-        return null
-      }
-    })
-  ]
-}
+        return null;
+      },
+    }),
+  ],
+};
 
 export default NextAuth(options);

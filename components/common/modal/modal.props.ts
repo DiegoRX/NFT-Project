@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 //types of the main Modal
 export interface ModalProps {

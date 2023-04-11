@@ -2,6 +2,7 @@ import { useAuth } from 'hooks/useAuth';
 import getBlockchain from '@context/ethereum';
 import router from 'next/router';
 import AuthData from '@components/common/interfaces/AuthData.interface';
+import Image from 'next/image';
 
 export default function Staking() {
   const auth: AuthData = useAuth();
@@ -44,7 +45,7 @@ export default function Staking() {
                 </button>
               </div>
               <div className="inline-flex justify-center items-center">
-                <img src="https://i.pinimg.com/originals/ac/3c/5a/ac3c5ae3d80f8a7449a252dd72d551a5.gif" alt="" />
+                <Image width={50} height={50} src="https://i.pinimg.com/originals/ac/3c/5a/ac3c5ae3d80f8a7449a252dd72d551a5.gif" alt="" />
               </div>
             </div>
           </div>

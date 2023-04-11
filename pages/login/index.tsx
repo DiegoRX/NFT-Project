@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { useRef } from 'react';
-import { LockClosedIcon } from '@heroicons/react/solid';
 import { useAuth } from 'hooks/useAuth';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const Login = () => {
   const emailRef = useRef(null);
@@ -25,10 +26,12 @@ const Login = () => {
       });
   };
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (token) router.push('/dashboard')
-  }, [localStorage])
-  
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('token');
+      if (token) router.push('/dashboard');
+    }
+  }, []);
+
   return (
     <>
       <div className="h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -85,7 +88,7 @@ const Login = () => {
             </div>
           </div>
           <div className="flex h-full items-center item2">
-            <img className="mx-auto h-56 w-auto items-center" src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
+            <Image className="mx-auto h-56 w-auto items-center" src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
           </div>
         </div>
       </div>

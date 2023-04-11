@@ -1,18 +1,12 @@
-import endPoints from 'services/api';
-import useFetch from 'hooks/useFetch';
-import { Chart } from '@components/common/Chart';
 import { useAuth } from 'hooks/useAuth';
 import AuthData from '@components/common/interfaces/AuthData.interface';
 
-const PRODUCT_LIMIT = 60;
-const PRODUCT_OFFSET = 60;
-
-export default function profile() {
+export default function useProfile() {
   const auth: AuthData = useAuth();
-console.log(auth)
+  console.log(auth);
   return (
     <div className="h-screen ">
-      <div className="bg-mainDark rounded-lg shadow-lg mt-2  p-6 h-full m-auto" style={{maxWidth:'550px'}}>
+      <div className="bg-mainDark rounded-lg shadow-lg mt-2  p-6 h-full m-auto" style={{ maxWidth: '550px' }}>
         <h3 className="text-4x1 text-white">Profile</h3>
         <dl className="divide-y divide-gray-200">
           <div className="py-4">

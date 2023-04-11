@@ -3,7 +3,7 @@ import React from 'react';
 import { ModalProps } from '../modal.props';
 import { Modal as ModalUtil } from '../../../utils/model_utils';
 
-export const ModalComponent = React.forwardRef((propsValues: ModalProps, ref) => {
+export const ModalComponent = React.forwardRef((propsValues: ModalProps) => {
   const {
     component: RenderInner,
     props,
@@ -12,7 +12,6 @@ export const ModalComponent = React.forwardRef((propsValues: ModalProps, ref) =>
     closeModal = () => {},
     isOpen,
     width = '80vw',
-    height = '80vh',
     title,
     className = 'modal-container',
     modalFooter,

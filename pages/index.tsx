@@ -1,6 +1,4 @@
 import React from 'react';
-import { Grid, Segment, Container } from 'semantic-ui-react';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import getBlockchain from '@context/ethereum';
@@ -10,7 +8,6 @@ import { useRouter } from 'next/router';
 
 const Home = () => {
   const router = useRouter();
-  const route = router.pathname.substring(1);
   const auth: AuthData = useAuth();
 
   const connectWallet = async () => {
@@ -27,7 +24,7 @@ const Home = () => {
       router.push('/login');
     }
   };
-  
+
   return (
     <div>
       {/* Hero */}
@@ -62,7 +59,7 @@ const Home = () => {
               </div> */}
             </div>
             <div className="inline-flex justify-center items-center">
-              <img src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
+              <Image width={50} height={50} src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
             </div>
           </section>
           {/* Partners Info */}
@@ -95,11 +92,11 @@ const Home = () => {
               <span className="text-gris">Buy cats from the UACatsDivision collection - be part of the Ukrainian victory!</span>
             </div>
             <div className="inline-flex items-center">
-              <img className="nft-info-img" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
-              <img className="nft-info-img" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
-              <img className="nft-info-img" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
-              <img className="nft-info-img sm-none" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
-              <img className="nft-info-img sm-none" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
+              <Image width={50} height={50} className="nft-info-Image" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
+              <Image width={50} height={50} className="nft-info-Image" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
+              <Image width={50} height={50} className="nft-info-Image" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
+              <Image width={50} height={50} className="nft-info-Image sm-none" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
+              <Image width={50} height={50} className="nft-info-Image sm-none" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
             </div>
             <div className="banner-container">
               <div className="banner-text text-justify p-2">
@@ -143,10 +140,10 @@ const Home = () => {
                 <p className="text-gris text-justify">Collection owners will get access to closed channels and a forum.</p>
               </div>
               <div>
-                <img src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="" />
+                <Image width={50} height={50} src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="" />
               </div>
               <div className="landing-cart  p-3">
-                <h3 className="text-white text-lg">A piece of digital art and a collector's item</h3>
+                <h3 className="text-white text-lg">A piece of digital art and a collectors item</h3>
                 <p className="text-gris text-justify">You will become the owner of a unique NFT, which is not just a work of art but can be worth much more than its initial price.</p>
                 <p className="text-gris text-justify">You can always resell NFTs on any marketplace that supports Ethereum NFTs.</p>
               </div>
@@ -172,7 +169,7 @@ const Home = () => {
             <div className="club-cart__container">
               <div className="inline-flex">
                 <i>1</i>
-                <p className="text-gris">On the day of the project's start, an NFT collection generating will become possible on the website uacatsdivision.com</p>
+                <p className="text-gris">On the day of the projects start, an NFT collection generating will become possible on the website uacatsdivision.com</p>
               </div>
               <div className="inline-flex">
                 <i>2</i>
@@ -216,7 +213,7 @@ const Home = () => {
           {/* Video */}
           <section>
             <div>
-              <iframe className="w-full aspect-video" src="https://www.youtube.com/embed/Az9tVHjpJ_Y"></iframe>
+              <iframe title="1" className="w-full aspect-video" src="https://www.youtube.com/embed/Az9tVHjpJ_Y"></iframe>
             </div>
           </section>
           {/* Palcos */}
@@ -225,10 +222,10 @@ const Home = () => {
             <p className="text-gris">Multipurpose unmanned surface vehicles are a unique Ukrainian project.</p>
             <div className="banner-container">
               <div className="square">
-                <img src="https://sharktech-nft.vercel.app/stadium.jpeg" alt="palco1" style={{ width: '100%', height: '100%', padding: '6px' }} />
-                <img src="https://sharktech-nft.vercel.app/palcos.jpeg" alt="palco2" style={{ width: '100%', height: '100%', padding: '6px' }} />
-                <img src="https://sharktech-nft.vercel.app/palco.jpeg" alt="palco3" style={{ width: '100%', height: '100%', padding: '6px' }} />
-                <img src="https://sharktech-nft.vercel.app/vip.jpeg" alt="palco4" style={{ width: '100%', height: '100%', padding: '6px' }} />
+                <Image width={50} height={50} src="https://sharktech-nft.vercel.app/stadium.jpeg" alt="palco1" style={{ width: '100%', height: '100%', padding: '6px' }} />
+                <Image width={50} height={50} src="https://sharktech-nft.vercel.app/palcos.jpeg" alt="palco2" style={{ width: '100%', height: '100%', padding: '6px' }} />
+                <Image width={50} height={50} src="https://sharktech-nft.vercel.app/palco.jpeg" alt="palco3" style={{ width: '100%', height: '100%', padding: '6px' }} />
+                <Image width={50} height={50} src="https://sharktech-nft.vercel.app/vip.jpeg" alt="palco4" style={{ width: '100%', height: '100%', padding: '6px' }} />
               </div>
               <div className="p-3">
                 <p className="text-gris text-left">
@@ -250,19 +247,19 @@ const Home = () => {
             <h2 className="text-white text-4xl p-16">Partners</h2>
             <div className="club-cart__container">
               <div className="flex justify-center">
-                <a href="#" style={{ width: '33%' }}>
-                  <img src="https://sharktech-nft.vercel.app/MetaMask_Fox.svg.png" alt="" />
-                </a>
+                <Link href="#" style={{ width: '33%' }}>
+                  <Image width={50} height={50} src="https://sharktech-nft.vercel.app/MetaMask_Fox.svg.png" alt="" />
+                </Link>
               </div>
               <div className="flex justify-center ">
-                <a href="#" style={{ width: '33%' }}>
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Binance-coin-bnb-logo.png" alt="" />
-                </a>
+                <Link href="#" style={{ width: '33%' }}>
+                  <Image width={50} height={50} src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Binance-coin-bnb-logo.png" alt="" />
+                </Link>
               </div>
               <div className="flex justify-center">
-                <a href="#" style={{ width: '33%' }}>
-                  <img src="https://sharktech-nft.vercel.app/logo-big.png" alt="" />
-                </a>
+                <Link href="#" style={{ width: '33%' }}>
+                  <Image width={50} height={50} src="https://sharktech-nft.vercel.app/logo-big.png" alt="" />
+                </Link>
               </div>
             </div>
           </div>
@@ -288,31 +285,31 @@ const Home = () => {
       <footer className="p-4 bg-mainDark rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-mainDark">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © 2023{' '}
-          <a href="https://sharktechnology.dev/" className="hover:underline">
+          <Link href="https://sharktechnology.dev/" className="hover:underline">
             Shark Technology™
-          </a>
+          </Link>
           . All Rights Reserved.
         </span>
         <ul className="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
           <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6 ">
+            <Link href="#" className="mr-4 hover:underline md:mr-6 ">
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6">
+            <Link href="#" className="mr-4 hover:underline md:mr-6">
               Privacy Policy
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6">
+            <Link href="#" className="mr-4 hover:underline md:mr-6">
               Licensing
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:underline">
+            <Link href="#" className="hover:underline">
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </footer>

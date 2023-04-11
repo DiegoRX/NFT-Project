@@ -1,11 +1,10 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { useAuth } from 'hooks/useAuth';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
-import getBlockchain from 'context/ethereum';
 import AuthData from '@components/common/interfaces/AuthData.interface';
-import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const navigation = [{ name: 'Dashboard', href: '/dashboard', current: false }];
 const userNavigation = [{ name: 'Your Profile', href: '/profile' }];
@@ -32,13 +31,8 @@ export default function Header() {
               <div className="flex items-center justify-between h-16">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
-                  <Link
-                            href="/dashboard"
-                       
-      
-                        
-                        >
-                    <img className="h-8 w-8" src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
+                    <Link href="/dashboard">
+                      <Image width={50} height={50} className="h-8 w-8" src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
                     </Link>
                   </div>
                   <div className="hidden md:block">
@@ -56,6 +50,7 @@ export default function Header() {
                       {auth?.user?.role === 'admin' ? (
                         <Link
                           href="/dashboard/admin"
+                          // eslint-disable-next-line no-constant-condition
                           className={classNames(false ? 'bg-mainDark text-white' : 'text-white hover:bg-black hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
                           aria-current={undefined}
                         >
@@ -77,10 +72,7 @@ export default function Header() {
                       <div></div>
                     )}
 
-                    <button
-                      type="button"
-                      className="bg-rojo1 p-1 rounded-full text-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-rojo1 focus:ring-white"
-                    >
+                    <button type="button" className="bg-rojo1 p-1 rounded-full text-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-rojo1 focus:ring-white">
                       <span className="sr-only">View notifications</span>
                       <BellIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
@@ -90,7 +82,7 @@ export default function Header() {
                       <div>
                         <Menu.Button className="max-w-xs bg-rojo1 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                           <span className="sr-only">Open user menu</span>
-                          <img className="h-8 w-8 rounded-full" src={userData.imageUrl} alt="" />
+                          <Image width={50} height={50} className="h-8 w-8 rounded-full" src={userData.imageUrl} alt="" />
                         </Menu.Button>
                       </div>
                       <Transition
@@ -128,7 +120,7 @@ export default function Header() {
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 {navigation.map((item) => (
                   <Link
-                    key={item.name}                    
+                    key={item.name}
                     href={item.href}
                     className={classNames(item.current ? 'bg-mainDark text-white' : 'text-white hover:bg-black hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium')}
                     aria-current={item.current ? 'page' : undefined}
@@ -140,7 +132,7 @@ export default function Header() {
               <div className="pt-4 pb-3 border-t border-gray-700">
                 <div className="flex items-center px-5">
                   <div className="flex-shrink-0">
-                    <img className="h-10 w-10 rounded-full" src={userData.imageUrl} alt="" />
+                    <Image width={50} height={50} className="h-10 w-10 rounded-full" src={userData.imageUrl} alt="" />
                   </div>
                   <div className="ml-3">
                     <div className="text-base font-medium leading-none text-white">{userData.name}</div>
@@ -154,10 +146,7 @@ export default function Header() {
                       <div></div>
                     )}
                   </div>
-                  <button
-                    type="button"
-                    className="ml-auto text-white bg-rojo1 flex-shrink-0 p-1 rounded-full text-whit hover:text-white hover:bg-black  focus:ring-white"
-                  >
+                  <button type="button" className="ml-auto text-white bg-rojo1 flex-shrink-0 p-1 rounded-full text-whit hover:text-white hover:bg-black  focus:ring-white">
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
                   </button>

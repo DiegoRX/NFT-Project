@@ -11,10 +11,10 @@ module.exports = {
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'coffee-beans-swap.vercel.app',
+          hostname: '*',
           port: '',
           pathname: '/**',
         },
       ],
     },
-  }
+  };

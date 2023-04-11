@@ -1,20 +1,19 @@
+/* eslint-disable no-undef */
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import useFetch from 'hooks/useFetch';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import endPoints from 'services/api';
-import NFTModal from '@components/molecules/Modal/NFTModal';
 import contractABI from '@context/contractABI.json';
 import getBlockchain from '@context/ethereum.js';
 import detectEthereumProvider from '@metamask/detect-provider';
-import { useClaimedNFTSupply, useContractMetadata, useContract, useUnclaimedNFTSupply, useAddress, useMetamask, useNetworkMismatch, useNetwork, ChainId } from '@thirdweb-dev/react';
-import usePut from 'hooks/usePut';
 import { useAuth } from 'hooks/useAuth';
 import Cookie from 'js-cookie';
 import axios from 'axios';
+import Image from 'next/image';
 
 const NFT = () => {
-  const { openNFTModal } = NFTModal();
   const router = useRouter();
   const [BNBPrice, setBNBPrice] = useState();
   const [accountBalance, setAccountBalance] = useState();
@@ -59,18 +58,16 @@ const NFT = () => {
     return data;
   };
 
- 
   getNFT().then((data) => {
     if (data) {
       let nft = data.data.data;
 
       setNFT(nft);
       setContractAddress(nft.address);
-     
     }
   });
- const tokenID = minted + 1;
-console.log('..............',tokenID)
+  const tokenID = minted + 1;
+  console.log('..............', tokenID);
   const endpointUniqueNft = endPoints.NFTS.getNFTUnique(tokenID);
 
   const getNFTUnique = async () => {
@@ -88,9 +85,7 @@ console.log('..............',tokenID)
   });
 
   ///---------------------- METAMASK
-  const endpointPutNFT = endPoints.NFTS.putNFT(NFT.id);
   const updateNFT = async () => {
-    const response = await axios.put(endpointPutNFT, { mintedNFT: minted }, { headers });
   };
   const updateNFTUnique = async (address) => {
     console.log('entra', NFTUnique);
@@ -118,7 +113,7 @@ console.log('..............',tokenID)
         const response = await NFTContract.methods
           .mintNFT(tokenURI)
           .send(options)
-          .on('transactionHash', function (hash) {
+          .on('transactionHash', function () {
             console.log('Executing...');
           })
           .on('receipt', function (receipt) {
@@ -152,20 +147,20 @@ console.log('..............',tokenID)
         console.log(contractAddress);
         const web3Provider = new Web3(window.ethereum);
         let factoryContract = new web3Provider.eth.Contract(contractABI, contractAddress);
-        let BNBPrice = await factoryContract.methods.NFTPriceInBNB().call()
-        let priceUSD = await factoryContract.methods.tokenPriceUSD().call()
-        let minted = await factoryContract.methods._totalMinted().call()
-        let accountBalance = await factoryContract.methods.balanceOf(account[0]).call()
-        setNFTContract(factoryContract); 
-        setPriceUSD(priceUSD/(10**18))
-         setMinted(minted);
-         updateNFT(minted)
-         setBNBPrice(BNBPrice)
-         setAccountBalance(accountBalance)
+        let BNBPrice = await factoryContract.methods.NFTPriceInBNB().call();
+        let priceUSD = await factoryContract.methods.tokenPriceUSD().call();
+        let minted = await factoryContract.methods._totalMinted().call();
+        let accountBalance = await factoryContract.methods.balanceOf(account[0]).call();
+        setNFTContract(factoryContract);
+        setPriceUSD(priceUSD / 10 ** 18);
+        setMinted(minted);
+        updateNFT(minted);
+        setBNBPrice(BNBPrice);
+        setAccountBalance(accountBalance);
       }
     }
     initNFTContract();
-  }, [NFT]);
+  }, [NFT, contractAddress]);
 
   return (
     <div className="h-screen">
@@ -183,7 +178,7 @@ console.log('..............',tokenID)
           </div>
           <div className="p-2  text-2x1 md:text-3xl lg:text-4xl text-white  flex justify-between">
             <span>Price in BNB</span>
-            {BNBPrice/(10**18).toString()}
+            {BNBPrice / (10 ** 18).toString()}
           </div>
           <div className="p-2  text-2x1 md:text-3xl lg:text-4xl text-white  flex justify-between">
             <span>{NFT.name} NFTs in your account:</span>
@@ -198,7 +193,7 @@ console.log('..............',tokenID)
           </button>
         </div>
         <div className="flex flex-column justify-center item2">
-          <img src={NFT.image} alt="" />
+          <Image width={50} height={50} src={NFT.image} alt="" />
         </div>
       </section>
       <section></section>

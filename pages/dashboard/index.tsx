@@ -1,20 +1,21 @@
+/* eslint-disable @next/next/no-img-element */
 import useFetch from 'hooks/useFetch';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import endPoints from 'services/api';
 
 const Dashboard = () => {
   const [NFTs, setNFTs] = useState([{ image: '', id: '', name: '' }]);
 
   const endpoint = endPoints.NFTS.getNFTS;
-  const getNFT = async () => {
+  const useGetNFT = async () => {
     const data = await useFetch(endpoint);
     if (data) {
       let nft = data.data.data;
       setNFTs(nft);
     }
   };
-  getNFT();
+  useGetNFT();
   if (typeof window !== 'undefined') {
     console.log(localStorage);
   }

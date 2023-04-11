@@ -1,6 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { useAuth } from 'hooks/useAuth';
 import Header from '../Header/Header';
-import Nav from '@components/common/Nav';
 import PublicHeader from '@components/common/PublicHeader';
 import { useRouter } from 'next/router';
 import AuthData from '@components/common/interfaces/AuthData.interface';

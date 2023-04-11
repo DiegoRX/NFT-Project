@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
-import AuthData from '@components/common/interfaces/AuthData.interface';
-import { useAuth } from 'hooks/useAuth';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { Modal } from 'utils/model_utils';
 import Cookie from 'js-cookie';
 
-import endPoints from 'services/api';
 import axios from 'axios';
 //opening modal in a global scope
 const NFTModal = () => {
@@ -35,7 +32,7 @@ const NFTModal = () => {
     });
   };
 
-  const NFTModal = ({ callback, data, update, enableBottomSheet = false }: any) => {
+  const NFTModal = ({ data, update }: any) => {
     const nft = data;
     const [nftCount, setNftCount] = useState(1);
     const [cookie, setCookie] = useState(null);
@@ -49,6 +46,7 @@ const NFTModal = () => {
       Authorization: `Bearer ${cookie}`,
     };
 
+    // eslint-disable-next-line no-unused-vars
     async function putData(endpoint, payload) {
       const response = await axios.put(endpoint, payload, { headers });
       console.log(response.data.available);
@@ -56,15 +54,6 @@ const NFTModal = () => {
       update();
     }
 
-    const setAvailable = () => {
-      const endPoint = endPoints.NFTS.putNFT(nft.id);
-      const payload = {
-        available: !enabled,
-      };
-      putData(endPoint, payload);
-      console.log(endPoint, payload);
-    };
-    console.log(nft);
     useEffect(() => {
       getCookie();
     }, [data, enabled]);
@@ -89,9 +78,13 @@ const NFTModal = () => {
         <h2 className="text-rojo1 p-2 text-4x1 md:text-5xl lg:text-6xl font-extrabold tracking-tight">COMPRAR NFT - {nft.name}</h2>
         <p className="text-white p-2 text-2x1  md:text-3xl lg:text-4xl">Elige cantidad de NFT {nft.name}</p>
         <div className="text-white p-2 text-2x1 md:text-3xl lg:text-4xl tracking-tight">
-          <button className='h-8 w-8  md:w-10 lg:w-12 md:h-10 lg:h-12 rounded-full bg-mainDark ml-auto text-white  p-1 rounded-full text-white' onClick={subtractNFT}>{'-'}</button>
-          <span className='p-2'>{nftCount}</span>
-          <button className='h-8 w-8  md:w-10 lg:w-12 md:h-10 lg:h-12 rounded-full bg-mainDark ml-auto text-white  p-1 rounded-full text-white' onClick={addNFT}>{'+'}</button>
+          <button className="h-8 w-8  md:w-10 lg:w-12 md:h-10 lg:h-12 rounded-full bg-mainDark ml-auto text-white  p-1 rounded-full text-white" onClick={subtractNFT}>
+            {'-'}
+          </button>
+          <span className="p-2">{nftCount}</span>
+          <button className="h-8 w-8  md:w-10 lg:w-12 md:h-10 lg:h-12 rounded-full bg-mainDark ml-auto text-white  p-1 rounded-full text-white" onClick={addNFT}>
+            {'+'}
+          </button>
         </div>
         <p className="text-rojo1 p-2 text-4x1 md:text-5xl lg:text-6xl font-extrabold tracking-tight"> 1 NFT = {nft.price * nftCount} USD</p>
         <button className="inline-flex  bg-mainDark justify-center hover:bg-transparent text-rojo1 font-bold py-3 px-5 rounded items-center text-center">Comprar</button>

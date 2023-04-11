@@ -2,14 +2,13 @@ import getBlockchain from '@context/ethereum';
 import { useAuth } from 'hooks/useAuth';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 import AuthData from './interfaces/AuthData.interface';
+import Image from 'next/image';
 
 export default function PublicHeader() {
   const router = useRouter();
-  const route = router.pathname.substring(1);
   const auth: AuthData = useAuth();
-  console.log(auth)
+  console.log(auth);
 
   const connectWallet = async () => {
     const { accounts } = await getBlockchain();
@@ -33,7 +32,7 @@ export default function PublicHeader() {
     <nav className="bg-header px-2 sm:px-4 py-2.5 dark:bg-mainDark fixed w-full z-20 top-0 left-0">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link href="/">
-          <img className="h-12 " src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
+          <Image width={50} height={50} className="h-12 " src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
         </Link>
         <div className="flex md:order-2 ml-10 flex items-baseline space-x-4">
           {/* <Link className="text-white hover:bg-gray-700 hover:text-grey px-3 py-2 rounded-md text-sm font-medium" href="/mint">

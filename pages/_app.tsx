@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import '../styles/global.css';
 import Layout from '@components/Layout/Layout';
 import 'semantic-ui-css/semantic.min.css';
@@ -32,7 +33,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>NFT Project</title>
       </Head>
-      <ThirdwebProvider  activeChain={BinanceTestnet}>
+      <ThirdwebProvider activeChain={BinanceTestnet}>
         <ProviderAuth>
           <MetamaskProvider>
             <Layout>

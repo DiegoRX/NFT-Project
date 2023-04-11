@@ -1,11 +1,11 @@
+/* eslint-disable no-undef */
 import React, { useEffect } from 'react';
-import AuthData from '@components/common/interfaces/AuthData.interface';
 import { useAuth } from 'hooks/useAuth';
 import { useRef, useState } from 'react';
 import { Modal } from 'utils/model_utils';
 import Cookie from 'js-cookie';
 import contractABI from '@context/contractABI.json';
-
+import Image from 'next/image';
 import endPoints from 'services/api';
 import axios from 'axios';
 import getBlockchain from '@context/ethereum';
@@ -137,8 +137,7 @@ const AdminModal = () => {
                   id="wallet-address"
                   name="wallet-address"
                   type="string"
-                  autoComplete="string"
-                  className="appearance-none text-white bg-zinc-700 my-2 rounded relative block w-full px-3 py-2 border border-gray placeholder-gray-400 text-zinc-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                    className="appearance-none text-white bg-zinc-700 my-2 rounded relative block w-full px-3 py-2 border border-gray placeholder-gray-400 text-zinc-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Wallet Address"
                   ref={walletAddressRef}
                   required
@@ -152,8 +151,7 @@ const AdminModal = () => {
                   id="email-address"
                   name="email"
                   type="email"
-                  autoComplete="email"
-                  required
+                                   required
                   className="appearance-none text-white bg-zinc-700 my-2 rounded relative block w-full px-3 py-2 border border-gray placeholder-gray-400 text-zinc-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Email"
                   ref={emailRef}
@@ -167,8 +165,7 @@ const AdminModal = () => {
                   id="name"
                   name="name"
                   type="string"
-                  autoComplete="string"
-                  required
+                                    required
                   className="appearance-none text-white bg-zinc-700 my-2 rounded relative block w-full px-3 py-2 border border-gray placeholder-gray-400 text-zinc-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Name"
                   ref={nameRef}
@@ -182,8 +179,7 @@ const AdminModal = () => {
                   id="phone-number"
                   name="phone-number"
                   type="number"
-                  autoComplete="number"
-                  required
+                                    required
                   className="appearance-none text-white bg-zinc-700 my-2 rounded relative block w-full px-3 py-2 border border-gray placeholder-gray-400 text-zinc-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Phone Number"
                   ref={phoneNumberRef}
@@ -197,7 +193,7 @@ const AdminModal = () => {
                   id="password"
                   name="password"
                   type="password"
-                  autoComplete="current-password"
+              
                   required
                   className="appearance-none text-white bg-zinc-700 my-2 rounded relative block w-full px-3 py-2 border border-gray placeholder-gray-400 text-zinc-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
@@ -209,8 +205,7 @@ const AdminModal = () => {
                   id="address"
                   name="address"
                   type="string"
-                  autoComplete="string"
-                  required
+                                    required
                   className="appearance-none text-white bg-zinc-700 my-2 rounded relative block w-full px-3 py-2 border border-gray placeholder-gray-400 text-zinc-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Address"
                   ref={addressRef}
@@ -224,8 +219,7 @@ const AdminModal = () => {
                   id="city"
                   name="city"
                   type="string"
-                  autoComplete="string"
-                  required
+                                    required
                   className="appearance-none text-white bg-zinc-700 my-2 rounded relative block w-full px-3 py-2 border border-gray placeholder-gray-400 text-zinc-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="City"
                   ref={cityRef}
@@ -239,8 +233,7 @@ const AdminModal = () => {
                   id="country"
                   name="country"
                   type="string"
-                  autoComplete="string"
-                  required
+                                    required
                   className="appearance-none text-white bg-zinc-700 my-2 rounded relative block w-full px-3 py-2 border border-gray placeholder-gray-400 text-zinc-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Country"
                   ref={countryRef}
@@ -260,13 +253,11 @@ const AdminModal = () => {
       </>
     );
   };
-  const NFTModal = ({ withdraw, data, update, enableBottomSheet = false }) => {
-    
+  const NFTModal = ({ data, update, enableBottomSheet = false }) => {
     const nft = data;
     const [cookie, setCookie] = useState(null);
     const [enabled, setEnabled] = useState(nft.available);
     const [account, setAccount] = useState(null);
-    const [contractAddress, setContractAddress] = useState(null);
     const [NFTContract, setNFTContract] = useState(null);
     async function getCookie() {
       const token = await Cookie.get();
@@ -290,25 +281,23 @@ const AdminModal = () => {
         available: !enabled,
       };
       putData(endPoint, payload);
-
     };
     const handleWithdraw = async () => {
       if (account[0] != null) {
-
         let provider = await detectEthereumProvider();
         if (provider) {
           const web3Provider = new Web3(window.ethereum);
-        
+
           const options = {
             from: account[0],
             gas: web3Provider.utils.toWei('1000000', 'wei'),
             value: '0',
           };
-  
+
           const response = await NFTContract.methods
             .withdrawMoney()
             .send(options)
-            .on('transactionHash', function (hash) {
+            .on('transactionHash', function () {
               console.log('Executing...');
             })
             .on('receipt', function (receipt) {
@@ -326,24 +315,22 @@ const AdminModal = () => {
     useEffect(() => {
       async function initNFTContract() {
         const { accounts } = await getBlockchain();
-        const account = await ethereum.request({
-          method: 'eth_requestAccounts',
-        });
         setAccount(accounts);
         console.log(accounts);
         let provider = await detectEthereumProvider();
-  
+
         if (provider) {
-          console.log(contractAddress);
+ 
           const web3Provider = new Web3(window.ethereum);
           let factoryContract = new web3Provider.eth.Contract(contractABI, nft.address);
-          setNFTContract(factoryContract); 
+          setNFTContract(factoryContract);
           // const earned = await NFTContract.methods
           // .withdrawMoney()
-          console.log(factoryContract)
+          console.log(factoryContract);
         }
       }
       initNFTContract();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     useEffect(() => {
       getCookie();
@@ -380,12 +367,13 @@ const AdminModal = () => {
                 <span>Available:</span>
                 <label className="inline-flex relative items-center mr-5 cursor-pointer">
                   <input type="checkbox" className="sr-only peer" checked={enabled} readOnly />
-                  <div
+                  <button
+                    tabindex={0}
                     onClick={() => {
                       setAvailable();
                     }}
                     className="w-11 h-6 bg-gray-200 rounded-full peer  peer-focus:ring-gray-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gray-600"
-                  ></div>
+                  ></button>
                 </label>
               </div>
               <div className="justify-between flex text-white">
@@ -395,11 +383,13 @@ const AdminModal = () => {
                 <span>BNB colected:</span> 0
               </div>
               <div className="justify-between flex text-white">
-                <button onClick={()=>handleWithdraw()} className="inline-flex  bg-mainDark justify-center hover:bg-transparent text-rojo1 font-bold py-3 px-5 rounded items-center text-center">Withdraw BNB</button> 
+                <button onClick={() => handleWithdraw()} className="inline-flex  bg-mainDark justify-center hover:bg-transparent text-rojo1 font-bold py-3 px-5 rounded items-center text-center">
+                  Withdraw BNB
+                </button>
               </div>
             </div>
             <div className="content" style={{ width: '50%' }}>
-              <img src={nft.image} alt="" style={{ width: '100%' }} />
+              <Image width={50} height={50} src={nft.image} alt="" style={{ width: '100%' }} />
               <div className="justify-between flex text-white" style={{ wordBreak: 'break-word' }}>
                 {nft.address}
               </div>
@@ -458,7 +448,7 @@ const AdminModal = () => {
       );
     }
   };
-  const UserModal = ({ callback, data, update, enableBottomSheet = false }) => {
+  const UserModal = ({ data, enableBottomSheet = false }) => {
     const user = data();
     const nfts = user.nfts;
     return (
@@ -504,8 +494,8 @@ const AdminModal = () => {
         <div className="justify-between" style={{ width: '100%' }}>
           <h2 className="text-2xl font-bold text-white capitalize">Holders Info</h2>
           <div style={{ overflow: 'scroll', height: '350px' }}>
-            {nfts.map((nft, i) => (
-              <div className="inline-flex items-center justify-center" style={{ width: '100%', height: '50%' }}>
+            {nfts.map((nft,i) => (
+              <div key={i} className="inline-flex items-center justify-center" style={{ width: '100%', height: '50%' }}>
                 <div style={{ width: '50%', paddingRight: '2%' }}>
                   <h2 className="text-2xl font-bold text-white capitalize">NFT Info</h2>
                   <div className="justify-between flex text-white">
@@ -529,7 +519,7 @@ const AdminModal = () => {
                   </div>
                 </div>
                 <div className="content" style={{ width: '50%' }}>
-                  <img src={nft.image} alt="" style={{ width: '100%' }} />
+                  <Image width={50} height={50} src={nft.image} alt="" style={{ width: '100%' }} />
                   <div className="justify-between flex text-white" style={{ wordBreak: 'break-word' }}>
                     {nft.address}
                   </div>

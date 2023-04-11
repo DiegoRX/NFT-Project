@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useContext, createContext, useEffect } from 'react';
 import Cookie from 'js-cookie';
 import axios from 'axios';
@@ -30,7 +31,7 @@ function useProvideAuth() {
     };
     try {
       const resp = await axios.get(endPoints.users.getUserByWalletAddress + address);
-      console.log('XXXXXXXXXXXXXXXXXXXXX',resp)
+      console.log('XXXXXXXXXXXXXXXXXXXXX', resp);
       setUser(resp);
       return switchCase(resp);
     } catch (error) {
@@ -56,6 +57,7 @@ function useProvideAuth() {
     }
   };
   const signIn = async (email, password) => {
+    // eslint-disable-next-line no-unused-vars
     const options = {
       headers: {
         accept: '*/*',
@@ -65,8 +67,9 @@ function useProvideAuth() {
     const { data } = await axios.post(endPoints.auth.login, { email, password });
     const userData: AuthData = data.user;
     setUser(userData);
-    localStorage.setItem('user', JSON.stringify(data.user));
-
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('user', JSON.stringify(data.user));
+    }
     if (data) {
       const token = data.access_token;
       Cookie.set('token', token, { expires: 5 });
@@ -78,7 +81,7 @@ function useProvideAuth() {
     }
   };
   useEffect(() => {
-    const setUserIf =  () => {
+    const setUserIf = () => {
       if (typeof window !== 'undefined') {
         const userString = localStorage.getItem('user');
         if (userString != null) {
@@ -93,14 +96,16 @@ function useProvideAuth() {
       }
     };
     setUserIf();
-  }, []); 
+  }, []);
   const logout = () => {
     Cookie.remove('token');
     setUser(null);
     setAccounts([]);
     delete axios.defaults.headers.Authorization;
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+    }
     router.push('/');
   };
 

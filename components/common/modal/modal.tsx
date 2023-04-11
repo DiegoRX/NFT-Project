@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Modal } from 'antd';
 import React from 'react';
 //Include the modal props type
