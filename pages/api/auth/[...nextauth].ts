@@ -19,7 +19,7 @@ const options: NextAuthOptions = {
 
       credentials: { email: { label: 'Email', type: 'email' }, password: { label: 'Password', type: 'password' } },
       async authorize(credentials, req) {
-        const res = await fetch(`${process.env.NEXTAUTH_URL}/auth/login`, {
+        const res = await fetch(`https://gentle-tor-96590.herokuapp.com/auth/login`, {
           method: 'POST',
           body: JSON.stringify(credentials),
           headers: { 'Content-type': 'application/json' },

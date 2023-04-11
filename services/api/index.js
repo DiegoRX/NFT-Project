@@ -1,24 +1,24 @@
-const API = process.env.NEXT_PUBLIC_API_URL;
-
+/* eslint-disable no-dupe-keys */
+const API = 'https://sharktech-nft.vercel.app/rojo-logo.png';
 
 const endPoints = {
-  products:{
+  products: {
     getProducts: `${API}/products/`,
     postProducts: `${API}/products/`,
     getProducts: (limit, offset) => `${API}/products?limit=${limit}&offset=${offset}`,
     putProducts: (id) => `${API}/products/${id}`,
-    deleteProducts: (id) => `${API}/products/${id}`
+    deleteProducts: (id) => `${API}/products/${id}`,
   },
-  users:{
+  users: {
     getUsers: `${API}/users`,
     postUsers: `${API}/users`,
     getUserByWalletAddress: `${API}/users/address/`,
-  },  
+  },
   auth: {
     login: `${API}/auth/login`,
-    profile: `${API}/auth/profile`
+    profile: `${API}/auth/profile`,
   },
-  NFTS:{
+  NFTS: {
     getNFTS: `${API}/nft`,
     getNFT: (id) => `${API}/nft/${id}`,
     getNFTSUsers: `${API}/unique-nft`,
@@ -28,11 +28,10 @@ const endPoints = {
     putNFT: (id) => `${API}/nft/${id}`,
     putNFTUnique: (id) => `${API}/unique-nft/${id}`,
   },
-  files:{
+  files: {
     postFiles: `${API}/files/upload`,
-    getFiles: (fileName) => `${API}/${fileName}`
-  }
-  
-}
+    getFiles: (fileName) => `${API}/${fileName}`,
+  },
+};
 
-export default endPoints
+export default endPoints;
