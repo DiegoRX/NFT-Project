@@ -1,8 +1,12 @@
----
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/rojofundador/public_html/https://rojofundador.com/
-    - /bin/cp -rf $DEPLOYPATH/public /home/rojofundador/public_html
-    - /bin/cp -f $DEPLOYPATH/.htaccess /home/rojofundador/public_html
-    - cd $DEPLOYPATH && npm install && npm run build
-    - /bin/cp -rf $DEPLOYPATH/out/* /home/rojofundador/public_html
+    - export DEPLOYPATH=$HOME/public_html
+    - mkdir -p $HOME/tmp
+    - cd $HOME/tmp
+    - git clone https://github.com/DiegoRX/NFT-Project
+    - cd NFT-Project
+    - npm install
+    - npm run build
+    - rm -rf $DEPLOYPATH/*
+    - cp -r $HOME/tmp/NFT-Project/out/* $DEPLOYPATH/
+    - rm -rf $HOME/tmp/NFT-Project
