@@ -9,7 +9,6 @@ import Image from 'next/image';
 const useRegister = () => {
   const emailRef = useRef(null);
   const nameRef = useRef(null);
-  const addressRef = useRef(null);
   const passwordRef = useRef(null);
   const auth: AuthData = useAuth();
   const router = useRouter();
@@ -113,18 +112,7 @@ const useRegister = () => {
                       />
                     </div>
 
-                    <div>
-                      <input
-                        id="address"
-                        name="address"
-                        type="string"
-                        autoComplete="string"
-                        required
-                        className="appearance-none text-white bg-zinc-700 my-2 rounded relative block w-full px-3 py-2 border border-gray placeholder-gray-400 text-zinc-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                        placeholder="Address"
-                        ref={addressRef}
-                      />
-                    </div>
+                    
                   </div>
                 </div>
               </form>
