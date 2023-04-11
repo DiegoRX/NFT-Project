@@ -1,5 +1,5 @@
 /* eslint-disable no-dupe-keys */
-const API = 'https://sharktech-nft.vercel.app/rojo-logo.png';
+const API = 'https://gentle-tor-96590.herokuapp.com';
 
 const endPoints = {
   products: {
