@@ -7,7 +7,6 @@ import axios from 'axios';
 //opening modal in a global scope
 const NFTModal = () => {
   const openNFTModal = (payload) => {
-    console.log(payload);
     Modal.open({
       title: '',
       component: NFTModal,
@@ -49,7 +48,6 @@ const NFTModal = () => {
     // eslint-disable-next-line no-unused-vars
     async function putData(endpoint, payload) {
       const response = await axios.put(endpoint, payload, { headers });
-      console.log(response.data.available);
       setEnabled(response.data.available);
       update();
     }

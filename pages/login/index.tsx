@@ -53,11 +53,12 @@ const Login = () => {
                       name="email"
                       type="email"
                       autoComplete="email"
-                      value={auth?.user?.email}
+                      defaultValue={auth?.user?.email}
                       required
                       className="appearance-none text-white bg-zinc-700 my-2 rounded relative block w-full px-3 py-2 border border-gray placeholder-gray-400 text-zinc-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                       placeholder="Email address"
                       ref={emailRef}
+                      readOnly
                     />
                   </div>
                   <div>

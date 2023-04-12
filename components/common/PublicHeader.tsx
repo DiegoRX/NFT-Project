@@ -8,7 +8,6 @@ import Image from 'next/image';
 export default function PublicHeader() {
   const router = useRouter();
   const auth: AuthData = useAuth();
-  console.log(auth);
 
   const connectWallet = async () => {
     const { accounts } = await getBlockchain();
@@ -19,7 +18,6 @@ export default function PublicHeader() {
     }
     const { data: user } = await auth.getUser(accounts[0]);
     auth.setUser(user);
-    console.log(user);
     if (user === undefined) {
       router.push('/login/register');
     } else if (user?.email) {
@@ -27,7 +25,7 @@ export default function PublicHeader() {
     }
   };
 
-  console.log(auth?.accounts);
+
   return (
     <nav className="bg-header px-2 sm:px-4 py-2.5 dark:bg-mainDark fixed w-full z-20 top-0 left-0">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
@@ -60,8 +58,8 @@ export default function PublicHeader() {
               </button>
             </Link>
           )} */}
-          {auth?.user && auth?.accounts.length > 0 ? (
-            <Link href="/dashboard" className="text-white bg-rojo1  hover:bg-black hover:text-black font-medium rounded-lg text-sm px-3 py-2 text-center mr-3">
+          {auth?.user != null && auth?.accounts.length > 0 ? (
+            <Link href='/dashboard' className="text-white bg-rojo1  hover:bg-black hover:text-black font-medium rounded-lg text-sm px-3 py-2 text-center mr-3">
               {auth?.accounts[0]?.slice(0, 6)}...{auth?.accounts[0]?.slice(-4)}
             </Link>
           ) : (

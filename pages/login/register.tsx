@@ -25,6 +25,10 @@ const useRegister = () => {
         email,
         password,
         name,
+        address: '',
+        phone: '',
+        city: '',
+        country: '',
         role: 'customer',
       })
       .then(
@@ -111,8 +115,6 @@ const useRegister = () => {
                         ref={passwordRef}
                       />
                     </div>
-
-                    
                   </div>
                 </div>
               </form>

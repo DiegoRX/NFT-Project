@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
@@ -25,7 +26,6 @@ const NFT = () => {
   const [cookie, setCookie] = useState(null);
   const auth = useAuth();
 
-  console.log(auth);
   async function getCookie() {
     const token = await Cookie.get();
 
@@ -67,11 +67,9 @@ const NFT = () => {
     }
   });
   const tokenID = minted + 1;
-  console.log('..............', tokenID);
   const endpointUniqueNft = endPoints.NFTS.getNFTUnique(tokenID);
 
   const getNFTUnique = async () => {
-    console.log(endpointUniqueNft);
     const data = await useFetch(endpointUniqueNft);
     return data;
   };
@@ -79,7 +77,6 @@ const NFT = () => {
   getNFTUnique().then((data) => {
     if (data) {
       let nft = data.data.data;
-      console.log('xxxxxxxxxxxxx', nft);
       setNFTUnique(nft);
     }
   });
@@ -88,22 +85,17 @@ const NFT = () => {
   const updateNFT = async () => {
   };
   const updateNFTUnique = async (address) => {
-    console.log('entra', NFTUnique);
     const endpointPutNFTUnique = endPoints.NFTS.putNFTUnique(NFTUnique.tokenId);
     NFTUnique;
     const userId = auth?.user?.id;
-    console.log(NFTUnique, endpointPutNFTUnique, { address, userId });
     const response = await axios.put(endpointPutNFTUnique, { address, userId }, { headers });
-    console.log(response);
   };
   const handleMint = async () => {
     if (auth?.user?.id != null) {
-      console.log(auth, cookie);
       let provider = await detectEthereumProvider();
       if (provider) {
         const web3Provider = new Web3(window.ethereum);
         const tokenURI = NFTUnique.tokenUri;
-        console.log(contractAddress);
         const options = {
           from: account[0],
           gas: web3Provider.utils.toWei('1000000', 'wei'),
@@ -119,7 +111,6 @@ const NFT = () => {
           .on('receipt', function (receipt) {
             console.log('Success.', receipt);
             const address = receipt.events.Transfer.address;
-            console.log(address);
             updateNFT();
             updateNFTUnique(address);
           })
@@ -140,11 +131,9 @@ const NFT = () => {
         method: 'eth_requestAccounts',
       });
       setAccount(accounts);
-      console.log(accounts);
       let provider = await detectEthereumProvider();
 
       if (provider) {
-        console.log(contractAddress);
         const web3Provider = new Web3(window.ethereum);
         let factoryContract = new web3Provider.eth.Contract(contractABI, contractAddress);
         let BNBPrice = await factoryContract.methods.NFTPriceInBNB().call();
@@ -192,8 +181,8 @@ const NFT = () => {
             Comprar
           </button>
         </div>
-        <div className="flex flex-column justify-center item2">
-          <Image width={50} height={50} src={NFT.image} alt="" />
+        <div className="flex flex-column justify-center text-center m-auto item2">
+          <Image width={300} height={300} src={NFT.image} alt="" />
         </div>
       </section>
       <section></section>

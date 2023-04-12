@@ -14,16 +14,18 @@ const Home = () => {
     const { accounts } = await getBlockchain();
 
     auth.setAccounts(accounts);
-
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('accounts', JSON.stringify(accounts));
+    }
     const { data: user } = await auth.getUser(accounts[0]);
     auth.setUser(user);
-    console.log(user);
     if (user === undefined) {
       router.push('/login/register');
     } else if (user?.email) {
       router.push('/login');
     }
   };
+
 
   return (
     <div>
@@ -59,7 +61,7 @@ const Home = () => {
               </div> */}
             </div>
             <div className="inline-flex justify-center items-center">
-              <Image width={50} height={50} src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
+              <Image width={300} height={300} src="https://maroon-imaginative-loon-41.mypinata.cloud/ipfs/QmcADNuny8YX71kx5bys7fFHVQSYKCiiGjSdt4gYRbBpvC/1.jpeg" alt="" />
             </div>
           </section>
           {/* Partners Info */}
@@ -92,11 +94,11 @@ const Home = () => {
               <span className="text-gris">Buy cats from the UACatsDivision collection - be part of the Ukrainian victory!</span>
             </div>
             <div className="inline-flex items-center">
-              <Image width={50} height={50} className="nft-info-Image" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
-              <Image width={50} height={50} className="nft-info-Image" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
-              <Image width={50} height={50} className="nft-info-Image" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
-              <Image width={50} height={50} className="nft-info-Image sm-none" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
-              <Image width={50} height={50} className="nft-info-Image sm-none" src="https://sharktech-nft.vercel.app/rojo-banner.png" alt="" />
+              <Image width={150} height={150} className="nft-info-Image" src="https://maroon-imaginative-loon-41.mypinata.cloud/ipfs/QmcADNuny8YX71kx5bys7fFHVQSYKCiiGjSdt4gYRbBpvC/1.jpeg" alt="" />
+              <Image width={150} height={150} className="nft-info-Image sm-none" src="https://maroon-imaginative-loon-41.mypinata.cloud/ipfs/QmcADNuny8YX71kx5bys7fFHVQSYKCiiGjSdt4gYRbBpvC/1.jpeg" alt="" />
+              <Image width={150} height={150} className="nft-info-Image sm-none" src="https://maroon-imaginative-loon-41.mypinata.cloud/ipfs/QmcADNuny8YX71kx5bys7fFHVQSYKCiiGjSdt4gYRbBpvC/1.jpeg" alt="" />
+              <Image width={150} height={150} className="nft-info-Image sm-none" src="https://maroon-imaginative-loon-41.mypinata.cloud/ipfs/QmcADNuny8YX71kx5bys7fFHVQSYKCiiGjSdt4gYRbBpvC/1.jpeg" alt="" />
+              <Image width={150} height={50} className="nft-info-Image sm-none" src="https://maroon-imaginative-loon-41.mypinata.cloud/ipfs/QmcADNuny8YX71kx5bys7fFHVQSYKCiiGjSdt4gYRbBpvC/1.jpeg" alt="" />
             </div>
             <div className="banner-container">
               <div className="banner-text text-justify p-2">
@@ -140,7 +142,7 @@ const Home = () => {
                 <p className="text-gris text-justify">Collection owners will get access to closed channels and a forum.</p>
               </div>
               <div>
-                <Image width={50} height={50} src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="" />
+                <Image width={300} height={300} src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="" />
               </div>
               <div className="landing-cart  p-3">
                 <h3 className="text-white text-lg">A piece of digital art and a collectors item</h3>
@@ -213,7 +215,7 @@ const Home = () => {
           {/* Video */}
           <section>
             <div>
-              <iframe title="1" className="w-full aspect-video" src="https://www.youtube.com/embed/Az9tVHjpJ_Y"></iframe>
+              <iframe title="1" className="w-full aspect-video" src="https://www.youtube.com/embed/Az9tVHjpJ_Y" allowFullScreen></iframe>
             </div>
           </section>
           {/* Palcos */}
@@ -222,10 +224,10 @@ const Home = () => {
             <p className="text-gris">Multipurpose unmanned surface vehicles are a unique Ukrainian project.</p>
             <div className="banner-container">
               <div className="square">
-                <Image width={50} height={50} src="https://sharktech-nft.vercel.app/stadium.jpeg" alt="palco1" style={{ width: '100%', height: '100%', padding: '6px' }} />
-                <Image width={50} height={50} src="https://sharktech-nft.vercel.app/palcos.jpeg" alt="palco2" style={{ width: '100%', height: '100%', padding: '6px' }} />
-                <Image width={50} height={50} src="https://sharktech-nft.vercel.app/palco.jpeg" alt="palco3" style={{ width: '100%', height: '100%', padding: '6px' }} />
-                <Image width={50} height={50} src="https://sharktech-nft.vercel.app/vip.jpeg" alt="palco4" style={{ width: '100%', height: '100%', padding: '6px' }} />
+                <Image width={300} height={300} src="https://sharktech-nft.vercel.app/stadium.jpeg" alt="palco1" style={{ width: '100%', height: '100%', padding: '6px' }} />
+                <Image width={300} height={300} src="https://sharktech-nft.vercel.app/palcos.jpeg" alt="palco2" style={{ width: '100%', height: '100%', padding: '6px' }} />
+                <Image width={300} height={300} src="https://sharktech-nft.vercel.app/palco.jpeg" alt="palco3" style={{ width: '100%', height: '100%', padding: '6px' }} />
+                <Image width={300} height={300} src="https://sharktech-nft.vercel.app/vip.jpeg" alt="palco4" style={{ width: '100%', height: '100%', padding: '6px' }} />
               </div>
               <div className="p-3">
                 <p className="text-gris text-left">

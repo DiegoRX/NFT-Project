@@ -13,7 +13,6 @@ import detectEthereumProvider from '@metamask/detect-provider';
 //opening modal in a global scope
 const AdminModal = () => {
   const openNFTModal = (payload, usePut) => {
-    console.log(payload);
     Modal.open({
       title: '',
       component: NFTModal,
@@ -38,7 +37,6 @@ const AdminModal = () => {
     });
   };
   const openUserModal = (payload) => {
-    console.log(payload);
     Modal.open({
       title: '',
       component: UserModal,
@@ -118,7 +116,6 @@ const AdminModal = () => {
         country,
       };
 
-      console.log(data);
       auth.register(data);
     };
 
@@ -270,7 +267,6 @@ const AdminModal = () => {
 
     async function putData(endpoint, payload) {
       const response = await axios.put(endpoint, payload, { headers });
-      console.log(response.data.available);
       setEnabled(response.data.available);
       update();
     }

@@ -3,11 +3,10 @@ import AuthData from '@components/common/interfaces/AuthData.interface';
 
 export default function useProfile() {
   const auth: AuthData = useAuth();
-  console.log(auth);
   return (
     <div className="h-screen ">
       <div className="bg-mainDark rounded-lg shadow-lg mt-2  p-6 h-full m-auto" style={{ maxWidth: '550px' }}>
-        <h3 className="text-4x1 text-white">Profile</h3>
+        <h2 className="text-lg text-white">Profile</h2>
         <dl className="divide-y divide-gray-200">
           <div className="py-4">
             <dt className="font-medium text-white">Name</dt>
@@ -21,7 +20,7 @@ export default function useProfile() {
             <dt className="font-medium text-white">Wallet Address</dt>
             <dd className="mt-1 text-white">{auth?.user?.walletAddress}</dd>
           </div>
-          <div className="py-4">
+          {/* <div className="py-4">
             <dt className="font-medium text-white">Phone</dt>
             <dd className="mt-1 text-white">{auth?.user?.phone}</dd>
           </div>
@@ -36,7 +35,7 @@ export default function useProfile() {
           <div className="py-4">
             <dt className="font-medium text-white">Country</dt>
             <dd className="mt-1 text-white">{auth?.user?.country}</dd>
-          </div>
+          </div> */}
         </dl>
       </div>
     </div>

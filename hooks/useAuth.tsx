@@ -31,7 +31,6 @@ function useProvideAuth() {
     };
     try {
       const resp = await axios.get(endPoints.users.getUserByWalletAddress + address);
-      console.log('XXXXXXXXXXXXXXXXXXXXX', resp);
       setUser(resp);
       return switchCase(resp);
     } catch (error) {
@@ -49,10 +48,8 @@ function useProvideAuth() {
 
     try {
       const resp = await axios.post(endPoints.users.postUsers, payload);
-      console.log('Register successfull ', resp);
       return switchCase(resp);
     } catch (error) {
-      console.log('Register error ', error);
       return switchCase(error.request);
     }
   };
@@ -74,7 +71,6 @@ function useProvideAuth() {
       const token = data.access_token;
       Cookie.set('token', token, { expires: 5 });
       axios.defaults.headers.Authorization = `Bearer ${token}`;
-      console.log(user);
       if (typeof window !== 'undefined') {
         localStorage.setItem('token', token);
       }

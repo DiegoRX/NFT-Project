@@ -8,13 +8,11 @@ export default function Staking() {
   const auth: AuthData = useAuth();
 
   const connectWallet = async () => {
-    const { accounts, addresses } = await getBlockchain();
-    console.log(accounts, addresses);
+    const { accounts } = await getBlockchain();
     auth.setAccounts(accounts);
 
     const { data: user } = await auth.getUser(accounts[0]);
     auth.setUser(user);
-    console.log(user);
     if (user === undefined) {
       router.push('/login/register');
     } else if (user?.email) {
