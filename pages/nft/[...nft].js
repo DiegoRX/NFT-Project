@@ -13,6 +13,7 @@ import { useAuth } from 'hooks/useAuth';
 import Cookie from 'js-cookie';
 import axios from 'axios';
 import Image from 'next/image';
+import Swal from 'sweetalert2';
 
 const NFT = () => {
   const router = useRouter();
@@ -24,8 +25,9 @@ const NFT = () => {
   const [NFTContract, setNFTContract] = useState(null);
   const [contractAddress, setContractAddress] = useState(null);
   const [cookie, setCookie] = useState(null);
+  const [status, setStatus] = useState('no-tx');
   const auth = useAuth();
-
+const priceInUSD = 1000000000000000000000;
   async function getCookie() {
     const token = await Cookie.get();
 
@@ -66,7 +68,7 @@ const NFT = () => {
       setContractAddress(nft.address);
     }
   });
-  const tokenID = minted + 1;
+  const tokenID = parseInt(minted) + 1;
   const endpointUniqueNft = endPoints.NFTS.getNFTUnique(tokenID);
 
   const getNFTUnique = async () => {
@@ -82,13 +84,12 @@ const NFT = () => {
   });
 
   ///---------------------- METAMASK
-  const updateNFT = async () => {
-  };
+  const updateNFT = async () => {};
   const updateNFTUnique = async (address) => {
-    const endpointPutNFTUnique = endPoints.NFTS.putNFTUnique(NFTUnique.tokenId);
+    const endpointPutNFTUnique = endPoints.NFTS.putNFTUnique(parseInt(minted)+1);
     NFTUnique;
     const userId = auth?.user?.id;
-    const response = await axios.put(endpointPutNFTUnique, { address, userId }, { headers });
+    const response = await axios.put(endpointPutNFTUnique, { userId }, { headers });
   };
   const handleMint = async () => {
     if (auth?.user?.id != null) {
@@ -106,17 +107,18 @@ const NFT = () => {
           .mintNFT(tokenURI)
           .send(options)
           .on('transactionHash', function () {
-            console.log('Executing...');
+            setStatus('Executing...');
           })
           .on('receipt', function (receipt) {
-            console.log('Success.', receipt);
+            setStatus('Success.', receipt);
             const address = receipt.events.Transfer.address;
             updateNFT();
             updateNFTUnique(address);
+            openAlert(address);
           })
           .catch((revertReason) => {
             console.error('ERROR! Transaction reverted: ' + revertReason.receipt.transactionHash);
-            console.log('Received: ', response);
+            setStatus('Error');
           });
       }
     } else {
@@ -124,6 +126,28 @@ const NFT = () => {
     }
   };
 
+  const openAlert = (address) => {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: `NFT creado`,
+      text: `Copia el address de tu NFT y regístralo en tu wallet: ${address}
+      Utiliza el id ${parseInt(minted)+1}`,
+      confirmButtonText: 'Ok',
+      background:'#121212',
+      customClass: {
+        title: 'text-white',
+        closeButton: '...',
+        htmlContainer:'text-white',
+        confirmButton: 'bg-rojo1'
+      }
+    });
+  };
+  if (status == 'Success.') {
+    setTimeout(() => {
+      setStatus('no-tx');
+    }, 3000);
+  }
   useEffect(() => {
     async function initNFTContract() {
       const { accounts } = await getBlockchain();
@@ -149,7 +173,14 @@ const NFT = () => {
       }
     }
     initNFTContract();
-  }, [NFT, contractAddress]);
+    window.addEventListener("beforeunload", (evento) => {
+      
+          evento.preventDefault();
+          evento.returnValue = "";
+          return "";
+
+  });
+  }, [NFT, contractAddress,minted,status]);
 
   return (
     <div className="h-screen">
@@ -157,6 +188,10 @@ const NFT = () => {
         <div className="flex flex-column justify-center item1">
           <h2 className="p-2 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">{NFT.name}</h2>
           <div className="p-2   text-3x1 md:text-3xl lg:text-4xl  tracking-tight text-white text-md flex text-justify">{NFT.description}</div>
+          <div className=" p-2  text-2x1 md:text-3xl lg:text-4xl text-white flex justify-between">
+            <span>Address</span>
+            {contractAddress}
+          </div>
           <div className=" p-2  text-2x1 md:text-3xl lg:text-4xl text-white flex justify-between">
             <span>Minted</span>
             {minted}
@@ -183,6 +218,20 @@ const NFT = () => {
         </div>
         <div className="flex flex-column justify-center text-center m-auto item2">
           <Image width={300} height={300} src={NFT.image} alt="" />
+          <>
+      {status === 'no-tx' ? (
+        <></>
+      ) : (
+        <button
+          className="bg-rojo1"
+          style={{
+            height: '45px',
+          }}
+        >
+          {status}
+        </button>
+      )}
+    </>
         </div>
       </section>
       <section></section>
