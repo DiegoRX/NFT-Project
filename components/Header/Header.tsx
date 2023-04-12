@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { useAuth } from 'hooks/useAuth';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+import {  MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import AuthData from '@components/common/interfaces/AuthData.interface';
 import Image from 'next/image';
@@ -30,7 +30,7 @@ export default function Header() {
               <div className="flex items-center justify-between h-16">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
-                    <Link href="/dashboard">
+                    <Link href="/">
                       <Image width={50} height={50} className="h-8 w-8" src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
                     </Link>
                   </div>
@@ -71,17 +71,14 @@ export default function Header() {
                       <div></div>
                     )}
 
-                    <button type="button" className="bg-rojo1 p-1 rounded-full text-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-rojo1 focus:ring-white">
-                      <span className="sr-only">View notifications</span>
-                      <BellIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
+      
 
                     {/* Profile dropdown */}
                     <Menu as="div" className="ml-3 relative">
                       <div>
                         <Menu.Button className="max-w-xs bg-rojo1 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                           <span className="sr-only">Open user menu</span>
-                          <Image width={50} height={50} className="h-8 w-8 rounded-full" src={userData.imageUrl} alt="" />
+                          <Image width={500} height={500} className="h-8 w-8 rounded-full" src={userData.imageUrl} alt="" />
                         </Menu.Button>
                       </div>
                       <Transition
@@ -145,10 +142,6 @@ export default function Header() {
                       <div></div>
                     )}
                   </div>
-                  <button type="button" className="ml-auto text-white bg-rojo1 flex-shrink-0 p-1 rounded-full text-whit hover:text-white hover:bg-black  focus:ring-white">
-                    <span className="sr-only">View notifications</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
                 </div>
                 <div className="mt-3 px-2 space-y-1">
                   {userNavigation.map((item) => (

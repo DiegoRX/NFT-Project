@@ -14,6 +14,7 @@ import Cookie from 'js-cookie';
 import axios from 'axios';
 import Image from 'next/image';
 import Swal from 'sweetalert2';
+import Link from 'next/link';
 
 const NFT = () => {
   const router = useRouter();
@@ -27,7 +28,7 @@ const NFT = () => {
   const [cookie, setCookie] = useState(null);
   const [status, setStatus] = useState('no-tx');
   const auth = useAuth();
-const priceInUSD = 1000000000000000000000;
+  const priceInUSD = 1000000000000000000000;
   async function getCookie() {
     const token = await Cookie.get();
 
@@ -84,9 +85,12 @@ const priceInUSD = 1000000000000000000000;
   });
 
   ///---------------------- METAMASK
-  const updateNFT = async () => {};
+  const updateNFT = async (minted) => {
+    const endpointPutNFT = endPoints.NFTS.putNFT(NFT.id);
+    const response = await axios.put(endpointPutNFT, { mintedNFT: minted }, { headers });
+  };
   const updateNFTUnique = async (address) => {
-    const endpointPutNFTUnique = endPoints.NFTS.putNFTUnique(parseInt(minted)+1);
+    const endpointPutNFTUnique = endPoints.NFTS.putNFTUnique(parseInt(minted) + 1);
     NFTUnique;
     const userId = auth?.user?.id;
     const response = await axios.put(endpointPutNFTUnique, { userId }, { headers });
@@ -132,15 +136,15 @@ const priceInUSD = 1000000000000000000000;
       icon: 'success',
       title: `NFT creado`,
       text: `Copia el address de tu NFT y regístralo en tu wallet: ${address}
-      Utiliza el id ${parseInt(minted)+1}`,
+      Utiliza el id ${parseInt(minted) + 1}`,
       confirmButtonText: 'Ok',
-      background:'#121212',
+      background: '#121212',
       customClass: {
         title: 'text-white',
         closeButton: '...',
-        htmlContainer:'text-white',
-        confirmButton: 'bg-rojo1'
-      }
+        htmlContainer: 'text-white',
+        confirmButton: 'bg-rojo1',
+      },
     });
   };
   if (status == 'Success.') {
@@ -168,70 +172,73 @@ const priceInUSD = 1000000000000000000000;
         setPriceUSD(priceUSD / 10 ** 18);
         setMinted(minted);
         updateNFT(minted);
+        updateNFT(minted);
         setBNBPrice(BNBPrice);
         setAccountBalance(accountBalance);
       }
     }
     initNFTContract();
-    window.addEventListener("beforeunload", (evento) => {
-      
-          evento.preventDefault();
-          evento.returnValue = "";
-          return "";
-
-  });
-  }, [NFT, contractAddress,minted,status]);
+    window.addEventListener('beforeunload', (evento) => {
+      evento.preventDefault();
+      evento.returnValue = '';
+      return '';
+    });
+  }, [NFT, contractAddress, minted, status]);
 
   return (
     <div className="h-screen">
       <section className="nft-container  h-1/3">
-        <div className="flex flex-column justify-center item1">
+        <div className="flex flex-column justify-center item1 p-2 ">
           <h2 className="p-2 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">{NFT.name}</h2>
           <div className="p-2   text-3x1 md:text-3xl lg:text-4xl  tracking-tight text-white text-md flex text-justify">{NFT.description}</div>
+
           <div className=" p-2  text-2x1 md:text-3xl lg:text-4xl text-white flex justify-between">
-            <span>Address</span>
-            {contractAddress}
-          </div>
-          <div className=" p-2  text-2x1 md:text-3xl lg:text-4xl text-white flex justify-between">
-            <span>Minted</span>
+            <span>Tonkens Minteados:</span>
             {minted}
           </div>
           <div className="p-2  text-2x1 md:text-3xl lg:text-4xl text-white  flex justify-between">
-            <span>Price in USD</span>
-            {priceUSD}
+            <span>Precio en USD:</span>
+            ${priceUSD}
           </div>
           <div className="p-2  text-2x1 md:text-3xl lg:text-4xl text-white  flex justify-between">
-            <span>Price in BNB</span>
+            <span>Precio en BNB:</span>
             {BNBPrice / (10 ** 18).toString()}
           </div>
           <div className="p-2  text-2x1 md:text-3xl lg:text-4xl text-white  flex justify-between">
-            <span>{NFT.name} NFTs in your account:</span>
+            <span>{NFT.name} NFTs en tu wallet:</span>
             {accountBalance}
           </div>
-          <div className="p-2 text-white  flex justify-between">
+          {/* <div className="p-2 text-white  flex justify-between">
             <span>Available</span>
-            {/* {NFT?.available.toString()} */}
-          </div>
+            {NFT?.available.toString()}
+          </div> */}
           <button onClick={() => handleMint()} className="inline-flex bg-rojo1 justify-center hover:bg-zinc-700 text-white font-bold py-3 px-5 rounded items-center text-center">
             Comprar
           </button>
         </div>
         <div className="flex flex-column justify-center text-center m-auto item2">
-          <Image width={300} height={300} src={NFT.image} alt="" />
+          <Image width={600} height={600} src={NFT.image} alt="" />
+          <div className="  text-2x1 md:text-3xl lg:text-4xl text-white flex justify-between">
+            <span>Dirección de contrato</span>
+          </div>
+          <div className="  text-1x1 md:text-2xl lg:text-3xl text-white flex justify-between">{contractAddress}</div>
+          <Link href={`https://www.bscscan.com/address/${contractAddress}`} className="bg-mainDark text-rojo1 font-bold text-2x1">
+            Ver en BNBSCAN
+          </Link>
           <>
-      {status === 'no-tx' ? (
-        <></>
-      ) : (
-        <button
-          className="bg-rojo1"
-          style={{
-            height: '45px',
-          }}
-        >
-          {status}
-        </button>
-      )}
-    </>
+            {status === 'no-tx' ? (
+              <></>
+            ) : (
+              <button
+                className="bg-rojo1 text-white"
+                style={{
+                  height: '45px',
+                }}
+              >
+                {status}
+              </button>
+            )}
+          </>
         </div>
       </section>
       <section></section>

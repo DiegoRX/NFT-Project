@@ -79,9 +79,9 @@ const Home = () => {
                 <h3 className="text-white text-4x1 p-2">40,000,000 UAH</h3>
                 <h2 className="text-rojo1 p-2">4x naval drones for the UNITED24</h2>
                 <p className="text-gris p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium deserunt facilis reprehenderit.</p>
-                <button className="p-2 inline-flex  bg-transparent border justify-center hover:bg-transparent text-rojo1 font-bold py-3 px-5 rounded items-center text-center">
-                  More on drone fleet
-                </button>
+                <Link href={`https://www.bscscan.com/address/faltaaddress`} className="p-2 inline-flex  bg-transparent border justify-center hover:bg-transparent text-rojo1 font-bold py-3 px-5 rounded items-center text-center">
+                  Ver Token en BNB SCAN
+                </Link>
               </div>
             </div>
           </section>

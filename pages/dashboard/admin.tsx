@@ -37,10 +37,10 @@ const Admin = () => {
   const { openNFTModal, openUserModal, openNewUserModal } = AdminModal();
   if (nfts != null && users != null) {
     return (
-      <div className="h-screen max-w-lg">
+      <div className="h-screen">
         <h2 className="text-white text-2xl font-bold text-zinc-900 capitalize">Token list</h2>
 
-        <table className="text-white border-collapse border border-slate-500 max-w-lg">
+        <table className="text-white border-collapse border border-slate-500">
           <thead>
             <tr>
               <th className="border border-slate-600 ...">Id </th>
@@ -59,7 +59,7 @@ const Admin = () => {
               <tr key={i}>
                 <th className="border border-slate-600 ...">{nft.id}</th>
                 <th className="border border-slate-600 ...">
-                  <Image width={50} height={50} src={nft.image} alt="" />
+                  <Image width={180} height={180} src={nft.image} alt="" />
                 </th>
                 <th className="border border-slate-600 ...">{nft.name}</th>
                 <th className="border border-slate-600 ...">{nft.description}</th>
@@ -88,15 +88,11 @@ const Admin = () => {
         <button className="text-black rounded-lg bg-mainDark" onClick={() => openNewUserModal()}>
           New user
         </button>
-        <table className="text-white border-collapse border border-slate-500 max-w-lg">
+        <table className="text-white border-collapse border border-slate-500 w-full">
           <thead>
             <tr>
               <th className="border border-slate-600 ...">Name</th>
               <th className="border border-slate-600 ...">Email</th>
-              <th className="border border-slate-600 ...">Phone</th>
-              <th className="border border-slate-600 ...">Address</th>
-              <th className="border border-slate-600 ...">City</th>
-              <th className="border border-slate-600 ...">Country</th>
               <th className="border border-slate-600 ...">Wallet Address</th>
               <th className="border border-slate-600 ...">Role</th>
               <th className="border border-slate-600 ...">NFTs</th>
@@ -108,10 +104,6 @@ const Admin = () => {
               <tr key={i}>
                 <td className="border border-slate-700 ...">{user.name}</td>
                 <td className="border border-slate-700 ...">{user.email}</td>
-                <td className="border border-slate-700 ...">{user.phone}</td>
-                <td className="border border-slate-700 ...">{user.address}</td>
-                <td className="border border-slate-700 ...">{user.city}</td>
-                <td className="border border-slate-700 ...">{user.country}</td>
                 <td className="border border-slate-700 ...">
                   {user.walletAddress?.slice(0, 6)}...{user.walletAddress?.slice(-4)}
                 </td>

@@ -59,7 +59,7 @@ export default function PublicHeader() {
             </Link>
           )} */}
           {auth?.user != null && auth?.accounts.length > 0 ? (
-            <Link href='/dashboard' className="text-white bg-rojo1  hover:bg-black hover:text-black font-medium rounded-lg text-sm px-3 py-2 text-center mr-3">
+            <Link href='/login' className="text-white bg-rojo1  hover:bg-black hover:text-black font-medium rounded-lg text-sm px-3 py-2 text-center mr-3">
               {auth?.accounts[0]?.slice(0, 6)}...{auth?.accounts[0]?.slice(-4)}
             </Link>
           ) : (
