@@ -28,7 +28,7 @@ const Home = () => {
 
 
   return (
-    <div>
+    <div className="h-screen">
       {/* Hero */}
       <section className="bg-mainDark">
         <div className="py-20 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
