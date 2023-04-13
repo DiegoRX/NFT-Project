@@ -47,8 +47,11 @@ const Home = () => {
                 ¡COMPRAR AHORA!
               </button>
               <div className="p-4 flex justify-center">
-                <Link href="#">
+                <Link href="#" className="pr-4">
                   <Image width={50} height={50} src="https://sharktech-nft.vercel.app/MetaMask_Fox.svg.png" alt="" />
+                </Link>
+                <Link href="#" className="pl-4">
+                  <Image width={50} height={50} src="https://trustwallet.com/assets/images/media/assets/TWT.png" alt="" />
                 </Link>
               </div>    
             </div>
