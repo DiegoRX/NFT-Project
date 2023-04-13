@@ -188,24 +188,24 @@ const NFT = () => {
   return (
     <div className="h-auto">
       <div className="h-screen">
-        <section className="nft-container  h-1/3">
+        <section className="nft-container  h-auto">
           <div className="flex flex-column justify-center item1 p-2 ">
-            <h2 className="p-1 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">{NFT.name}</h2>
-            <div className="p-1 my-4   text-2xl md:text-2xl lg:text-2xl   text-white  flex text-justify">{NFT.description}</div>
+            <h2 className="p-1 text-4xl font-extrabold tracking-tight leading-none text-rojo1 md:text-5xl lg:text-6xl ">{NFT.name}</h2>
+            <div className="p-1 my-4   text-lg md:text-lg lg:text-lg   text-white  flex text-justify">{NFT.description}</div>
 
-            <div className=" pt-1  text-2xl md:text-2xl lg:text-2xl text-white flex justify-between">
+            <div className=" pt-1  text-2xl md:text-2xl lg:text-2xl text-rojo1 flex justify-between">
               <span>Tonkens Minteados:</span>
             </div>
             <div className=" pb-1  text-2x1 md:text-2xl lg:text-2xl text-white flex justify-between">{minted}</div>
-            <div className="pt-1  text-2x1 md:text-2xl lg:text-2xl text-white  flex justify-between">
+            <div className="pt-1  text-2x1 md:text-2xl lg:text-2xl text-rojo1  flex justify-between">
               <span>Precio en USD:</span>
             </div>
             <div className="pb-1  text-2x1 md:text-2xl lg:text-2xl text-white  flex text-right">${priceUSD}</div>
-            <div className="pt-1  text-2x1 md:text-2xl lg:text-2xl text-white  flex text-right">
+            <div className="pt-1  text-2x1 md:text-2xl lg:text-2xl text-rojo1  flex text-right">
               <span>Precio en BNB:</span>
             </div>
             <div className="pb-1  text-2xl md:text-2xl lg:text-2xl text-white  flex justify-between">{BNBPrice / (10 ** 18).toString()}</div>
-            <div className="pt-1  text-2xl md:text-2xl lg:text-2xl text-white  flex justify-between">
+            <div className="pt-1  text-2xl md:text-2xl lg:text-2xl text-rojo1  flex justify-between">
               <span>{NFT.name} NFTs en tu wallet:</span>
             </div>
             <div className="pb-1  text-2x1 md:text-2xl lg:text-2xl text-white  flex justify-between">{accountBalance}</div>
@@ -213,9 +213,6 @@ const NFT = () => {
             <span>Available</span>
             {NFT?.available.toString()}
           </div> */}
-            <button onClick={() => handleMint()} className="inline-flex bg-rojo1 justify-center hover:bg-zinc-700 text-white font-bold py-3 px-5 rounded items-center text-center">
-              Comprar
-            </button>
           </div>
           <div className="flex flex-column justify-center text-center m-auto item2">
             <Image width={400} height={400} src={NFT.image} alt="" />
@@ -223,7 +220,7 @@ const NFT = () => {
               <span>Dirección de contrato:</span>
             </div>
             <div className="  text-1x1 md:text-1xl lg:text-1xl text-white flex justify-between">{contractAddress}</div>
-            <Link href={`https://www.bscscan.com/address/${contractAddress}`} className="text-2xl bg-mainDark text-rojo1 font-bold ">
+            <Link target="_blank" href={`https://www.bscscan.com/address/${contractAddress}`} className="text-2xl bg-mainDark text-rojo1 font-bold ">
               Ver en BNBSCAN
             </Link>
             <>
@@ -242,7 +239,12 @@ const NFT = () => {
             </>
           </div>
         </section>
-        <section></section>
+        <div className='w-full flex justify-center'>
+           <button onClick={() => handleMint()} className="inline-flex w-1/2 bg-rojo1 text-2xl justify-center hover:bg-zinc-700 text-white font-bold py-3 px-5 rounded items-center text-center">
+          COMPRAR
+        </button>
+        </div>
+       
       </div>
     </div>
   );

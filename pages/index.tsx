@@ -26,7 +26,6 @@ const Home = () => {
     }
   };
 
-
   return (
     <div className="h-auto">
       {/* Hero */}
@@ -50,42 +49,43 @@ const Home = () => {
                 <Link href="#" className="pr-4">
                   <Image width={50} height={50} src="https://sharktech-nft.vercel.app/MetaMask_Fox.svg.png" alt="" />
                 </Link>
-                <Link href="#" className="pl-4">
+                {/* <Link href="#" className="pl-4">
                   <Image width={50} height={50} src="https://trustwallet.com/assets/images/media/assets/TWT.png" alt="" />
-                </Link>
-              </div>    
+                </Link> */}
+              </div>
             </div>
-            <div className="inline-flex justify-center items-center sm-none">
-              <Image className='sm-none' width={300} height={300} src="https://maroon-imaginative-loon-41.mypinata.cloud/ipfs/QmcADNuny8YX71kx5bys7fFHVQSYKCiiGjSdt4gYRbBpvC/1.jpeg" alt="" />
+            <div className="flex flex-column justify-center items-center m-2">
+              <Image className="sm-none" width={300} height={300} src="https://maroon-imaginative-loon-41.mypinata.cloud/ipfs/QmcADNuny8YX71kx5bys7fFHVQSYKCiiGjSdt4gYRbBpvC/1.jpeg" alt="" />
+              <Link
+                href={`https://www.bscscan.com/address/faltaaddress`}
+                target="_blank"
+                className="p-2 m-2 inline-flex  bg-transparent border justify-center hover:bg-transparent text-rojo1 font-bold py-3 px-5 rounded items-center text-center"
+              >
+                Ver Token en BNB SCAN
+              </Link>
             </div>
           </section>
           {/* Partners Info */}
-          <section>  
-                <Link href={`https://www.bscscan.com/address/faltaaddress`} className="p-2 inline-flex  bg-transparent border justify-center hover:bg-transparent text-rojo1 font-bold py-3 px-5 rounded items-center text-center">
-                  Ver Token en BNB SCAN
-                </Link>           
-          </section>
+          <section></section>
           {/* NFT Info */}
-          
+
           {/* Club Rojo Founder */}
           <section>
             <h2 className="text-white text-4xl pt-8">¡Bienvenido al club!</h2>
             <h2 className="text-white text-4xl pb-8">ROJO FUNDADOR</h2>
-            </section>
+          </section>
           {/* How Does It Work */}
-          
-          <div className="inline-flex justify-center items-center sm-none">
-              <Image className='sm-none' width={800} height={800} src="https://sharktech-nft.vercel.app/ESTADIO_AMERICA.jpeg" alt="" />
-            </div>
+
+          <div className="inline-flex justify-center items-center ">
+            <Image className="" width={800} height={800} src="https://sharktech-nft.vercel.app/ESTADIO_AMERICA.jpeg" alt="" />
+          </div>
           <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
-            <div className="club-cart__container">
-                      
-            </div>
+            <div className="club-cart__container"></div>
           </div>
         </div>
       </section>
       {/* Roadmap */}
-      
+
       <footer className="p-4 bg-mainDark rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-mainDark">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © 2023{' '}

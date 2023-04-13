@@ -31,16 +31,16 @@ export default function Header() {
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
                     <Link href="/">
-                      <Image width={300} height={300} className="h-8 w-8" src="https://nft-project-vert.vercel.app/rojo-new.png" alt="Workflow" />
+                      <Image width={300} height={300} className="h-12 w-12" src="https://nft-project-vert.vercel.app/rojo-new.png" alt="Workflow" />
                     </Link>
                   </div>
                   <div className="hidden md:block">
-                    <div className="ml-10 flex items-baseline space-x-4">
+                    <div className="ml-10 flex items-baseline space-x-4 text-md">
                       {navigation.map((item) => (
                         <Link
                           key={item.name}
                           href={item.href}
-                          className={classNames(item.current ? 'bg-mainDark text-white' : 'text-white hover:bg-black hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
+                          className={classNames(item.current ? 'bg-mainDark text-white' : 'text-white hover:bg-black hover:text-white', 'px-3 py-2 rounded-md text-md font-medium')}
                           aria-current={item.current ? 'page' : undefined}
                         >
                           {item.name}
@@ -50,7 +50,7 @@ export default function Header() {
                         <Link
                           href="/dashboard/admin"
                           // eslint-disable-next-line no-constant-condition
-                          className={classNames(false ? 'bg-mainDark text-white' : 'text-white hover:bg-black hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
+                          className={classNames(false ? 'bg-mainDark text-white' : 'text-white hover:bg-black hover:text-white', 'px-3 py-2 rounded-md text-md font-medium')}
                           aria-current={undefined}
                         >
                           Admin
@@ -64,7 +64,7 @@ export default function Header() {
                 <div className="hidden md:block">
                   <div className="ml-4 flex items-center md:ml-6">
                     {auth?.accounts ? (
-                      <button className="text-white bg-rojo1  hover:bg-black focus:ring-4 focus:outline-none focus:bg-mainDark font-medium rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 ">
+                      <button className="text-black  bg-white  hover:bg-black focus:ring-4 focus:outline-none focus:bg-mainDark font-medium rounded-lg text-md px-5 py-2 text-center mr-3 md:mr-0 ">
                         {auth?.accounts[0]?.slice(0, 6)}...{auth?.accounts[0]?.slice(-4)}
                       </button>
                     ) : (
@@ -128,7 +128,7 @@ export default function Header() {
               <div className="pt-4 pb-3 border-t border-gray-700">
                 <div className="flex items-center px-5">
                   <div className="flex-shrink-0">
-                    <Image width={50} height={50} className="h-10 w-10 rounded-full" src={userData.imageUrl} alt="" />
+                    <Image width={300} height={300} className="h-12 w-12 rounded-full" src={userData.imageUrl} alt="" />
                   </div>
                   <div className="ml-3">
                     <div className="text-base font-medium leading-none text-white">{userData.name}</div>

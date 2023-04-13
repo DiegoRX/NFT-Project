@@ -30,7 +30,7 @@ export default function PublicHeader() {
     <nav className="bg-header px-2 sm:px-4 py-2.5 dark:bg-mainDark fixed w-full z-20 top-0 left-0">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link href="/">
-          <Image width={50} height={50} className="h-12 " src="https://nft-project-vert.vercel.app/rojo-new.png" alt="Workflow" />
+          <Image width={300} height={300} className="h-12 w-12 " src="https://nft-project-vert.vercel.app/rojo-new.png" alt="Workflow" />
         </Link>
         <div className="flex md:order-2 ml-10 flex items-baseline space-x-4">
           {/* <Link className="text-white hover:bg-gray-700 hover:text-grey px-3 py-2 rounded-md text-sm font-medium" href="/mint">
@@ -59,11 +59,11 @@ export default function PublicHeader() {
             </Link>
           )} */}
           {auth?.user != null && auth?.accounts.length > 0 ? (
-            <Link href='/login' className="text-white bg-rojo1  hover:bg-black hover:text-black font-medium rounded-lg text-sm px-3 py-2 text-center mr-3">
+            <Link href='/login' className="text-black bg-white  hover:bg-black hover:text-white font-medium rounded-lg text-md px-3 py-2 text-center mr-3">
               {auth?.accounts[0]?.slice(0, 6)}...{auth?.accounts[0]?.slice(-4)}
             </Link>
           ) : (
-            <button className="text-white bg-rojo1  hover:bg-black hover:text-black font-medium rounded-lg text-sm px-3 py-2 text-center mr-3 " onClick={connectWallet}>
+            <button className="text-black bg-white  hover:bg-black hover:text-white font-medium rounded-lg text-md px-3 py-2 text-center mr-3 " onClick={connectWallet}>
               Connect Wallet
             </button>
           )}
