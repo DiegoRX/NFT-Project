@@ -142,7 +142,7 @@ const Home = () => {
                 <p className="text-gris text-justify">Collection owners will get access to closed channels and a forum.</p>
               </div>
               <div>
-                <Image width={300} height={300} src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="" />
+                <Image width={300} height={300} src="https://nft-project-vert.vercel.app/rojo-new.png" alt="" />
               </div>
               <div className="landing-cart  p-3">
                 <h3 className="text-white text-lg">A piece of digital art and a collectors item</h3>

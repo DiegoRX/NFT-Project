@@ -31,7 +31,7 @@ export default function Header() {
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
                     <Link href="/">
-                      <Image width={50} height={50} className="h-8 w-8" src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
+                      <Image width={300} height={300} className="h-8 w-8" src="https://nft-project-vert.vercel.app/rojo-new.png" alt="Workflow" />
                     </Link>
                   </div>
                   <div className="hidden md:block">

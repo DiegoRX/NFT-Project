@@ -30,7 +30,7 @@ export default function PublicHeader() {
     <nav className="bg-header px-2 sm:px-4 py-2.5 dark:bg-mainDark fixed w-full z-20 top-0 left-0">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link href="/">
-          <Image width={50} height={50} className="h-12 " src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
+          <Image width={50} height={50} className="h-12 " src="https://nft-project-vert.vercel.app/rojo-new.png" alt="Workflow" />
         </Link>
         <div className="flex md:order-2 ml-10 flex items-baseline space-x-4">
           {/* <Link className="text-white hover:bg-gray-700 hover:text-grey px-3 py-2 rounded-md text-sm font-medium" href="/mint">

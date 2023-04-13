@@ -129,7 +129,7 @@ const useRegister = () => {
             </div>
           </div>
           <div className="flex h-full items-center item2">
-            <Image width={50} height={50} className="mx-auto h-56 w-auto items-center" src="https://sharktech-nft.vercel.app/rojo-logo.png" alt="Workflow" />
+            <Image width={50} height={50} className="mx-auto h-56 w-auto items-center" src="https://nft-project-vert.vercel.app/rojo-new.png" alt="Workflow" />
           </div>
         </div>
       </div>
