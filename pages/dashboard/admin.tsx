@@ -96,7 +96,7 @@ const Admin = () => {
               <th className="border border-slate-600 ...">Wallet Address</th>
               <th className="border border-slate-600 ...">Role</th>
               <th className="border border-slate-600 ...">NFTs</th>
-              <th className="border border-slate-600 ...">View</th>
+              {/* <th className="border border-slate-600 ...">View</th> */}
             </tr>
           </thead>
           <tbody>
@@ -109,7 +109,7 @@ const Admin = () => {
                 </td>
                 <td className="border border-slate-700 ...">{user.role}</td>
                 <td className="border border-slate-700 ...">{user.nfts.length}</td>
-                <th className="border border-slate-600 ...">
+                {/* <th className="border border-slate-600 ...">
                   <button onClick={() => openUserModal(user)}>
                     <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -119,7 +119,7 @@ const Admin = () => {
                       ></path>
                     </svg>
                   </button>
-                </th>
+                </th> */}
               </tr>
             ))}
           </tbody>
