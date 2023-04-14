@@ -57,7 +57,7 @@ const Home = () => {
             <div className="flex flex-column justify-center items-center m-2">
               <Image className="sm-none" width={300} height={300} src="https://maroon-imaginative-loon-41.mypinata.cloud/ipfs/QmcADNuny8YX71kx5bys7fFHVQSYKCiiGjSdt4gYRbBpvC/1.jpeg" alt="" />
               <Link
-                href={`https://www.bscscan.com/address/faltaaddress`}
+                href={`https://www.bscscan.com/address/0x834322368E7641076062A40c014F33E4cBCFd8FD`}
                 target="_blank"
                 className="p-2 m-2 inline-flex  bg-transparent border justify-center hover:bg-transparent text-rojo1 font-bold py-3 px-5 rounded items-center text-center"
               >
