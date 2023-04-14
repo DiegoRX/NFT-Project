@@ -218,7 +218,7 @@ const NFT = () => {
           </div>
           <div className="flex flex-column justify-center text-center m-auto item2">
             <Image width={400} height={400} src={NFT.image} alt="" />
-            <div className="  text-2x1 md:text-3xl lg:text-3xl text-white flex justify-between">
+            <div className="  text-2x1 md:text-3xl lg:text-3xl text-white flex justify-center">
               <span>Dirección de contrato:</span>
             </div>
             <div className="  text-1x1 md:text-1xl lg:text-1xl text-white flex justify-center">{contractAddress}</div>

@@ -55,7 +55,7 @@ const Home = () => {
               </div>
             </div>
             <div className="flex flex-column justify-center items-center m-2">
-              <Image className="sm-none" width={300} height={300} src="https://maroon-imaginative-loon-41.mypinata.cloud/ipfs/QmcADNuny8YX71kx5bys7fFHVQSYKCiiGjSdt4gYRbBpvC/1.jpeg" alt="" />
+              <Image className="sm-none" width={800} height={800} src="https://maroon-imaginative-loon-41.mypinata.cloud/ipfs/QmcADNuny8YX71kx5bys7fFHVQSYKCiiGjSdt4gYRbBpvC/1.jpeg" alt="" />
               <Link
                 href={`https://www.bscscan.com/address/0x834322368E7641076062A40c014F33E4cBCFd8FD`}
                 target="_blank"
