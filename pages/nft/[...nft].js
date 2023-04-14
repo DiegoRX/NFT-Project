@@ -246,6 +246,17 @@ const NFT = () => {
             COMPRAR
           </button>
         </div>
+        <section className=' mt-12'>
+        <h2 className="text-white text-center text-3xl">Términos y Condiciones</h2>
+        <p className='text-white p-2'>1. Para hacer efectivos los beneficios del NFT Rojo Fundador debe escribir al correo soporte@rojofundador.com</p>
+
+        <p className='text-white p-2'>
+          2. Es importante que cuando ceda, regale, venda, el NFT Rojo Fundador a un nuevo usuario debe obligatoriamente comunicar a soporte los datos personales del nuevo tenedor del NFT Rojo
+          Fundador correo electrónico, teléfono y nombre completo sin estos datos no nos hacemos responsables de la entrega de los beneficios contratados al nuevo usuario.
+        </p>
+
+        <p className='text-white p-2'>3. Toda comunicación oficial se hará por la página ofícial de NFT Rojo Fundador y por el correo de soporte: soporte@rojofundador.com</p>
+      </section>
       </div>
     </div>
   );
