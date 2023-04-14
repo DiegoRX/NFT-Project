@@ -86,16 +86,18 @@ const Home = () => {
       </section>
       {/* Roadmap */}
       <section>
-      <Image width={200} height={200} src="https://sharktech-nft.vercel.app/high-importance-512.png" alt="" />
+        <div className="w-full flex justify-center">
+          <Image className="text-center m-2" width={80} height={80} src="https://nft-sharktech.vercel.app/high-importance-512.png" alt="" />
+        </div>
         <h2 className="text-white text-center text-3xl">Términos y Condiciones</h2>
-        <p className='text-white p-2'>1. Para hacer efectivos los beneficios del NFT Rojo Fundador debe escribir al correo soporte@rojofundador.com</p>
+        <p className="text-white p-2">1. Para hacer efectivos los beneficios del NFT Rojo Fundador debe escribir al correo soporte@rojofundador.com</p>
 
-        <p className='text-white p-2'>
+        <p className="text-white p-2">
           2. Es importante que cuando ceda, regale, venda, el NFT Rojo Fundador a un nuevo usuario debe obligatoriamente comunicar a soporte los datos personales del nuevo tenedor del NFT Rojo
           Fundador correo electrónico, teléfono y nombre completo sin estos datos no nos hacemos responsables de la entrega de los beneficios contratados al nuevo usuario.
         </p>
 
-        <p className='text-white p-2'>3. Toda comunicación oficial se hará por la página ofícial de NFT Rojo Fundador y por el correo de soporte: soporte@rojofundador.com</p>
+        <p className="text-white p-2">3. Toda comunicación oficial se hará por la página ofícial de NFT Rojo Fundador y por el correo de soporte: soporte@rojofundador.com</p>
       </section>
       <footer className="p-4 bg-mainDark rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-mainDark">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
