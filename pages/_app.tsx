@@ -31,7 +31,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>NFT Project</title>
+        <title>Rojo Fundador - NFT</title>
       </Head>
       <ThirdwebProvider activeChain={BinanceTestnet}>
         <ProviderAuth>
