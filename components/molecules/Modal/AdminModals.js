@@ -278,6 +278,7 @@ const AdminModal = () => {
       };
       putData(endPoint, payload);
     };
+    // eslint-disable-next-line no-unused-vars
     const handleWithdraw = async () => {
       if (account[0] != null) {
         let provider = await detectEthereumProvider();
@@ -379,11 +380,11 @@ const AdminModal = () => {
               {/* <div className="justify-between flex text-white">
                 <span>BNB colected:</span> 0
               </div> */}
-              <div className="justify-between flex text-white">
+              {/* <div className="justify-between flex text-white">
                 <button onClick={() => handleWithdraw()} className="inline-flex  bg-rojo1 justify-center hover:bg-transparent text-white font-bold py-3 px-5 rounded items-center text-center">
                   Retirar ganacias
                 </button>
-              </div>
+              </div> */}
             </div>
             <div className="content" style={{ width: '50%' }}>
               <Image width={1000} height={1000} src={nft.image} alt="" style={{ width: '100%' }} />
