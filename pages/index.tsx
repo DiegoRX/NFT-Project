@@ -86,6 +86,7 @@ const Home = () => {
       </section>
       {/* Roadmap */}
       <section>
+      <Image width={200} height={200} src="https://sharktech-nft.vercel.app/high-importance-512.png" alt="" />
         <h2 className="text-white text-center text-3xl">Términos y Condiciones</h2>
         <p className='text-white p-2'>1. Para hacer efectivos los beneficios del NFT Rojo Fundador debe escribir al correo soporte@rojofundador.com</p>
 
