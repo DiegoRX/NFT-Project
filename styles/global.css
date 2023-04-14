@@ -5,7 +5,13 @@ body {
 
   font-family: 'Roboto', sans-serif;
 }
-
+#__next{
+  height: 100%;
+}
+.big-container{
+  background-color: #0B0B0B;
+  height: 100%;
+}
 .modal-container {
   background-color: #121212;
 }

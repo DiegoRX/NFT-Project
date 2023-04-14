@@ -1,12 +1,6 @@
 [
 	{
-		"inputs": [
-			{
-				"internalType": "uint96",
-				"name": "_royaltyFeesInBips",
-				"type": "uint96"
-			}
-		],
+		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
 	},
@@ -82,7 +76,7 @@
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "tokenURI",
+				"name": "_tokenURI",
 				"type": "string"
 			}
 		],
@@ -307,13 +301,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "withdrawMoney",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "_totalMinted",
 		"outputs": [
 			{
@@ -411,6 +398,25 @@
 	{
 		"inputs": [],
 		"name": "getBNBPrice2",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "ContractAddress",
+				"type": "address"
+			}
+		],
+		"name": "getContractBalance",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -533,35 +539,6 @@
 		"inputs": [],
 		"name": "PRICE_PER_TOKEN",
 		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_tokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_salePrice",
-				"type": "uint256"
-			}
-		],
-		"name": "royaltyInfo",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
 			{
 				"internalType": "uint256",
 				"name": "",

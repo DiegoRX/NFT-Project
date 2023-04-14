@@ -11,7 +11,7 @@ export default function MainLayout({ children }) {
   const route = router.pathname.substring(1);
   return (
     <>
-      <div className="h-screen">
+      <div className="big-container">
         {!route || route === 'login' || route === 'login/register' || route === 'staking' || route === 'mint' ? <></> : <Header />}
         {/* {!route || route === 'login' || route === 'login/register' || route === 'staking' || route === 'mint' ? <></> : <Nav />} */}
         {!route || route === 'login' || route === 'login/register' || route === 'staking' || route === 'mint' ? <PublicHeader /> : <></>}

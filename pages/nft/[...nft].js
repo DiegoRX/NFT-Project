@@ -187,14 +187,16 @@ const NFT = () => {
 
   return (
     <div className="h-auto">
-      <div className="h-screen">
-        <section className="nft-container  h-auto">
+      <div className="h-auto">
+        <section className="nft-container">
           <div className="flex flex-column justify-center item1 p-2 ">
-            <h2 className="p-1 text-4xl font-extrabold tracking-tight leading-none text-rojo1 md:text-5xl lg:text-6xl ">{NFT.name}</h2>
+            <div className="flex justify-center  p-2 ">
+              <h2 className="p-1 text-4xl font-extrabold tracking-tight leading-none text-rojo1 md:text-5xl lg:text-6xl ">{NFT.name}</h2>
+            </div>
             <div className="p-1 my-4   text-lg md:text-lg lg:text-lg   text-white  flex text-justify">{NFT.description}</div>
 
             <div className=" pt-1  text-2xl md:text-2xl lg:text-2xl text-rojo1 flex justify-between">
-              <span>Tonkens Minteados:</span>
+              <span>Tokens Minteados:</span>
             </div>
             <div className=" pb-1  text-2x1 md:text-2xl lg:text-2xl text-white flex justify-between">{minted}</div>
             <div className="pt-1  text-2x1 md:text-2xl lg:text-2xl text-rojo1  flex justify-between">
@@ -219,8 +221,8 @@ const NFT = () => {
             <div className="  text-2x1 md:text-3xl lg:text-3xl text-white flex justify-between">
               <span>Dirección de contrato:</span>
             </div>
-            <div className="  text-1x1 md:text-1xl lg:text-1xl text-white flex justify-between">{contractAddress}</div>
-            <Link target="_blank" href={`https://www.bscscan.com/address/${contractAddress}`} className="text-2xl bg-mainDark text-rojo1 font-bold ">
+            <div className="  text-1x1 md:text-1xl lg:text-1xl text-white flex justify-center">{contractAddress}</div>
+            <Link target="_blank" href={`https://www.bscscan.com/address/${contractAddress}`} className="text-2xl bg-mainDark text-rojo1 font-bold hover:text-white ">
               Ver en BNBSCAN
             </Link>
             <>
@@ -239,12 +241,11 @@ const NFT = () => {
             </>
           </div>
         </section>
-        <div className='w-full flex justify-center'>
-           <button onClick={() => handleMint()} className="inline-flex w-1/2 bg-rojo1 text-2xl justify-center hover:bg-zinc-700 text-white font-bold py-3 px-5 rounded items-center text-center">
-          COMPRAR
-        </button>
+        <div className="w-full flex justify-center">
+          <button onClick={() => handleMint()} className="inline-flex w-1/2 bg-rojo1 text-2xl justify-center hover:bg-zinc-700 text-white font-bold py-3 px-5 rounded items-center text-center">
+            COMPRAR
+          </button>
         </div>
-       
       </div>
     </div>
   );
